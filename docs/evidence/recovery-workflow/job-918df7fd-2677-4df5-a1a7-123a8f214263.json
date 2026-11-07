@@ -1,0 +1,77 @@
+{
+  "id": "918df7fd-2677-4df5-a1a7-123a8f214263",
+  "user_id": "077d914a-6f4b-4bf5-83d9-282e03c19f6f",
+  "kind": "execute",
+  "resource_id": "849c2b1b-cf33-4d8b-a53f-7b17819b2353",
+  "payload": {
+    "automatic_recovery": {
+      "attempt": 1,
+      "max_attempts": 3
+    }
+  },
+  "status": "SUCCEEDED",
+  "events": [
+    {
+      "at": "2026-11-07T15:29:54.546792+00:00",
+      "message": "Started execute",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:29:54.565068+00:00",
+      "message": "Agent state: EXECUTING",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:30:16.260896+00:00",
+      "message": "Checkpoint 1: 1 files modified",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:30:16.279024+00:00",
+      "message": "Agent state: TESTING",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:30:16.286697+00:00",
+      "message": "Running approved build",
+      "detail": {
+        "command": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ]
+      }
+    },
+    {
+      "at": "2026-11-07T15:30:16.904222+00:00",
+      "message": "Running approved test",
+      "detail": {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ]
+      }
+    },
+    {
+      "at": "2026-11-07T15:30:17.517947+00:00",
+      "message": "Agent state: VERIFYING",
+      "detail": {}
+    }
+  ],
+  "result": {
+    "remediation_id": "849c2b1b-cf33-4d8b-a53f-7b17819b2353",
+    "state": "VERIFYING",
+    "modified_files": 1
+  },
+  "error": null,
+  "cancel_requested": false,
+  "created_at": "2026-11-07T15:29:54.232840+00:00",
+  "started_at": "2026-11-07T15:29:54.486448+00:00",
+  "ended_at": "2026-11-07T15:30:17.520322+00:00"
+}

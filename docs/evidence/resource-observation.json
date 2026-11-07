@@ -1,0 +1,32 @@
+{
+  "created_at": "2026-11-07T13:25:25.2919328Z",
+  "observation": "Point-in-time during deployed fixture remediation, not measured peak consumption",
+  "total_ram_gib": 15.71,
+  "free_ram_gib": 1.63,
+  "free_disk_gib": 16.45,
+  "docker_stats": [
+    {
+      "BlockIO": "35.1MB / 2.19MB",
+      "CPUPerc": "1.46%",
+      "Container": "80dc2068e71a1a709d564047de8cbdb482501c648e6564987ba89dfb219f9821",
+      "ID": "80dc2068e71a",
+      "MemPerc": "10.42%",
+      "MemUsage": "106.7MiB / 1GiB",
+      "Name": "kyro-clean-acceptance-kyro-1",
+      "NetIO": "78kB / 1.11MB",
+      "PIDs": "7"
+    },
+    {
+      "BlockIO": "5.29MB / 36.9kB",
+      "CPUPerc": "0.79%",
+      "Container": "116d4f6444d8b49607ae8c78930d04005c24a5cce8c0b90843afb83b36080d58",
+      "ID": "116d4f6444d8",
+      "MemPerc": "8.00%",
+      "MemUsage": "81.93MiB / 1GiB",
+      "Name": "kyro-kyro-1",
+      "NetIO": "6.61kB / 10.8kB",
+      "PIDs": "7"
+    }
+  ],
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU, 6144 MiB, 4111 MiB, 0 %"
+}

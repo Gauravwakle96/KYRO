@@ -1,0 +1,336 @@
+{
+  "id": "849c2b1b-cf33-4d8b-a53f-7b17819b2353",
+  "finding_id": "2f5104d1-e890-4da0-9e8e-0cf99e2efd6b",
+  "repository_id": "e236e079-93a7-4057-926f-43440298a625",
+  "state": "SUCCEEDED",
+  "plan": {
+    "title": "Remediate dynamic eval in app.py",
+    "root_cause": "Dynamic eval can execute attacker-controlled code. Use explicit parsing and allowed operations.",
+    "strategy": "Replace dynamic eval with explicit parsing and allowed operations. Use ast.parse(mode='eval') with recursive evaluation of explicitly allowed numeric nodes and operators. Reject all calls, attributes, names and nonnumeric constants.",
+    "risks": [
+      "Potential execution of attacker-controlled code",
+      "Loss of arithmetic behavior during testing"
+    ],
+    "files": [
+      "app.py",
+      "tests/test_calculate.py"
+    ],
+    "commands": [
+      {
+        "kind": "build",
+        "argv": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ]
+      },
+      {
+        "kind": "test",
+        "argv": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ]
+      }
+    ],
+    "expected_result": "All arithmetic tests should pass without executing attacker-controlled code. The build command should complete successfully.",
+    "provider": "local",
+    "file_hashes": {
+      "app.py": "6b54d4f96fd6b4f3ba90a438e4ff45cb4ef9cee32c0b5e1d32f52ba9e136ac1b",
+      "tests/test_calculate.py": "26fedd8bad4031e9736139064fa29ab3c929958e3f768feba89bb40d194df48e"
+    },
+    "repository_sha": "aa759b926403a0394b2b4408f108f971b6cb0a96db233c6d0cf21ee8e37f4e61",
+    "context_paths": [
+      "app.py",
+      "tests/test_calculate.py"
+    ],
+    "created_at": "2026-11-07T15:29:52.841458+00:00"
+  },
+  "approval_digest": "e582cb49d08b74849921f152ea19594b1283eeaafd9b9c7ae382f85da8c0aa4c",
+  "approved_by": "077d914a-6f4b-4bf5-83d9-282e03c19f6f",
+  "evidence": {
+    "attempts": [
+      {
+        "step": 1,
+        "at": "2026-11-07T15:30:16.243722+00:00",
+        "summary": "Replace dynamic eval with explicit parsing and allowed operations in app.py to mitigate the risk of executing attacker-controlled code.",
+        "modified_files": [
+          "app.py"
+        ],
+        "patch_execution": {
+          "tool": "apply_patch",
+          "status": "PASSED",
+          "exit_code": 0,
+          "duration_seconds": 0.611,
+          "stdout": "{\"modified_files\": 1}\n",
+          "stderr": ""
+        }
+      }
+    ],
+    "changes": [
+      {
+        "path": "app.py",
+        "content": "\"\"\"Explicitly labelled KYRO test fixture. Intentionally vulnerable; never deploy.\"\"\"\n\nimport ast\nimport operator\n\nallowed_operators = {\n    ast.Add: operator.add,\n    ast.Sub: operator.sub,\n    ast.Mult: operator.mul,\n    ast.Div: operator.truediv,\n    ast.USub: operator.neg,\n}\n\ndef evaluate(node):\n    if isinstance(node, ast.Num):  # <number>\n        return node.n\n    elif isinstance(node, ast.BinOp):  # <left> <operator> <right>\n        return allowed_operators[type(node.op)](evaluate(node.left), evaluate(node.right))\n    elif isinstance(node, ast.UnaryOp):  # <operator> <operand> e.g., -1\n        return allowed_operators[type(node.op)](evaluate(node.operand))\n    else:\n        raise TypeError(node)\n\n\ndef calculate(expression: str):\n    \"\"\"Preserve arithmetic behavior while testing remediation of dynamic eval.\"\"\"\n    return evaluate(ast.parse(expression, mode='eval').body)\n",
+        "original_hash": "6b54d4f96fd6b4f3ba90a438e4ff45cb4ef9cee32c0b5e1d32f52ba9e136ac1b"
+      }
+    ],
+    "diff": "--- a/app.py\n+++ b/app.py\n@@ -1,6 +1,27 @@\n \"\"\"Explicitly labelled KYRO test fixture. Intentionally vulnerable; never deploy.\"\"\"\n+\n+import ast\n+import operator\n+\n+allowed_operators = {\n+    ast.Add: operator.add,\n+    ast.Sub: operator.sub,\n+    ast.Mult: operator.mul,\n+    ast.Div: operator.truediv,\n+    ast.USub: operator.neg,\n+}\n+\n+def evaluate(node):\n+    if isinstance(node, ast.Num):  # <number>\n+        return node.n\n+    elif isinstance(node, ast.BinOp):  # <left> <operator> <right>\n+        return allowed_operators[type(node.op)](evaluate(node.left), evaluate(node.right))\n+    elif isinstance(node, ast.UnaryOp):  # <operator> <operand> e.g., -1\n+        return allowed_operators[type(node.op)](evaluate(node.operand))\n+    else:\n+        raise TypeError(node)\n \n \n def calculate(expression: str):\n     \"\"\"Preserve arithmetic behavior while testing remediation of dynamic eval.\"\"\"\n-    return eval(expression)\n+    return evaluate(ast.parse(expression, mode='eval').body)\n",
+    "commands": [
+      {
+        "command": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ],
+        "status": "PASSED",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "duration_seconds": 0.406,
+        "kind": "build",
+        "tests_executed": null
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ],
+        "status": "PASSED",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "/workspace/app.py:15: DeprecationWarning: ast.Num is deprecated and will be removed in Python 3.14; use ast.Constant instead\n  if isinstance(node, ast.Num):  # <number>\n/workspace/app.py:16: DeprecationWarning: Attribute n is deprecated and will be removed in Python 3.14; use value instead\n  return node.n\n....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n",
+        "duration_seconds": 0.403,
+        "kind": "test",
+        "tests_executed": 4
+      }
+    ],
+    "original_sha": "aa759b926403a0394b2b4408f108f971b6cb0a96db233c6d0cf21ee8e37f4e61",
+    "checkpoint": "918df7fd-2677-4df5-a1a7-123a8f214263/step-1"
+  },
+  "verification": {
+    "status": "VERIFIED",
+    "created_at": "2026-11-07T15:30:32.783630+00:00",
+    "original_finding": {
+      "id": "2f5104d1-e890-4da0-9e8e-0cf99e2efd6b",
+      "title": "Dynamic eval can execute attacker-controlled code. Use explicit parsing and allowed operations.",
+      "data": {
+        "scanner": "semgrep",
+        "rule_id": "rules.kyro.python.dynamic-eval",
+        "title": "Dynamic eval can execute attacker-controlled code. Use explicit parsing and allowed operations.",
+        "description": "Dynamic eval can execute attacker-controlled code. Use explicit parsing and allowed operations.",
+        "severity": "HIGH",
+        "file_path": "app.py",
+        "line_number": 6,
+        "cwe": [
+          "CWE-95"
+        ],
+        "confidence": "HIGH",
+        "references": [
+          "https://owasp.org/www-community/attacks/Code_Injection"
+        ],
+        "evidence": {
+          "check_id": "rules.kyro.python.dynamic-eval",
+          "path": "/workspace/app.py",
+          "start": {
+            "line": 6,
+            "col": 12,
+            "offset": 212
+          },
+          "end": {
+            "line": 6,
+            "col": 28,
+            "offset": 228
+          },
+          "extra": {
+            "message": "Dynamic eval can execute attacker-controlled code. Use explicit parsing and allowed operations.",
+            "metadata": {
+              "cwe": [
+                "CWE-95"
+              ],
+              "confidence": "HIGH",
+              "references": [
+                "https://owasp.org/www-community/attacks/Code_Injection"
+              ]
+            },
+            "severity": "ERROR",
+            "fingerprint": "requires login",
+            "lines": "requires login",
+            "validation_state": "NO_VALIDATOR",
+            "engine_kind": "OSS"
+          }
+        },
+        "cve": null,
+        "cvss_score": null,
+        "cvss_vector": null,
+        "fingerprint": "543450d17b796fe0e5f896c08ed28c00545d7b18d20410de5596596e9261ddc7",
+        "provenance": [
+          {
+            "scanner": "semgrep",
+            "rule_id": "rules.kyro.python.dynamic-eval",
+            "evidence": {
+              "check_id": "rules.kyro.python.dynamic-eval",
+              "path": "/workspace/app.py",
+              "start": {
+                "line": 6,
+                "col": 12,
+                "offset": 212
+              },
+              "end": {
+                "line": 6,
+                "col": 28,
+                "offset": 228
+              },
+              "extra": {
+                "message": "Dynamic eval can execute attacker-controlled code. Use explicit parsing and allowed operations.",
+                "metadata": {
+                  "cwe": [
+                    "CWE-95"
+                  ],
+                  "confidence": "HIGH",
+                  "references": [
+                    "https://owasp.org/www-community/attacks/Code_Injection"
+                  ]
+                },
+                "severity": "ERROR",
+                "fingerprint": "requires login",
+                "lines": "requires login",
+                "validation_state": "NO_VALIDATOR",
+                "engine_kind": "OSS"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "root_cause": "Dynamic eval can execute attacker-controlled code. Use explicit parsing and allowed operations.",
+    "changed_files": [
+      "app.py"
+    ],
+    "diff": "--- a/app.py\n+++ b/app.py\n@@ -1,6 +1,27 @@\n \"\"\"Explicitly labelled KYRO test fixture. Intentionally vulnerable; never deploy.\"\"\"\n+\n+import ast\n+import operator\n+\n+allowed_operators = {\n+    ast.Add: operator.add,\n+    ast.Sub: operator.sub,\n+    ast.Mult: operator.mul,\n+    ast.Div: operator.truediv,\n+    ast.USub: operator.neg,\n+}\n+\n+def evaluate(node):\n+    if isinstance(node, ast.Num):  # <number>\n+        return node.n\n+    elif isinstance(node, ast.BinOp):  # <left> <operator> <right>\n+        return allowed_operators[type(node.op)](evaluate(node.left), evaluate(node.right))\n+    elif isinstance(node, ast.UnaryOp):  # <operator> <operand> e.g., -1\n+        return allowed_operators[type(node.op)](evaluate(node.operand))\n+    else:\n+        raise TypeError(node)\n \n \n def calculate(expression: str):\n     \"\"\"Preserve arithmetic behavior while testing remediation of dynamic eval.\"\"\"\n-    return eval(expression)\n+    return evaluate(ast.parse(expression, mode='eval').body)\n",
+    "commands": [
+      {
+        "command": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ],
+        "status": "PASSED",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "duration_seconds": 0.407,
+        "kind": "build",
+        "tests_executed": null
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ],
+        "status": "PASSED",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "/workspace/app.py:15: DeprecationWarning: ast.Num is deprecated and will be removed in Python 3.14; use ast.Constant instead\n  if isinstance(node, ast.Num):  # <number>\n/workspace/app.py:16: DeprecationWarning: Attribute n is deprecated and will be removed in Python 3.14; use value instead\n  return node.n\n....\n----------------------------------------------------------------------\nRan 4 tests in 0.001s\n\nOK\n",
+        "duration_seconds": 0.403,
+        "kind": "test",
+        "tests_executed": 4
+      }
+    ],
+    "baseline_status": "SUCCEEDED",
+    "security_scan": {
+      "scan_id": "bbe79288-a04b-431a-a32e-3a018d938ecb",
+      "status": "SUCCEEDED",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "error": null,
+          "retryable": false
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "error": null,
+          "retryable": false
+        },
+        {
+          "scanner": "trivy",
+          "status": "SUCCEEDED",
+          "error": null,
+          "retryable": false
+        }
+      ]
+    },
+    "comparison": {
+      "resolved": [
+        "543450d17b796fe0e5f896c08ed28c00545d7b18d20410de5596596e9261ddc7"
+      ],
+      "remaining": [
+        "1761848c04f3bb068488e93aa0e4540f9581f0cd6a6ce2ccbeeaf8345fda3d66",
+        "1dd78663ae1dc53c28f857084c807074d8ffcab16d039e8cd9a6245ddac7fdb4",
+        "2362f69f5897bca49c6d5678821a8229b769c5b7013618e340298e94d3bf3ad1",
+        "27757297906459dc6cd6aeb97cd3d34f9a539001a8f6ebd34041fe3007046e73",
+        "30ed90553765148e90ae60c63ff08c928e0cf8fd26db11e05d4e316f68efe49a",
+        "3412e40ada67a7221562dd4a1a495d49b1532e73bb69372a061802f4fcda8091",
+        "350bd6da4e32fd80ddcff1e3738079db2058236ec624f93bcccf52cf4b0c7698",
+        "4e87d2cc4448d34a5a9ee95f8c1199466cffabefceab7bd4503f52dfba8195c9",
+        "5096cf515164a8ed57a72c51eb45b3a7fd0623569bb6d7c2a59e0824195ec49d",
+        "562a41369cf5d4f9fd5d4e0d7fef5b17a02bb486cb315ce024c9babccca08671",
+        "5dd60c653860b75f2f5271e949557a510b549bb04feabd5f19e5bd564e55c779",
+        "63d13922b25b184dd73a67f05574d912096159033e9cb3db5699fd60a027c9ea",
+        "7b6b7fe341f91faa8ba916b5322c7e5c17cf280b2a40115978d3c335682e8eca",
+        "82460574193d7de6b3bcdfe759b2d34ac4dd682c7cfda97b0813b7a1caa37fe8",
+        "83b94e48579c27f0bd026c6444cc08b6075e59e8b2ed75202ffd281e31906f41",
+        "a4d3c73f8b6e973c035882a61c2c2f0f9ad5853a8fc187f6388ce59dab86e04f",
+        "b2c8769ac430a66bc79c17967887828202766e43bc092e274842f5af389fd5cf",
+        "d2ca26807d4a29b5ef8ddaa947719e2c5ea68be378af468e0c29e78c2bb6b70c",
+        "df8d32f16ea51f1a6de3d26ea26b419b728c448d0fa47b52869aad5975769696",
+        "e3588e50c3c0ebe5666a54f9bc18bc4697b289d9f614ffd6d84bccdd54f92a12",
+        "e36d29d8ba81f0803936a9a5bd49558990eb4bab1a802902b664424de1acd34b"
+      ],
+      "introduced": [],
+      "before_count": 22,
+      "after_count": 21
+    },
+    "new_findings": [],
+    "original_resolved": true,
+    "patch_quality": {
+      "within_scope": true,
+      "patch_unchanged_by_tests": true,
+      "modified_files": 1,
+      "dependency_compatibility": "Tested only by recorded commands",
+      "root_cause_review": "Plan and diff available for human review"
+    },
+    "limitations": [
+      "Passing scans and tests do not prove absence of all security defects.",
+      "Runtime exploitability and deployments were not tested."
+    ],
+    "verified_changes": [
+      {
+        "path": "app.py",
+        "content": "\"\"\"Explicitly labelled KYRO test fixture. Intentionally vulnerable; never deploy.\"\"\"\n\nimport ast\nimport operator\n\nallowed_operators = {\n    ast.Add: operator.add,\n    ast.Sub: operator.sub,\n    ast.Mult: operator.mul,\n    ast.Div: operator.truediv,\n    ast.USub: operator.neg,\n}\n\ndef evaluate(node):\n    if isinstance(node, ast.Num):  # <number>\n        return node.n\n    elif isinstance(node, ast.BinOp):  # <left> <operator> <right>\n        return allowed_operators[type(node.op)](evaluate(node.left), evaluate(node.right))\n    elif isinstance(node, ast.UnaryOp):  # <operator> <operand> e.g., -1\n        return allowed_operators[type(node.op)](evaluate(node.operand))\n    else:\n        raise TypeError(node)\n\n\ndef calculate(expression: str):\n    \"\"\"Preserve arithmetic behavior while testing remediation of dynamic eval.\"\"\"\n    return evaluate(ast.parse(expression, mode='eval').body)\n",
+        "verified_hash": "eb76195c90ba09733056ea8f17a68186db7988c20a758d7c7bad7075199108b6"
+      }
+    ]
+  },
+  "pull_request": {},
+  "created_at": "2026-11-07T15:29:09.053605+00:00",
+  "plan_digest": "e582cb49d08b74849921f152ea19594b1283eeaafd9b9c7ae382f85da8c0aa4c"
+}

@@ -1,0 +1,975 @@
+{
+  "repository": "Gauravwakle96/online-basic-calculator",
+  "branch": "main",
+  "commit": "bb2e3c6e742eea5b802c50cee23ca1cbf5e2c291",
+  "task_id": "3c6d24ec-a9e4-4a02-a690-8f074cd894ea",
+  "state": "AWAITING_APPROVAL",
+  "approved": false,
+  "source_modified": false,
+  "finding": {
+    "scanner": "osv",
+    "rule_id": "PYSEC-2026-2151",
+    "cve": "CVE-2026-27205",
+    "aliases": [
+      "CVE-2026-27205",
+      "GHSA-68rp-wp8r-4726"
+    ],
+    "title": "PYSEC-2026-2151",
+    "description": "Flask is a web server gateway interface (WSGI) web application framework. In versions 3.1.2 and below, when the session object is accessed, Flask should set the Vary: Cookie header., resulting in a Use of Cache Containing Sensitive Information vulnerability. The logic instructs caches not to cache the response, as it may contain information specific to a logged in user. This is handled in most cases, but some forms of access such as the Python in operator were overlooked. The severity and risk depend on the application being hosted behind a caching proxy that doesn't ignore responses with cookies, not setting a Cache-Control header to mark pages as private or non-cacheable, and accessing the session in a way that only touches keys without reading values or mutating the session. The issue has been fixed in version 3.1.3.",
+    "severity": "MEDIUM",
+    "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
+    "cvss_score": null,
+    "file_path": "requirements.txt",
+    "package_name": "flask",
+    "installed_version": "3.0.0",
+    "ecosystem": "PyPI",
+    "fixed_versions": [
+      "3.1.3"
+    ],
+    "fixed_version": "3.1.3",
+    "affected": [
+      {
+        "database_specific": {
+          "source": "https://github.com/pypa/advisory-database/blob/main/vulns/flask/PYSEC-2026-2151.yaml"
+        },
+        "ecosystem_specific": {},
+        "package": {
+          "ecosystem": "PyPI",
+          "name": "flask",
+          "purl": "pkg:pypi/flask"
+        },
+        "ranges": [
+          {
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "3.1.3"
+              }
+            ],
+            "type": "ECOSYSTEM"
+          }
+        ],
+        "versions": [
+          "0.1",
+          "0.10",
+          "0.10.1",
+          "0.11",
+          "0.11.1",
+          "0.12",
+          "0.12.1",
+          "0.12.2",
+          "0.12.3",
+          "0.12.4",
+          "0.12.5",
+          "0.2",
+          "0.3",
+          "0.3.1",
+          "0.4",
+          "0.5",
+          "0.5.1",
+          "0.5.2",
+          "0.6",
+          "0.6.1",
+          "0.7",
+          "0.7.1",
+          "0.7.2",
+          "0.8",
+          "0.8.1",
+          "0.9",
+          "1.0",
+          "1.0.1",
+          "1.0.2",
+          "1.0.3",
+          "1.0.4",
+          "1.1.0",
+          "1.1.1",
+          "1.1.2",
+          "1.1.3",
+          "1.1.4",
+          "2.0.0",
+          "2.0.0rc1",
+          "2.0.0rc2",
+          "2.0.1",
+          "2.0.2",
+          "2.0.3",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.1.3",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "2.2.5",
+          "2.3.0",
+          "2.3.1",
+          "2.3.2",
+          "2.3.3",
+          "3.0.0",
+          "3.0.1",
+          "3.0.2",
+          "3.0.3",
+          "3.1.0",
+          "3.1.1",
+          "3.1.2"
+        ]
+      }
+    ],
+    "references": [
+      "https://github.com/pallets/flask/releases/tag/3.1.3",
+      "https://github.com/pallets/flask/security/advisories/GHSA-68rp-wp8r-4726",
+      "https://github.com/pallets/flask/commit/089cb86dd22bff589a4eafb7ab8e42dc357623b4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-27205",
+      "https://github.com/pallets/flask"
+    ],
+    "cwe": [],
+    "confidence": "HIGH",
+    "evidence": {
+      "vulnerability": {
+        "affected": [
+          {
+            "database_specific": {
+              "source": "https://github.com/pypa/advisory-database/blob/main/vulns/flask/PYSEC-2026-2151.yaml"
+            },
+            "ecosystem_specific": {},
+            "package": {
+              "ecosystem": "PyPI",
+              "name": "flask",
+              "purl": "pkg:pypi/flask"
+            },
+            "ranges": [
+              {
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "3.1.3"
+                  }
+                ],
+                "type": "ECOSYSTEM"
+              }
+            ],
+            "versions": [
+              "0.1",
+              "0.10",
+              "0.10.1",
+              "0.11",
+              "0.11.1",
+              "0.12",
+              "0.12.1",
+              "0.12.2",
+              "0.12.3",
+              "0.12.4",
+              "0.12.5",
+              "0.2",
+              "0.3",
+              "0.3.1",
+              "0.4",
+              "0.5",
+              "0.5.1",
+              "0.5.2",
+              "0.6",
+              "0.6.1",
+              "0.7",
+              "0.7.1",
+              "0.7.2",
+              "0.8",
+              "0.8.1",
+              "0.9",
+              "1.0",
+              "1.0.1",
+              "1.0.2",
+              "1.0.3",
+              "1.0.4",
+              "1.1.0",
+              "1.1.1",
+              "1.1.2",
+              "1.1.3",
+              "1.1.4",
+              "2.0.0",
+              "2.0.0rc1",
+              "2.0.0rc2",
+              "2.0.1",
+              "2.0.2",
+              "2.0.3",
+              "2.1.0",
+              "2.1.1",
+              "2.1.2",
+              "2.1.3",
+              "2.2.0",
+              "2.2.1",
+              "2.2.2",
+              "2.2.3",
+              "2.2.4",
+              "2.2.5",
+              "2.3.0",
+              "2.3.1",
+              "2.3.2",
+              "2.3.3",
+              "3.0.0",
+              "3.0.1",
+              "3.0.2",
+              "3.0.3",
+              "3.1.0",
+              "3.1.1",
+              "3.1.2"
+            ]
+          }
+        ],
+        "aliases": [
+          "CVE-2026-27205",
+          "GHSA-68rp-wp8r-4726"
+        ],
+        "details": "Flask is a web server gateway interface (WSGI) web application framework. In versions 3.1.2 and below, when the session object is accessed, Flask should set the Vary: Cookie header., resulting in a Use of Cache Containing Sensitive Information vulnerability. The logic instructs caches not to cache the response, as it may contain information specific to a logged in user. This is handled in most cases, but some forms of access such as the Python in operator were overlooked. The severity and risk depend on the application being hosted behind a caching proxy that doesn't ignore responses with cookies, not setting a Cache-Control header to mark pages as private or non-cacheable, and accessing the session in a way that only touches keys without reading values or mutating the session. The issue has been fixed in version 3.1.3.",
+        "id": "PYSEC-2026-2151",
+        "modified": "2026-07-13T07:15:25.033843440Z",
+        "published": "2026-02-21T06:17:00.910Z",
+        "references": [
+          {
+            "type": "ADVISORY",
+            "url": "https://github.com/pallets/flask/releases/tag/3.1.3"
+          },
+          {
+            "type": "ADVISORY",
+            "url": "https://github.com/pallets/flask/security/advisories/GHSA-68rp-wp8r-4726"
+          },
+          {
+            "type": "FIX",
+            "url": "https://github.com/pallets/flask/commit/089cb86dd22bff589a4eafb7ab8e42dc357623b4"
+          }
+        ],
+        "schema_version": "1.7.5",
+        "severity": [
+          {
+            "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
+            "type": "CVSS_V3"
+          }
+        ]
+      },
+      "package": {
+        "name": "flask",
+        "version": "3.0.0",
+        "ecosystem": "PyPI",
+        "purl": "pkg:pypi/flask@3.0.0"
+      },
+      "group": {
+        "ids": [
+          "PYSEC-2026-2151",
+          "GHSA-68rp-wp8r-4726"
+        ],
+        "aliases": [
+          "CVE-2026-27205",
+          "GHSA-68rp-wp8r-4726",
+          "PYSEC-2026-2151"
+        ],
+        "max_severity": "4.3"
+      }
+    },
+    "fingerprint": "afd5e86369352b795edd1564736e3c46b578353be3b6b7fde2d24e6bac4555de",
+    "provenance": [
+      {
+        "scanner": "osv",
+        "rule_id": "PYSEC-2026-2151",
+        "evidence": {
+          "vulnerability": {
+            "affected": [
+              {
+                "database_specific": {
+                  "source": "https://github.com/pypa/advisory-database/blob/main/vulns/flask/PYSEC-2026-2151.yaml"
+                },
+                "ecosystem_specific": {},
+                "package": {
+                  "ecosystem": "PyPI",
+                  "name": "flask",
+                  "purl": "pkg:pypi/flask"
+                },
+                "ranges": [
+                  {
+                    "events": [
+                      {
+                        "introduced": "0"
+                      },
+                      {
+                        "fixed": "3.1.3"
+                      }
+                    ],
+                    "type": "ECOSYSTEM"
+                  }
+                ],
+                "versions": [
+                  "0.1",
+                  "0.10",
+                  "0.10.1",
+                  "0.11",
+                  "0.11.1",
+                  "0.12",
+                  "0.12.1",
+                  "0.12.2",
+                  "0.12.3",
+                  "0.12.4",
+                  "0.12.5",
+                  "0.2",
+                  "0.3",
+                  "0.3.1",
+                  "0.4",
+                  "0.5",
+                  "0.5.1",
+                  "0.5.2",
+                  "0.6",
+                  "0.6.1",
+                  "0.7",
+                  "0.7.1",
+                  "0.7.2",
+                  "0.8",
+                  "0.8.1",
+                  "0.9",
+                  "1.0",
+                  "1.0.1",
+                  "1.0.2",
+                  "1.0.3",
+                  "1.0.4",
+                  "1.1.0",
+                  "1.1.1",
+                  "1.1.2",
+                  "1.1.3",
+                  "1.1.4",
+                  "2.0.0",
+                  "2.0.0rc1",
+                  "2.0.0rc2",
+                  "2.0.1",
+                  "2.0.2",
+                  "2.0.3",
+                  "2.1.0",
+                  "2.1.1",
+                  "2.1.2",
+                  "2.1.3",
+                  "2.2.0",
+                  "2.2.1",
+                  "2.2.2",
+                  "2.2.3",
+                  "2.2.4",
+                  "2.2.5",
+                  "2.3.0",
+                  "2.3.1",
+                  "2.3.2",
+                  "2.3.3",
+                  "3.0.0",
+                  "3.0.1",
+                  "3.0.2",
+                  "3.0.3",
+                  "3.1.0",
+                  "3.1.1",
+                  "3.1.2"
+                ]
+              }
+            ],
+            "aliases": [
+              "CVE-2026-27205",
+              "GHSA-68rp-wp8r-4726"
+            ],
+            "details": "Flask is a web server gateway interface (WSGI) web application framework. In versions 3.1.2 and below, when the session object is accessed, Flask should set the Vary: Cookie header., resulting in a Use of Cache Containing Sensitive Information vulnerability. The logic instructs caches not to cache the response, as it may contain information specific to a logged in user. This is handled in most cases, but some forms of access such as the Python in operator were overlooked. The severity and risk depend on the application being hosted behind a caching proxy that doesn't ignore responses with cookies, not setting a Cache-Control header to mark pages as private or non-cacheable, and accessing the session in a way that only touches keys without reading values or mutating the session. The issue has been fixed in version 3.1.3.",
+            "id": "PYSEC-2026-2151",
+            "modified": "2026-07-13T07:15:25.033843440Z",
+            "published": "2026-02-21T06:17:00.910Z",
+            "references": [
+              {
+                "type": "ADVISORY",
+                "url": "https://github.com/pallets/flask/releases/tag/3.1.3"
+              },
+              {
+                "type": "ADVISORY",
+                "url": "https://github.com/pallets/flask/security/advisories/GHSA-68rp-wp8r-4726"
+              },
+              {
+                "type": "FIX",
+                "url": "https://github.com/pallets/flask/commit/089cb86dd22bff589a4eafb7ab8e42dc357623b4"
+              }
+            ],
+            "schema_version": "1.7.5",
+            "severity": [
+              {
+                "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
+                "type": "CVSS_V3"
+              }
+            ]
+          },
+          "package": {
+            "name": "flask",
+            "version": "3.0.0",
+            "ecosystem": "PyPI",
+            "purl": "pkg:pypi/flask@3.0.0"
+          },
+          "group": {
+            "ids": [
+              "PYSEC-2026-2151",
+              "GHSA-68rp-wp8r-4726"
+            ],
+            "aliases": [
+              "CVE-2026-27205",
+              "GHSA-68rp-wp8r-4726",
+              "PYSEC-2026-2151"
+            ],
+            "max_severity": "4.3"
+          }
+        }
+      },
+      {
+        "scanner": "osv",
+        "rule_id": "GHSA-68rp-wp8r-4726",
+        "evidence": {
+          "vulnerability": {
+            "affected": [
+              {
+                "database_specific": {
+                  "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/02/GHSA-68rp-wp8r-4726/GHSA-68rp-wp8r-4726.json"
+                },
+                "package": {
+                  "ecosystem": "PyPI",
+                  "name": "flask",
+                  "purl": "pkg:pypi/flask"
+                },
+                "ranges": [
+                  {
+                    "events": [
+                      {
+                        "introduced": "0"
+                      },
+                      {
+                        "fixed": "3.1.3"
+                      }
+                    ],
+                    "type": "ECOSYSTEM"
+                  }
+                ],
+                "versions": [
+                  "0.1",
+                  "0.10",
+                  "0.10.1",
+                  "0.11",
+                  "0.11.1",
+                  "0.12",
+                  "0.12.1",
+                  "0.12.2",
+                  "0.12.3",
+                  "0.12.4",
+                  "0.12.5",
+                  "0.2",
+                  "0.3",
+                  "0.3.1",
+                  "0.4",
+                  "0.5",
+                  "0.5.1",
+                  "0.5.2",
+                  "0.6",
+                  "0.6.1",
+                  "0.7",
+                  "0.7.1",
+                  "0.7.2",
+                  "0.8",
+                  "0.8.1",
+                  "0.9",
+                  "1.0",
+                  "1.0.1",
+                  "1.0.2",
+                  "1.0.3",
+                  "1.0.4",
+                  "1.1.0",
+                  "1.1.1",
+                  "1.1.2",
+                  "1.1.3",
+                  "1.1.4",
+                  "2.0.0",
+                  "2.0.0rc1",
+                  "2.0.0rc2",
+                  "2.0.1",
+                  "2.0.2",
+                  "2.0.3",
+                  "2.1.0",
+                  "2.1.1",
+                  "2.1.2",
+                  "2.1.3",
+                  "2.2.0",
+                  "2.2.1",
+                  "2.2.2",
+                  "2.2.3",
+                  "2.2.4",
+                  "2.2.5",
+                  "2.3.0",
+                  "2.3.1",
+                  "2.3.2",
+                  "2.3.3",
+                  "3.0.0",
+                  "3.0.1",
+                  "3.0.2",
+                  "3.0.3",
+                  "3.1.0",
+                  "3.1.1",
+                  "3.1.2"
+                ]
+              }
+            ],
+            "aliases": [
+              "CVE-2026-27205",
+              "PYSEC-2026-2151"
+            ],
+            "database_specific": {
+              "cwe_ids": [
+                "CWE-524"
+              ],
+              "github_reviewed": true,
+              "github_reviewed_at": "2026-02-19T20:45:41Z",
+              "nvd_published_at": "2026-02-21T06:17:00Z",
+              "severity": "LOW"
+            },
+            "details": "When the `session` object is accessed, Flask should set the `Vary: Cookie` header. This instructs caches not to cache the response, as it may contain information specific to a logged in user. This is handled in most cases, but some forms of access such as the Python `in` operator were overlooked.\n\nThe severity depends on the application's use of the session, and the cache's behavior regarding cookies. The risk depends on all these conditions being met.\n\n1. The application must be hosted behind a caching proxy that does not ignore responses with cookies.\n2. The application does not set a `Cache-Control` header to indicate that a page is private or should not be cached.\n3. The application accesses the session in a way that does not access the values, only the keys, and does not mutate the session.",
+            "id": "GHSA-68rp-wp8r-4726",
+            "modified": "2026-09-10T03:49:54.354981590Z",
+            "published": "2026-02-19T20:45:41Z",
+            "references": [
+              {
+                "type": "WEB",
+                "url": "https://github.com/pallets/flask/security/advisories/GHSA-68rp-wp8r-4726"
+              },
+              {
+                "type": "ADVISORY",
+                "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27205"
+              },
+              {
+                "type": "WEB",
+                "url": "https://github.com/pallets/flask/commit/089cb86dd22bff589a4eafb7ab8e42dc357623b4"
+              },
+              {
+                "type": "PACKAGE",
+                "url": "https://github.com/pallets/flask"
+              },
+              {
+                "type": "WEB",
+                "url": "https://github.com/pallets/flask/releases/tag/3.1.3"
+              }
+            ],
+            "schema_version": "1.9.0",
+            "severity": [
+              {
+                "score": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+                "type": "CVSS_V4"
+              }
+            ],
+            "summary": "Flask session does not add `Vary: Cookie` header when accessed in some ways"
+          },
+          "package": {
+            "name": "flask",
+            "version": "3.0.0",
+            "ecosystem": "PyPI",
+            "purl": "pkg:pypi/flask@3.0.0"
+          },
+          "group": {
+            "ids": [
+              "PYSEC-2026-2151",
+              "GHSA-68rp-wp8r-4726"
+            ],
+            "aliases": [
+              "CVE-2026-27205",
+              "GHSA-68rp-wp8r-4726",
+              "PYSEC-2026-2151"
+            ],
+            "max_severity": "4.3"
+          }
+        }
+      },
+      {
+        "scanner": "osv",
+        "rule_id": "PYSEC-2026-2151",
+        "evidence": {
+          "vulnerability": {
+            "affected": [
+              {
+                "database_specific": {
+                  "source": "https://github.com/pypa/advisory-database/blob/main/vulns/flask/PYSEC-2026-2151.yaml"
+                },
+                "ecosystem_specific": {},
+                "package": {
+                  "ecosystem": "PyPI",
+                  "name": "flask",
+                  "purl": "pkg:pypi/flask"
+                },
+                "ranges": [
+                  {
+                    "events": [
+                      {
+                        "introduced": "0"
+                      },
+                      {
+                        "fixed": "3.1.3"
+                      }
+                    ],
+                    "type": "ECOSYSTEM"
+                  }
+                ],
+                "versions": [
+                  "0.1",
+                  "0.10",
+                  "0.10.1",
+                  "0.11",
+                  "0.11.1",
+                  "0.12",
+                  "0.12.1",
+                  "0.12.2",
+                  "0.12.3",
+                  "0.12.4",
+                  "0.12.5",
+                  "0.2",
+                  "0.3",
+                  "0.3.1",
+                  "0.4",
+                  "0.5",
+                  "0.5.1",
+                  "0.5.2",
+                  "0.6",
+                  "0.6.1",
+                  "0.7",
+                  "0.7.1",
+                  "0.7.2",
+                  "0.8",
+                  "0.8.1",
+                  "0.9",
+                  "1.0",
+                  "1.0.1",
+                  "1.0.2",
+                  "1.0.3",
+                  "1.0.4",
+                  "1.1.0",
+                  "1.1.1",
+                  "1.1.2",
+                  "1.1.3",
+                  "1.1.4",
+                  "2.0.0",
+                  "2.0.0rc1",
+                  "2.0.0rc2",
+                  "2.0.1",
+                  "2.0.2",
+                  "2.0.3",
+                  "2.1.0",
+                  "2.1.1",
+                  "2.1.2",
+                  "2.1.3",
+                  "2.2.0",
+                  "2.2.1",
+                  "2.2.2",
+                  "2.2.3",
+                  "2.2.4",
+                  "2.2.5",
+                  "2.3.0",
+                  "2.3.1",
+                  "2.3.2",
+                  "2.3.3",
+                  "3.0.0",
+                  "3.0.1",
+                  "3.0.2",
+                  "3.0.3",
+                  "3.1.0",
+                  "3.1.1",
+                  "3.1.2"
+                ]
+              }
+            ],
+            "aliases": [
+              "CVE-2026-27205",
+              "GHSA-68rp-wp8r-4726"
+            ],
+            "details": "Flask is a web server gateway interface (WSGI) web application framework. In versions 3.1.2 and below, when the session object is accessed, Flask should set the Vary: Cookie header., resulting in a Use of Cache Containing Sensitive Information vulnerability. The logic instructs caches not to cache the response, as it may contain information specific to a logged in user. This is handled in most cases, but some forms of access such as the Python in operator were overlooked. The severity and risk depend on the application being hosted behind a caching proxy that doesn't ignore responses with cookies, not setting a Cache-Control header to mark pages as private or non-cacheable, and accessing the session in a way that only touches keys without reading values or mutating the session. The issue has been fixed in version 3.1.3.",
+            "id": "PYSEC-2026-2151",
+            "modified": "2026-07-13T07:15:25.033843440Z",
+            "published": "2026-02-21T06:17:00.910Z",
+            "references": [
+              {
+                "type": "ADVISORY",
+                "url": "https://github.com/pallets/flask/releases/tag/3.1.3"
+              },
+              {
+                "type": "ADVISORY",
+                "url": "https://github.com/pallets/flask/security/advisories/GHSA-68rp-wp8r-4726"
+              },
+              {
+                "type": "FIX",
+                "url": "https://github.com/pallets/flask/commit/089cb86dd22bff589a4eafb7ab8e42dc357623b4"
+              }
+            ],
+            "schema_version": "1.7.5",
+            "severity": [
+              {
+                "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
+                "type": "CVSS_V3"
+              }
+            ]
+          },
+          "package": {
+            "name": "flask",
+            "version": "3.0.0",
+            "ecosystem": "PyPI",
+            "purl": "pkg:pypi/flask@3.0.0"
+          },
+          "group": {
+            "ids": [
+              "PYSEC-2026-2151",
+              "GHSA-68rp-wp8r-4726"
+            ],
+            "aliases": [
+              "CVE-2026-27205",
+              "GHSA-68rp-wp8r-4726",
+              "PYSEC-2026-2151"
+            ],
+            "max_severity": "4.3"
+          }
+        }
+      },
+      {
+        "scanner": "osv",
+        "rule_id": "GHSA-68rp-wp8r-4726",
+        "evidence": {
+          "vulnerability": {
+            "affected": [
+              {
+                "database_specific": {
+                  "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/02/GHSA-68rp-wp8r-4726/GHSA-68rp-wp8r-4726.json"
+                },
+                "package": {
+                  "ecosystem": "PyPI",
+                  "name": "flask",
+                  "purl": "pkg:pypi/flask"
+                },
+                "ranges": [
+                  {
+                    "events": [
+                      {
+                        "introduced": "0"
+                      },
+                      {
+                        "fixed": "3.1.3"
+                      }
+                    ],
+                    "type": "ECOSYSTEM"
+                  }
+                ],
+                "versions": [
+                  "0.1",
+                  "0.10",
+                  "0.10.1",
+                  "0.11",
+                  "0.11.1",
+                  "0.12",
+                  "0.12.1",
+                  "0.12.2",
+                  "0.12.3",
+                  "0.12.4",
+                  "0.12.5",
+                  "0.2",
+                  "0.3",
+                  "0.3.1",
+                  "0.4",
+                  "0.5",
+                  "0.5.1",
+                  "0.5.2",
+                  "0.6",
+                  "0.6.1",
+                  "0.7",
+                  "0.7.1",
+                  "0.7.2",
+                  "0.8",
+                  "0.8.1",
+                  "0.9",
+                  "1.0",
+                  "1.0.1",
+                  "1.0.2",
+                  "1.0.3",
+                  "1.0.4",
+                  "1.1.0",
+                  "1.1.1",
+                  "1.1.2",
+                  "1.1.3",
+                  "1.1.4",
+                  "2.0.0",
+                  "2.0.0rc1",
+                  "2.0.0rc2",
+                  "2.0.1",
+                  "2.0.2",
+                  "2.0.3",
+                  "2.1.0",
+                  "2.1.1",
+                  "2.1.2",
+                  "2.1.3",
+                  "2.2.0",
+                  "2.2.1",
+                  "2.2.2",
+                  "2.2.3",
+                  "2.2.4",
+                  "2.2.5",
+                  "2.3.0",
+                  "2.3.1",
+                  "2.3.2",
+                  "2.3.3",
+                  "3.0.0",
+                  "3.0.1",
+                  "3.0.2",
+                  "3.0.3",
+                  "3.1.0",
+                  "3.1.1",
+                  "3.1.2"
+                ]
+              }
+            ],
+            "aliases": [
+              "CVE-2026-27205",
+              "PYSEC-2026-2151"
+            ],
+            "database_specific": {
+              "cwe_ids": [
+                "CWE-524"
+              ],
+              "github_reviewed": true,
+              "github_reviewed_at": "2026-02-19T20:45:41Z",
+              "nvd_published_at": "2026-02-21T06:17:00Z",
+              "severity": "LOW"
+            },
+            "details": "When the `session` object is accessed, Flask should set the `Vary: Cookie` header. This instructs caches not to cache the response, as it may contain information specific to a logged in user. This is handled in most cases, but some forms of access such as the Python `in` operator were overlooked.\n\nThe severity depends on the application's use of the session, and the cache's behavior regarding cookies. The risk depends on all these conditions being met.\n\n1. The application must be hosted behind a caching proxy that does not ignore responses with cookies.\n2. The application does not set a `Cache-Control` header to indicate that a page is private or should not be cached.\n3. The application accesses the session in a way that does not access the values, only the keys, and does not mutate the session.",
+            "id": "GHSA-68rp-wp8r-4726",
+            "modified": "2026-09-10T03:49:54.354981590Z",
+            "published": "2026-02-19T20:45:41Z",
+            "references": [
+              {
+                "type": "WEB",
+                "url": "https://github.com/pallets/flask/security/advisories/GHSA-68rp-wp8r-4726"
+              },
+              {
+                "type": "ADVISORY",
+                "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27205"
+              },
+              {
+                "type": "WEB",
+                "url": "https://github.com/pallets/flask/commit/089cb86dd22bff589a4eafb7ab8e42dc357623b4"
+              },
+              {
+                "type": "PACKAGE",
+                "url": "https://github.com/pallets/flask"
+              },
+              {
+                "type": "WEB",
+                "url": "https://github.com/pallets/flask/releases/tag/3.1.3"
+              }
+            ],
+            "schema_version": "1.9.0",
+            "severity": [
+              {
+                "score": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+                "type": "CVSS_V4"
+              }
+            ],
+            "summary": "Flask session does not add `Vary: Cookie` header when accessed in some ways"
+          },
+          "package": {
+            "name": "flask",
+            "version": "3.0.0",
+            "ecosystem": "PyPI",
+            "purl": "pkg:pypi/flask@3.0.0"
+          },
+          "group": {
+            "ids": [
+              "PYSEC-2026-2151",
+              "GHSA-68rp-wp8r-4726"
+            ],
+            "aliases": [
+              "CVE-2026-27205",
+              "GHSA-68rp-wp8r-4726",
+              "PYSEC-2026-2151"
+            ],
+            "max_severity": "4.3"
+          }
+        }
+      }
+    ]
+  },
+  "known_tests": [],
+  "dependencies": [
+    {
+      "name": "Flask",
+      "version": "3.0.0",
+      "constraint": "==3.0.0",
+      "ecosystem": "PyPI",
+      "manifest": "requirements.txt",
+      "direct": true
+    },
+    {
+      "name": "Werkzeug",
+      "version": "3.0.1",
+      "constraint": "==3.0.1",
+      "ecosystem": "PyPI",
+      "manifest": "requirements.txt",
+      "direct": true
+    }
+  ],
+  "plan": {
+    "title": "Upgrade Flask to mitigate Use of Cache Containing Sensitive Information vulnerability",
+    "root_cause": "The application is using Flask version 3.0.0, which is vulnerable to a Use of Cache Containing Sensitive Information vulnerability due to not setting the Vary: Cookie header when accessing the session object.",
+    "strategy": "Upgrade Flask to version 3.1.3 or later, which includes the fix for the vulnerability.",
+    "risks": [
+      "Failure to upgrade could result in sensitive user information being cached and exposed to unauthorized parties.",
+      "Inadequate testing of the updated application could lead to new vulnerabilities being introduced."
+    ],
+    "files": [
+      "requirements.txt"
+    ],
+    "commands": [
+      {
+        "kind": "build",
+        "argv": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ]
+      },
+      {
+        "kind": "test",
+        "argv": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ]
+      }
+    ],
+    "expected_result": "The application should build successfully and all tests should pass without errors. The Flask version should be updated to 3.1.3 or later.",
+    "provider": "local",
+    "file_hashes": {
+      "requirements.txt": "579705ed2f92a4d53fdee6981e6282c3068953605fe65c20e55498c670217800"
+    },
+    "repository_sha": "bb2e3c6e742eea5b802c50cee23ca1cbf5e2c291",
+    "context_paths": [
+      "requirements.txt",
+      "app.py"
+    ],
+    "created_at": "2026-11-07T15:23:04.358389+00:00"
+  },
+  "usage": [
+    {
+      "provider": "local",
+      "model": "qwen2.5-coder:7b",
+      "input_tokens": 1691,
+      "output_tokens": 260,
+      "duration_seconds": 25.856,
+      "status": "SUCCEEDED"
+    }
+  ],
+  "checked_at": "2026-11-07T15:32:19.207920+00:00",
+  "review_limitations": [
+    "No discovered repository test suite; proposed unittest command is not test evidence.",
+    "The Flask upgrade requires checking its minimum Werkzeug version against the pinned dependency.",
+    "Expected results are model recommendations; no patch, build, tests or PR were executed."
+  ]
+}

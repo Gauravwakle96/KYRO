@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-11-07T14:50:48.235949+00:00",
+  "source": "Gauravwakle96/INHERIA",
+  "isolation": "Non-root/read-only/no network/512 MiB/no credentials or Docker socket",
+  "original_deployed_exit_codes": [
+    139,
+    139
+  ],
+  "old_parser_version": "0.26.0",
+  "old_threaded_isolated_exit_code": 139,
+  "upstream_issue": "https://github.com/tree-sitter/py-tree-sitter/issues/505",
+  "patched_exit_code": 0,
+  "patched_stdout": "{\"tree_sitter_version\": \"0.25.2\", \"runs\": [{\"status\": \"READY\", \"files\": 86, \"dependencies\": 297, \"languages\": {\"Python\": 35, \"JavaScript\": 1, \"TypeScript\": 19}}, {\"status\": \"READY\", \"files\": 86, \"dependencies\": 297, \"languages\": {\"Python\": 35, \"JavaScript\": 1, \"TypeScript\": 19}}, {\"status\": \"READY\", \"files\": 86, \"dependencies\": 297, \"languages\": {\"Python\": 35, \"JavaScript\": 1, \"TypeScript\": 19}}]}\n",
+  "patched_stderr": ""
+}

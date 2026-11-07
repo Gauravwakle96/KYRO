@@ -1,0 +1,125 @@
+{
+  "id": "afc5f08a-0c7f-43c8-bc9b-7cdfe8284096",
+  "finding_id": "417b9d13-098e-46df-804d-fddc5a41ba77",
+  "repository_id": "eef72488-c80d-4596-a759-dceb86595094",
+  "state": "VERIFYING",
+  "plan": {
+    "title": "Remediate dynamic eval in app.py",
+    "root_cause": "Dynamic eval can execute attacker-controlled code. Use explicit parsing and allowed operations.",
+    "strategy": "Replace dynamic eval with a safe parser that only allows arithmetic operations on numeric values. Ensure that the parser rejects all calls, attributes, names, and nonnumeric constants.",
+    "risks": [
+      "Potential execution of arbitrary code if not properly restricted",
+      "Loss of functionality if arithmetic operations are not correctly parsed"
+    ],
+    "files": [
+      "app.py",
+      "tests/test_calculate.py"
+    ],
+    "commands": [
+      {
+        "kind": "build",
+        "argv": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ]
+      },
+      {
+        "kind": "test",
+        "argv": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ]
+      }
+    ],
+    "expected_result": "All arithmetic tests should pass without executing arbitrary code. The build command should complete successfully.",
+    "provider": "local",
+    "file_hashes": {
+      "app.py": "6b54d4f96fd6b4f3ba90a438e4ff45cb4ef9cee32c0b5e1d32f52ba9e136ac1b",
+      "tests/test_calculate.py": "26fedd8bad4031e9736139064fa29ab3c929958e3f768feba89bb40d194df48e"
+    },
+    "repository_sha": "aa759b926403a0394b2b4408f108f971b6cb0a96db233c6d0cf21ee8e37f4e61",
+    "context_paths": [
+      "app.py",
+      "tests/test_calculate.py"
+    ],
+    "created_at": "2026-11-07T13:24:05.234951+00:00"
+  },
+  "approval_digest": "6e93e1ae86eaeacc604cf6cf0af453068cbc28a6f0854d19ff5eecb4b81deacb",
+  "approved_by": "077d914a-6f4b-4bf5-83d9-282e03c19f6f",
+  "evidence": {
+    "attempts": [
+      {
+        "step": 1,
+        "at": "2026-11-07T13:25:11.659148+00:00",
+        "summary": "Replace dynamic eval with a safe parser that only allows arithmetic operations on numeric values.",
+        "modified_files": [
+          "app.py"
+        ],
+        "patch_execution": {
+          "tool": "apply_patch",
+          "status": "PASSED",
+          "exit_code": 0,
+          "duration_seconds": 0.61,
+          "stdout": "{\"modified_files\": 1}\n",
+          "stderr": ""
+        }
+      }
+    ],
+    "changes": [
+      {
+        "path": "app.py",
+        "content": "\"\"\"Explicitly labelled KYRO test fixture. Intentionally vulnerable; never deploy.\"\"\"\n\nimport ast\nimport operator\n\nallowed_operators = {\n    ast.Add: operator.add,\n    ast.Sub: operator.sub,\n    ast.Mult: operator.mul,\n    ast.Div: operator.truediv,\n    ast.USub: operator.neg,\n}\n\n\ndef calculate(expression: str):\n    \"\"\"Preserve arithmetic behavior while testing remediation of dynamic eval.\"\"\"\n    try:\n        node = ast.parse(expression, mode='eval').body\n        return evaluate(node)\n    except (SyntaxError, AttributeError, TypeError) as e:\n        raise ValueError(f\"Invalid expression: {expression}\") from e\n\n\ndef evaluate(node):\n    if isinstance(node, ast.Num):  # <number>\n        return node.n\n    elif isinstance(node, ast.BinOp):  # <left> <operator> <right>\n        left = evaluate(node.left)\n        right = evaluate(node.right)\n        return allowed_operators[type(node.op)](left, right)\n    elif isinstance(node, ast.UnaryOp):  # <operator> <operand> e.g., -1\n        operand = evaluate(node.operand)\n        return allowed_operators[type(node.op)](operand)\n    else:\n        raise TypeError(node)\n",
+        "original_hash": "6b54d4f96fd6b4f3ba90a438e4ff45cb4ef9cee32c0b5e1d32f52ba9e136ac1b"
+      }
+    ],
+    "diff": "--- a/app.py\n+++ b/app.py\n@@ -1,6 +1,35 @@\n \"\"\"Explicitly labelled KYRO test fixture. Intentionally vulnerable; never deploy.\"\"\"\n+\n+import ast\n+import operator\n+\n+allowed_operators = {\n+    ast.Add: operator.add,\n+    ast.Sub: operator.sub,\n+    ast.Mult: operator.mul,\n+    ast.Div: operator.truediv,\n+    ast.USub: operator.neg,\n+}\n \n \n def calculate(expression: str):\n     \"\"\"Preserve arithmetic behavior while testing remediation of dynamic eval.\"\"\"\n-    return eval(expression)\n+    try:\n+        node = ast.parse(expression, mode='eval').body\n+        return evaluate(node)\n+    except (SyntaxError, AttributeError, TypeError) as e:\n+        raise ValueError(f\"Invalid expression: {expression}\") from e\n+\n+\n+def evaluate(node):\n+    if isinstance(node, ast.Num):  # <number>\n+        return node.n\n+    elif isinstance(node, ast.BinOp):  # <left> <operator> <right>\n+        left = evaluate(node.left)\n+        right = evaluate(node.right)\n+        return allowed_operators[type(node.op)](left, right)\n+    elif isinstance(node, ast.UnaryOp):  # <operator> <operand> e.g., -1\n+        operand = evaluate(node.operand)\n+        return allowed_operators[type(node.op)](operand)\n+    else:\n+        raise TypeError(node)\n",
+    "commands": [
+      {
+        "command": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ],
+        "status": "PASSED",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "duration_seconds": 0.61,
+        "kind": "build",
+        "tests_executed": null
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ],
+        "status": "PASSED",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "/workspace/app.py:25: DeprecationWarning: ast.Num is deprecated and will be removed in Python 3.14; use ast.Constant instead\n  if isinstance(node, ast.Num):  # <number>\n/workspace/app.py:26: DeprecationWarning: Attribute n is deprecated and will be removed in Python 3.14; use value instead\n  return node.n\n....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n",
+        "duration_seconds": 0.609,
+        "kind": "test",
+        "tests_executed": 4
+      }
+    ],
+    "original_sha": "aa759b926403a0394b2b4408f108f971b6cb0a96db233c6d0cf21ee8e37f4e61",
+    "checkpoint": "9cce0daf-c036-481f-8889-28f2be5ea5ed/step-1"
+  },
+  "verification": {},
+  "pull_request": {},
+  "created_at": "2026-11-07T13:22:34.645139+00:00",
+  "plan_digest": "6e93e1ae86eaeacc604cf6cf0af453068cbc28a6f0854d19ff5eecb4b81deacb"
+}

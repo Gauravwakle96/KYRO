@@ -1,0 +1,380 @@
+[
+  {
+    "repository": "OpenHands/vulnerability-fixer",
+    "retrieved_at": "2026-11-07T01:14:18.435026+00:00",
+    "html_url": "https://github.com/OpenHands/vulnerability-fixer",
+    "description": null,
+    "pushed_at": "2026-10-27T07:10:12Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "readme_source": "https://raw.githubusercontent.com/OpenHands/vulnerability-fixer/main/README.md",
+    "local_reference": "docs\\research\\OpenHands__vulnerability-fixer.md"
+  },
+  {
+    "repository": "OpenHands/OpenHands",
+    "retrieved_at": "2026-11-07T01:14:18.435931+00:00",
+    "html_url": "https://github.com/OpenHands/OpenHands",
+    "description": "\ud83d\ude4c OpenHands: AI-Driven Development",
+    "pushed_at": "2026-11-07T00:51:17Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "readme_source": "https://raw.githubusercontent.com/OpenHands/OpenHands/main/README.md",
+    "local_reference": "docs\\research\\OpenHands__OpenHands.md"
+  },
+  {
+    "repository": "OpenHands/software-agent-sdk",
+    "retrieved_at": "2026-11-07T01:14:18.436464+00:00",
+    "html_url": "https://github.com/OpenHands/software-agent-sdk",
+    "description": "A clean, modular SDK for building AI agents with OpenHands V1.",
+    "pushed_at": "2026-11-07T00:33:47Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "readme_source": "https://raw.githubusercontent.com/OpenHands/software-agent-sdk/main/README.md",
+    "local_reference": "docs\\research\\OpenHands__software-agent-sdk.md"
+  },
+  {
+    "repository": "Aider-AI/aider",
+    "retrieved_at": "2026-11-07T01:14:18.437102+00:00",
+    "html_url": "https://github.com/Aider-AI/aider",
+    "description": "aider is AI pair programming in your terminal",
+    "pushed_at": "2026-05-22T14:02:20Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "readme_source": "https://raw.githubusercontent.com/Aider-AI/aider/main/README.md",
+    "local_reference": "docs\\research\\Aider-AI__aider.md"
+  },
+  {
+    "repository": "SWE-agent/SWE-agent",
+    "retrieved_at": "2026-11-07T01:14:19.811907+00:00",
+    "html_url": "https://github.com/SWE-agent/SWE-agent",
+    "description": "SWE-agent takes a GitHub issue and tries to automatically fix it, using your LM of choice. It can also be employed for offensive cybersecurity or competitive coding challenges. [NeurIPS 2024] ",
+    "pushed_at": "2026-11-02T23:40:08Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "readme_source": "https://raw.githubusercontent.com/SWE-agent/SWE-agent/main/README.md",
+    "local_reference": "docs\\research\\SWE-agent__SWE-agent.md"
+  },
+  {
+    "repository": "SWE-agent/mini-swe-agent",
+    "retrieved_at": "2026-11-07T01:14:19.812287+00:00",
+    "html_url": "https://github.com/SWE-agent/mini-swe-agent",
+    "description": "The 100 line AI agent that solves GitHub issues or helps you in your command line. Radically simple, no huge configs, no giant monorepo\u2014but scores >74% on SWE-bench verified!",
+    "pushed_at": "2026-11-02T23:40:17Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "readme_source": "https://raw.githubusercontent.com/SWE-agent/mini-swe-agent/main/README.md",
+    "local_reference": "docs\\research\\SWE-agent__mini-swe-agent.md"
+  },
+  {
+    "repository": "DefectDojo/django-DefectDojo",
+    "retrieved_at": "2026-11-07T01:14:19.813273+00:00",
+    "html_url": "https://github.com/DefectDojo/django-DefectDojo",
+    "description": "Open-Source Unified Vulnerability Management, DevSecOps & ASPM",
+    "pushed_at": "2026-11-07T00:57:49Z",
+    "archived": false,
+    "default_branch": "master",
+    "license": {
+      "key": "bsd-3-clause",
+      "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+      "spdx_id": "BSD-3-Clause",
+      "url": "https://api.github.com/licenses/bsd-3-clause",
+      "node_id": "MDc6TGljZW5zZTU="
+    },
+    "readme_source": "https://raw.githubusercontent.com/DefectDojo/django-DefectDojo/master/README.md",
+    "local_reference": "docs\\research\\DefectDojo__django-DefectDojo.md"
+  },
+  {
+    "repository": "DependencyTrack/dependency-track",
+    "retrieved_at": "2026-11-07T01:14:19.814221+00:00",
+    "html_url": "https://github.com/DependencyTrack/dependency-track",
+    "description": "Dependency-Track is an intelligent Component Analysis platform that allows organizations to identify and reduce risk in the software supply chain.",
+    "pushed_at": "2026-11-05T23:08:11Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "readme_source": "https://raw.githubusercontent.com/DependencyTrack/dependency-track/main/README.md",
+    "local_reference": "docs\\research\\DependencyTrack__dependency-track.md"
+  },
+  {
+    "repository": "infobyte/faraday",
+    "retrieved_at": "2026-11-07T01:14:20.474684+00:00",
+    "html_url": "https://github.com/infobyte/faraday",
+    "description": "Open-source and AI-powered cybersecurity tools for offensive security, vulnerability management, and autonomous pentesting. Built by hackers in Latin America, used worldwide.",
+    "pushed_at": "2026-10-29T20:25:25Z",
+    "archived": false,
+    "default_branch": "master",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0",
+      "node_id": "MDc6TGljZW5zZTk="
+    },
+    "readme_source": "https://raw.githubusercontent.com/infobyte/faraday/master/README.md",
+    "local_reference": "docs\\research\\infobyte__faraday.md"
+  },
+  {
+    "repository": "semgrep/semgrep",
+    "retrieved_at": "2026-11-07T01:14:20.523759+00:00",
+    "html_url": "https://github.com/semgrep/semgrep",
+    "description": "Lightweight static analysis for many languages. Find bug variants with patterns that look like source code.",
+    "pushed_at": "2026-11-06T00:05:37Z",
+    "archived": false,
+    "default_branch": "develop",
+    "license": {
+      "key": "lgpl-2.1",
+      "name": "GNU Lesser General Public License v2.1",
+      "spdx_id": "LGPL-2.1",
+      "url": "https://api.github.com/licenses/lgpl-2.1",
+      "node_id": "MDc6TGljZW5zZTEx"
+    },
+    "readme_source": "https://raw.githubusercontent.com/semgrep/semgrep/develop/README.md",
+    "local_reference": "docs\\research\\semgrep__semgrep.md"
+  },
+  {
+    "repository": "aquasecurity/trivy",
+    "retrieved_at": "2026-11-07T01:14:20.716544+00:00",
+    "html_url": "https://github.com/aquasecurity/trivy",
+    "description": "Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more",
+    "pushed_at": "2026-11-06T11:29:59Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "readme_source": "https://raw.githubusercontent.com/aquasecurity/trivy/main/README.md",
+    "local_reference": "docs\\research\\aquasecurity__trivy.md"
+  },
+  {
+    "repository": "google/osv-scanner",
+    "retrieved_at": "2026-11-07T01:14:20.731257+00:00",
+    "html_url": "https://github.com/google/osv-scanner",
+    "description": "Vulnerability scanner written in Go which uses the data provided by https://osv.dev",
+    "pushed_at": "2026-11-06T20:57:45Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "readme_source": "https://raw.githubusercontent.com/google/osv-scanner/main/README.md",
+    "local_reference": "docs\\research\\google__osv-scanner.md"
+  },
+  {
+    "repository": "anchore/syft",
+    "retrieved_at": "2026-11-07T01:14:21.149043+00:00",
+    "html_url": "https://github.com/anchore/syft",
+    "description": "CLI tool and library for generating a Software Bill of Materials from container images and filesystems",
+    "pushed_at": "2026-11-07T00:45:05Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "readme_source": "https://raw.githubusercontent.com/anchore/syft/main/README.md",
+    "local_reference": "docs\\research\\anchore__syft.md"
+  },
+  {
+    "repository": "anchore/grype",
+    "retrieved_at": "2026-11-07T01:14:21.202057+00:00",
+    "html_url": "https://github.com/anchore/grype",
+    "description": "A vulnerability scanner for container images and filesystems",
+    "pushed_at": "2026-11-07T00:55:07Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "readme_source": "https://raw.githubusercontent.com/anchore/grype/main/README.md",
+    "local_reference": "docs\\research\\anchore__grype.md"
+  },
+  {
+    "repository": "gitleaks/gitleaks",
+    "retrieved_at": "2026-11-07T01:14:21.448288+00:00",
+    "html_url": "https://github.com/gitleaks/gitleaks",
+    "description": "Find secrets with Gitleaks \ud83d\udd11",
+    "pushed_at": "2026-10-28T04:14:29Z",
+    "archived": false,
+    "default_branch": "master",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "readme_source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+    "local_reference": "docs\\research\\gitleaks__gitleaks.md"
+  },
+  {
+    "repository": "zaproxy/zaproxy",
+    "retrieved_at": "2026-11-07T01:14:21.484920+00:00",
+    "html_url": "https://github.com/zaproxy/zaproxy",
+    "description": "The ZAP by Checkmarx Core project",
+    "pushed_at": "2026-11-06T16:01:57Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "readme_source": "https://raw.githubusercontent.com/zaproxy/zaproxy/main/README.md",
+    "local_reference": "docs\\research\\zaproxy__zaproxy.md"
+  },
+  {
+    "repository": "projectdiscovery/nuclei",
+    "retrieved_at": "2026-11-07T01:14:21.856282+00:00",
+    "html_url": "https://github.com/projectdiscovery/nuclei",
+    "description": "Nuclei is a fast, customizable vulnerability scanner powered by the global security community and built on a simple YAML-based DSL, enabling collaboration to tackle trending vulnerabilities on the internet. It helps you find vulnerabilities in your applications, APIs, networks, DNS, and cloud configurations.",
+    "pushed_at": "2026-11-06T23:12:10Z",
+    "archived": false,
+    "default_branch": "dev",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "readme_source": "https://raw.githubusercontent.com/projectdiscovery/nuclei/dev/README.md",
+    "local_reference": "docs\\research\\projectdiscovery__nuclei.md"
+  },
+  {
+    "repository": "tree-sitter/tree-sitter",
+    "retrieved_at": "2026-11-07T01:14:21.907747+00:00",
+    "html_url": "https://github.com/tree-sitter/tree-sitter",
+    "description": "An incremental parsing system for programming tools",
+    "pushed_at": "2026-11-06T23:13:11Z",
+    "archived": false,
+    "default_branch": "master",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "readme_source": "https://raw.githubusercontent.com/tree-sitter/tree-sitter/master/README.md",
+    "local_reference": "docs\\research\\tree-sitter__tree-sitter.md"
+  },
+  {
+    "repository": "moby/moby",
+    "retrieved_at": "2026-11-07T01:14:22.169796+00:00",
+    "html_url": "https://github.com/moby/moby",
+    "description": "The Moby Project - a collaborative project for the container ecosystem to assemble container-based systems",
+    "pushed_at": "2026-11-06T02:17:38Z",
+    "archived": false,
+    "default_branch": "master",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "readme_source": "https://raw.githubusercontent.com/moby/moby/master/README.md",
+    "local_reference": "docs\\research\\moby__moby.md"
+  },
+  {
+    "repository": "google/gvisor",
+    "retrieved_at": "2026-11-07T01:14:22.587050+00:00",
+    "html_url": "https://github.com/google/gvisor",
+    "description": "Application Kernel for Containers",
+    "pushed_at": "2026-11-07T01:04:49Z",
+    "archived": false,
+    "default_branch": "master",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "readme_source": "https://raw.githubusercontent.com/google/gvisor/master/README.md",
+    "local_reference": "docs\\research\\google__gvisor.md"
+  },
+  {
+    "repository": "langchain-ai/langgraph",
+    "retrieved_at": "2026-11-07T01:14:22.590803+00:00",
+    "html_url": "https://github.com/langchain-ai/langgraph",
+    "description": "Build resilient agents.",
+    "pushed_at": "2026-11-06T17:24:12Z",
+    "archived": false,
+    "default_branch": "main",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "readme_source": "https://raw.githubusercontent.com/langchain-ai/langgraph/main/README.md",
+    "local_reference": "docs\\research\\langchain-ai__langgraph.md"
+  }
+]

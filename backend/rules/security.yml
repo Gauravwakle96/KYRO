@@ -1,0 +1,51 @@
+rules:
+  - id: kyro.python.dynamic-eval
+    languages: [python]
+    severity: ERROR
+    message: Dynamic eval can execute attacker-controlled code. Use explicit parsing and allowed operations.
+    pattern: eval(...)
+    metadata:
+      cwe: ["CWE-95"]
+      confidence: HIGH
+      references: ["https://owasp.org/www-community/attacks/Code_Injection"]
+  - id: kyro.python.dynamic-exec
+    languages: [python]
+    severity: ERROR
+    message: Dynamic exec executes Python source. Review the input trust boundary.
+    pattern: exec(...)
+    metadata: {cwe: ["CWE-95"], confidence: HIGH}
+  - id: kyro.python.unsafe-pickle
+    languages: [python]
+    severity: ERROR
+    message: Pickle deserialization can execute code when data is untrusted.
+    pattern-either:
+      - pattern: pickle.loads(...)
+      - pattern: pickle.load(...)
+    metadata: {cwe: ["CWE-502"], confidence: HIGH}
+  - id: kyro.python.shell-execution
+    languages: [python]
+    severity: WARNING
+    message: Shell execution requires review of argument construction and untrusted input.
+    pattern-either:
+      - pattern: subprocess.run(..., shell=True, ...)
+      - pattern: subprocess.Popen(..., shell=True, ...)
+      - pattern: os.system(...)
+    metadata: {cwe: ["CWE-78"], confidence: MEDIUM}
+  - id: kyro.python.yaml-unsafe-load
+    languages: [python]
+    severity: ERROR
+    message: Use yaml.safe_load for untrusted YAML.
+    pattern: yaml.load($DATA)
+    metadata: {cwe: ["CWE-502"], confidence: HIGH}
+  - id: kyro.javascript.dynamic-eval
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: Dynamic eval can execute attacker-controlled JavaScript.
+    pattern: eval(...)
+    metadata: {cwe: ["CWE-95"], confidence: HIGH}
+  - id: kyro.javascript.shell-execution
+    languages: [javascript, typescript]
+    severity: WARNING
+    message: Review exec shell commands for attacker-controlled arguments.
+    pattern: $CP.exec(...)
+    metadata: {cwe: ["CWE-78"], confidence: MEDIUM}

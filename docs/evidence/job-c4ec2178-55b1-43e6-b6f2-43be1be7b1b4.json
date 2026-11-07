@@ -1,0 +1,55 @@
+{
+  "id": "c4ec2178-55b1-43e6-b6f2-43be1be7b1b4",
+  "user_id": "077d914a-6f4b-4bf5-83d9-282e03c19f6f",
+  "kind": "scan",
+  "resource_id": "b5aed67f-c7ce-4a06-be06-3afbf702dce1",
+  "payload": {},
+  "status": "SUCCEEDED",
+  "events": [
+    {
+      "at": "2026-11-07T13:00:21.142147+00:00",
+      "message": "Started scan",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:00:21.168112+00:00",
+      "message": "Running semgrep",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:00:25.818986+00:00",
+      "message": "semgrep: SUCCEEDED; 1 findings",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:00:25.823249+00:00",
+      "message": "Running osv",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:00:31.161041+00:00",
+      "message": "osv: SUCCEEDED; 40 findings",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:00:31.165396+00:00",
+      "message": "Running trivy",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:00:32.611135+00:00",
+      "message": "trivy: SUCCEEDED; 5 findings",
+      "detail": {}
+    }
+  ],
+  "result": {
+    "scan_id": "1739399b-2d32-4c69-913c-b5660d26e841",
+    "scan_status": "SUCCEEDED",
+    "findings": 22
+  },
+  "error": null,
+  "cancel_requested": false,
+  "created_at": "2026-11-07T13:00:20.756582+00:00",
+  "started_at": "2026-11-07T13:00:21.122002+00:00",
+  "ended_at": "2026-11-07T13:00:32.649314+00:00"
+}

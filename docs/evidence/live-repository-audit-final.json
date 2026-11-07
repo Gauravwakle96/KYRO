@@ -1,0 +1,1891 @@
+{
+  "started_at": "2026-11-07T15:16:11.899201+00:00",
+  "status": "COMPLETED_WITH_FAILURES",
+  "scope": "Sequential indexing, actual scanner execution and evidence/data boundaries on authorized default branches",
+  "transport": "Deployed backend services and persistent jobs; not a browser login test",
+  "repository_count": 19,
+  "repositories": [
+    {
+      "name": "Gauravwakle96/KYRO",
+      "branch": "main",
+      "private": false,
+      "status": "FAILED",
+      "started_at": "2026-11-07T15:16:11.903121+00:00",
+      "repository_id": "a800161f-c5ef-412f-bd77-b47704d855c1",
+      "ingestion_job": {
+        "id": "cce49c6c-27bb-45fe-a51a-c5805ba505d9",
+        "kind": "ingest",
+        "status": "FAILED",
+        "error": "GitHub repository has no commits yet; push source code before importing it (409)",
+        "result": {},
+        "started_at": "2026-11-07T15:16:14.382926+00:00",
+        "ended_at": "2026-11-07T15:16:15.317432+00:00",
+        "payload": {
+          "operator_audit": true,
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "error": "GitHub repository has no commits yet; push source code before importing it (409)",
+      "completed_at": "2026-11-07T15:16:16.736856+00:00"
+    },
+    {
+      "name": "Gauravwakle96/INHERIA",
+      "branch": "main",
+      "private": false,
+      "status": "INCONCLUSIVE",
+      "started_at": "2026-11-07T15:16:16.738158+00:00",
+      "repository_id": "ded99edd-8137-41ec-a503-c8d2ecc81761",
+      "scan_job": {
+        "id": "cef73cec-36ec-41d4-917c-9d911917854e",
+        "kind": "scan",
+        "status": "INCONCLUSIVE",
+        "error": "Operation has incomplete evidence; inspect its report before retrying",
+        "result": {
+          "scan_id": "641c1d6a-6aac-4bf1-ae7e-a38079865bd2",
+          "scan_status": "PARTIAL",
+          "findings": 0,
+          "state": "INCONCLUSIVE"
+        },
+        "started_at": "2026-11-07T15:16:21.337580+00:00",
+        "ended_at": "2026-11-07T15:16:31.247147+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "830ce48434d8ea5246b1d73baf8f770bded5ed46",
+      "index_status": "READY",
+      "indexed_files": 86,
+      "languages": {
+        "Python": 35,
+        "JavaScript": 1,
+        "TypeScript": 19
+      },
+      "frameworks": [
+        "Django",
+        "FastAPI",
+        "Next.js",
+        "React"
+      ],
+      "dependencies": 297,
+      "test_files": 11,
+      "symbols": 386,
+      "parse_errors": [
+        {
+          "file": "frontend/src/pages/Continuity.tsx",
+          "error": "AST contains parse errors"
+        },
+        {
+          "file": "frontend/src/pages/Graph.tsx",
+          "error": "AST contains parse errors"
+        },
+        {
+          "file": "frontend/src/pages/Sources.tsx",
+          "error": "AST contains parse errors"
+        }
+      ],
+      "findings": 0,
+      "severity": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0,
+        "LOW": 0,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 0,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 0,
+        "NO_REFERENCE_FOUND": 0,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 0,
+        "characters": 0,
+        "evaluated": false
+      },
+      "graph": {
+        "nodes": 1,
+        "edges": 0
+      },
+      "scan_id": "641c1d6a-6aac-4bf1-ae7e-a38079865bd2",
+      "scan_status": "PARTIAL",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "PARTIAL",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 3.015,
+          "error": "Semgrep reported 2 parsing/analysis errors; inspect raw scanner evidence for affected files"
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 0,
+          "duration_seconds": 1.608,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.604,
+          "error": ""
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:16:35.250211+00:00"
+    },
+    {
+      "name": "Gauravwakle96/NTUxSTEng_Hackathon",
+      "branch": "main",
+      "private": false,
+      "status": "INCONCLUSIVE",
+      "started_at": "2026-11-07T15:16:35.253577+00:00",
+      "repository_id": "478cb46e-f618-4110-af19-a5fe4955350d",
+      "scan_job": {
+        "id": "9ebe690a-87d4-4f25-9c11-502b86e08b83",
+        "kind": "scan",
+        "status": "INCONCLUSIVE",
+        "error": "Operation has incomplete evidence; inspect its report before retrying",
+        "result": {
+          "scan_id": "92482771-8a42-496b-905b-694597217d35",
+          "scan_status": "PARTIAL",
+          "findings": 0,
+          "state": "INCONCLUSIVE"
+        },
+        "started_at": "2026-11-07T15:16:39.765367+00:00",
+        "ended_at": "2026-11-07T15:16:46.679983+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "6c1b07e144fc3389fae536c7d4a3d67883c23975",
+      "index_status": "READY",
+      "indexed_files": 28,
+      "languages": {
+        "Python": 22
+      },
+      "frameworks": [
+        "Next.js"
+      ],
+      "dependencies": 3,
+      "test_files": 13,
+      "symbols": 1000,
+      "parse_errors": [],
+      "findings": 0,
+      "severity": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0,
+        "LOW": 0,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 0,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 0,
+        "NO_REFERENCE_FOUND": 0,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 0,
+        "characters": 0,
+        "evaluated": false
+      },
+      "graph": {
+        "nodes": 1,
+        "edges": 0
+      },
+      "scan_id": "92482771-8a42-496b-905b-694597217d35",
+      "scan_status": "PARTIAL",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 2.415,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 0,
+          "duration_seconds": 0.603,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "NOT_APPLICABLE",
+          "findings": 0,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.603,
+          "error": "No supported package files detected; dependency coverage is unavailable"
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:16:49.220971+00:00"
+    },
+    {
+      "name": "Gauravwakle96/Plugin-fraud-behavior-",
+      "branch": "main",
+      "private": false,
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-07T15:16:49.221683+00:00",
+      "repository_id": "01ede546-289c-44db-830a-6b17bd19947a",
+      "scan_job": {
+        "id": "398db42b-877f-45ca-a471-119b6dcbb714",
+        "kind": "scan",
+        "status": "SUCCEEDED",
+        "error": "",
+        "result": {
+          "scan_id": "f7c98c0a-ab05-4a9a-84e4-2c8d78774692",
+          "scan_status": "SUCCEEDED",
+          "findings": 27,
+          "state": "SUCCEEDED"
+        },
+        "started_at": "2026-11-07T15:16:53.697116+00:00",
+        "ended_at": "2026-11-07T15:17:04.279784+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "ea3f4f4483b4324d1c2b0c1224e55977e34ed436",
+      "index_status": "READY",
+      "indexed_files": 268,
+      "languages": {
+        "TypeScript": 197,
+        "Go": 5
+      },
+      "frameworks": [
+        "Express",
+        "Next.js",
+        "React"
+      ],
+      "dependencies": 179,
+      "test_files": 0,
+      "symbols": 668,
+      "parse_errors": [],
+      "findings": 27,
+      "severity": {
+        "CRITICAL": 0,
+        "HIGH": 9,
+        "MEDIUM": 12,
+        "LOW": 2,
+        "UNKNOWN": 4
+      },
+      "risk_assessments_with_factors": 27,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 3,
+        "POTENTIAL_REACHABILITY": 2,
+        "INFERRED_REACHABILITY": 1,
+        "NO_REFERENCE_FOUND": 21,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 1,
+        "characters": 11614,
+        "evaluated": true
+      },
+      "graph": {
+        "nodes": 34,
+        "edges": 46
+      },
+      "scan_id": "f7c98c0a-ab05-4a9a-84e4-2c8d78774692",
+      "scan_status": "SUCCEEDED",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 3,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 3.014,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 22,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 1,
+          "duration_seconds": 3.244,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "SUCCEEDED",
+          "findings": 4,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.604,
+          "error": ""
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:17:07.403726+00:00"
+    },
+    {
+      "name": "Gauravwakle96/NAGRIVANTA-2",
+      "branch": "main",
+      "private": false,
+      "status": "INCONCLUSIVE",
+      "started_at": "2026-11-07T15:17:07.404336+00:00",
+      "repository_id": "66a93031-1dbf-4c0a-a490-8b65e67e1bdd",
+      "scan_job": {
+        "id": "03422cb8-c2d0-4a95-bf14-c9e262ea766a",
+        "kind": "scan",
+        "status": "INCONCLUSIVE",
+        "error": "Operation has incomplete evidence; inspect its report before retrying",
+        "result": {
+          "scan_id": "d395c979-b7b9-443c-9137-5a9bfa2dc8e0",
+          "scan_status": "PARTIAL",
+          "findings": 0,
+          "state": "INCONCLUSIVE"
+        },
+        "started_at": "2026-11-07T15:17:11.857295+00:00",
+        "ended_at": "2026-11-07T15:17:19.148250+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "80c26bc21957eca3331be6856b2e32854bb905cc",
+      "index_status": "READY",
+      "indexed_files": 17,
+      "languages": {
+        "JavaScript": 2,
+        "Python": 2
+      },
+      "frameworks": [],
+      "dependencies": 0,
+      "test_files": 1,
+      "symbols": 150,
+      "parse_errors": [],
+      "findings": 0,
+      "severity": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0,
+        "LOW": 0,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 0,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 0,
+        "NO_REFERENCE_FOUND": 0,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 0,
+        "characters": 0,
+        "evaluated": false
+      },
+      "graph": {
+        "nodes": 1,
+        "edges": 0
+      },
+      "scan_id": "d395c979-b7b9-443c-9137-5a9bfa2dc8e0",
+      "scan_status": "PARTIAL",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 2.614,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "NOT_APPLICABLE",
+          "findings": 0,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 128,
+          "duration_seconds": 0.604,
+          "error": "No supported dependency sources found; dependency coverage is unavailable"
+        },
+        {
+          "scanner": "trivy",
+          "status": "NOT_APPLICABLE",
+          "findings": 0,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.604,
+          "error": "No supported package files detected; dependency coverage is unavailable"
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:17:21.851402+00:00"
+    },
+    {
+      "name": "Gauravwakle96/SOVRIVA",
+      "branch": "main",
+      "private": false,
+      "status": "INCONCLUSIVE",
+      "started_at": "2026-11-07T15:17:21.852192+00:00",
+      "repository_id": "03639073-0df9-425f-8d3e-31cd733be599",
+      "scan_job": {
+        "id": "55e9fca2-8bf7-4cda-9255-342849d27651",
+        "kind": "scan",
+        "status": "INCONCLUSIVE",
+        "error": "Operation has incomplete evidence; inspect its report before retrying",
+        "result": {
+          "scan_id": "d5355aae-029e-4e48-89b9-cdbad452c30c",
+          "scan_status": "PARTIAL",
+          "findings": 0,
+          "state": "INCONCLUSIVE"
+        },
+        "started_at": "2026-11-07T15:17:26.666047+00:00",
+        "ended_at": "2026-11-07T15:17:34.758743+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "3090e52ebe2abae3c2cc505cbb73bacbddf521cf",
+      "index_status": "READY",
+      "indexed_files": 90,
+      "languages": {
+        "JavaScript": 5,
+        "Python": 10,
+        "Rust": 3
+      },
+      "frameworks": [
+        "FastAPI"
+      ],
+      "dependencies": 16,
+      "test_files": 2,
+      "symbols": 175,
+      "parse_errors": [],
+      "findings": 0,
+      "severity": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0,
+        "LOW": 0,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 0,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 0,
+        "NO_REFERENCE_FOUND": 0,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 0,
+        "characters": 0,
+        "evaluated": false
+      },
+      "graph": {
+        "nodes": 1,
+        "edges": 0
+      },
+      "scan_id": "d5355aae-029e-4e48-89b9-cdbad452c30c",
+      "scan_status": "PARTIAL",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 2.818,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 0,
+          "duration_seconds": 1.209,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "NOT_APPLICABLE",
+          "findings": 0,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.603,
+          "error": "No supported package files detected; dependency coverage is unavailable"
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:17:41.773830+00:00"
+    },
+    {
+      "name": "Gauravwakle96/OPTICORE",
+      "branch": "main",
+      "private": false,
+      "status": "FAILED",
+      "started_at": "2026-11-07T15:17:41.774512+00:00",
+      "repository_id": "1985e728-bb43-42e5-af0c-e2c2680c20e2",
+      "ingestion_job": {
+        "id": "6e036dd4-caa3-4fc0-8d91-6b1b5ed94094",
+        "kind": "ingest",
+        "status": "FAILED",
+        "error": "GitHub repository has no commits yet; push source code before importing it (409)",
+        "result": {},
+        "started_at": "2026-11-07T15:17:44.293405+00:00",
+        "ended_at": "2026-11-07T15:17:44.771948+00:00",
+        "payload": {
+          "operator_audit": true,
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "error": "GitHub repository has no commits yet; push source code before importing it (409)",
+      "completed_at": "2026-11-07T15:17:46.570667+00:00"
+    },
+    {
+      "name": "Gauravwakle96/VARSHIQ",
+      "branch": "master",
+      "private": false,
+      "status": "INCONCLUSIVE",
+      "started_at": "2026-11-07T15:17:46.571401+00:00",
+      "repository_id": "0b243bea-93ca-4d94-9970-d12e93a704ed",
+      "scan_job": {
+        "id": "d79a32db-2b45-4bf0-8fb1-12b4cdd41e75",
+        "kind": "scan",
+        "status": "INCONCLUSIVE",
+        "error": "Operation has incomplete evidence; inspect its report before retrying",
+        "result": {
+          "scan_id": "18b6e68e-cf78-406c-affe-09859e59a808",
+          "scan_status": "PARTIAL",
+          "findings": 0,
+          "state": "INCONCLUSIVE"
+        },
+        "started_at": "2026-11-07T15:17:51.289786+00:00",
+        "ended_at": "2026-11-07T15:18:10.908868+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "71f9abfc3aac8f4f768ad1faf72af387ef602db1",
+      "index_status": "READY",
+      "indexed_files": 159,
+      "languages": {
+        "Python": 65,
+        "JavaScript": 1,
+        "TypeScript": 36
+      },
+      "frameworks": [
+        "FastAPI",
+        "React"
+      ],
+      "dependencies": 404,
+      "test_files": 23,
+      "symbols": 613,
+      "parse_errors": [
+        {
+          "file": "frontend/src/App.tsx",
+          "error": "AST contains parse errors"
+        },
+        {
+          "file": "frontend/src/components/InstallationHelp.tsx",
+          "error": "AST contains parse errors"
+        },
+        {
+          "file": "frontend/src/pages/Auth.tsx",
+          "error": "AST contains parse errors"
+        },
+        {
+          "file": "frontend/src/pages/Demo.tsx",
+          "error": "AST contains parse errors"
+        },
+        {
+          "file": "frontend/src/pages/Models.tsx",
+          "error": "AST contains parse errors"
+        },
+        {
+          "file": "frontend/src/pages/Property.tsx",
+          "error": "AST contains parse errors"
+        }
+      ],
+      "findings": 0,
+      "severity": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0,
+        "LOW": 0,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 0,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 0,
+        "NO_REFERENCE_FOUND": 0,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 0,
+        "characters": 0,
+        "evaluated": false
+      },
+      "graph": {
+        "nodes": 1,
+        "edges": 0
+      },
+      "scan_id": "18b6e68e-cf78-406c-affe-09859e59a808",
+      "scan_status": "PARTIAL",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "PARTIAL",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 3.225,
+          "error": "Semgrep reported 1 parsing/analysis errors; inspect raw scanner evidence for affected files"
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 0,
+          "duration_seconds": 12.103,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.604,
+          "error": ""
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:18:14.386026+00:00"
+    },
+    {
+      "name": "Gauravwakle96/graphear",
+      "branch": "main",
+      "private": false,
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-07T15:18:14.386848+00:00",
+      "repository_id": "062ef93b-fa34-497f-a1c4-113e57cc884a",
+      "scan_job": {
+        "id": "d639d04d-4a48-4169-855d-6a2642b4c00f",
+        "kind": "scan",
+        "status": "SUCCEEDED",
+        "error": "",
+        "result": {
+          "scan_id": "b23527c2-f67d-4091-9f9b-9b7e7bf665fc",
+          "scan_status": "SUCCEEDED",
+          "findings": 1,
+          "state": "SUCCEEDED"
+        },
+        "started_at": "2026-11-07T15:18:19.435077+00:00",
+        "ended_at": "2026-11-07T15:18:27.944105+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "eb43b27855fe25ae744cc42d6a3e78151c781909",
+      "index_status": "READY",
+      "indexed_files": 77,
+      "languages": {
+        "TypeScript": 32,
+        "JavaScript": 1
+      },
+      "frameworks": [
+        "Express",
+        "Next.js",
+        "React"
+      ],
+      "dependencies": 362,
+      "test_files": 4,
+      "symbols": 77,
+      "parse_errors": [],
+      "findings": 1,
+      "severity": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 1,
+        "LOW": 0,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 1,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 1,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 0,
+        "NO_REFERENCE_FOUND": 0,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 4,
+        "characters": 17858,
+        "evaluated": true
+      },
+      "graph": {
+        "nodes": 3,
+        "edges": 3
+      },
+      "scan_id": "b23527c2-f67d-4091-9f9b-9b7e7bf665fc",
+      "scan_status": "SUCCEEDED",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 1,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 3.016,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 0,
+          "duration_seconds": 1.609,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.605,
+          "error": ""
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:18:33.525724+00:00"
+    },
+    {
+      "name": "Gauravwakle96/Anime-Web-Demo",
+      "branch": "master",
+      "private": false,
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-07T15:18:33.526555+00:00",
+      "repository_id": "cd5bf5d7-bace-48b8-b6d5-8e54a4298656",
+      "scan_job": {
+        "id": "75cad1c2-38a4-4b7d-879c-5e3806c29a73",
+        "kind": "scan",
+        "status": "SUCCEEDED",
+        "error": "",
+        "result": {
+          "scan_id": "8de9911a-08de-4a9e-993c-0a9a9382b550",
+          "scan_status": "SUCCEEDED",
+          "findings": 23,
+          "state": "SUCCEEDED"
+        },
+        "started_at": "2026-11-07T15:18:38.474245+00:00",
+        "ended_at": "2026-11-07T15:18:51.516410+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "32712e5c5a1e42d98584a4104f6cb40c0d8a674d",
+      "index_status": "READY",
+      "indexed_files": 81,
+      "languages": {
+        "JavaScript": 3,
+        "TypeScript": 51
+      },
+      "frameworks": [
+        "React"
+      ],
+      "dependencies": 525,
+      "test_files": 0,
+      "symbols": 82,
+      "parse_errors": [],
+      "findings": 23,
+      "severity": {
+        "CRITICAL": 0,
+        "HIGH": 9,
+        "MEDIUM": 13,
+        "LOW": 1,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 23,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 8,
+        "NO_REFERENCE_FOUND": 15,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 0,
+        "characters": 0,
+        "evaluated": true
+      },
+      "graph": {
+        "nodes": 25,
+        "edges": 32
+      },
+      "scan_id": "8de9911a-08de-4a9e-993c-0a9a9382b550",
+      "scan_status": "SUCCEEDED",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 3.62,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 23,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 1,
+          "duration_seconds": 3.249,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "SUCCEEDED",
+          "findings": 7,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 1.41,
+          "error": ""
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:18:58.475882+00:00"
+    },
+    {
+      "name": "Gauravwakle96/SPENDSMART",
+      "branch": "main",
+      "private": false,
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-07T15:18:58.478464+00:00",
+      "repository_id": "fce06663-47bd-48a6-b428-a473ff81da11",
+      "scan_job": {
+        "id": "ba2ff2b0-80e4-40d3-b250-3ffc7bb1857d",
+        "kind": "scan",
+        "status": "SUCCEEDED",
+        "error": "",
+        "result": {
+          "scan_id": "02e5ce8a-b5c2-448c-b5ce-71249784554d",
+          "scan_status": "SUCCEEDED",
+          "findings": 14,
+          "state": "SUCCEEDED"
+        },
+        "started_at": "2026-11-07T15:19:15.645548+00:00",
+        "ended_at": "2026-11-07T15:19:38.255491+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "d5c39b101f1af50e65427fcbc04dd6ba576259c9",
+      "index_status": "READY",
+      "indexed_files": 64,
+      "languages": {
+        "JavaScript": 1,
+        "TypeScript": 40
+      },
+      "frameworks": [
+        "Express",
+        "React"
+      ],
+      "dependencies": 1006,
+      "test_files": 12,
+      "symbols": 242,
+      "parse_errors": [],
+      "findings": 14,
+      "severity": {
+        "CRITICAL": 2,
+        "HIGH": 0,
+        "MEDIUM": 12,
+        "LOW": 0,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 14,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 1,
+        "NO_REFERENCE_FOUND": 13,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 3,
+        "characters": 22537,
+        "evaluated": true
+      },
+      "graph": {
+        "nodes": 25,
+        "edges": 34
+      },
+      "scan_id": "02e5ce8a-b5c2-448c-b5ce-71249784554d",
+      "scan_status": "SUCCEEDED",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 3.016,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 14,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 1,
+          "duration_seconds": 3.019,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.605,
+          "error": ""
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:19:45.078259+00:00"
+    },
+    {
+      "name": "Gauravwakle96/Ai-WasteTwinn",
+      "branch": "main",
+      "private": false,
+      "status": "INCONCLUSIVE",
+      "started_at": "2026-11-07T15:19:45.079576+00:00",
+      "repository_id": "02dad475-d301-4e04-bf77-2b7772ace7a5",
+      "scan_job": {
+        "id": "cadecd28-55d8-4190-8679-0b0a1500876c",
+        "kind": "scan",
+        "status": "INCONCLUSIVE",
+        "error": "Operation has incomplete evidence; inspect its report before retrying",
+        "result": {
+          "scan_id": "9d6c1568-9d4d-49c6-877c-ed4c2c3093f7",
+          "scan_status": "PARTIAL",
+          "findings": 0,
+          "state": "INCONCLUSIVE"
+        },
+        "started_at": "2026-11-07T15:19:50.784251+00:00",
+        "ended_at": "2026-11-07T15:20:00.100163+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "c609bafe04621d70f88408d55fe73bd98c970e4f",
+      "index_status": "READY",
+      "indexed_files": 18,
+      "languages": {
+        "JavaScript": 1,
+        "Python": 1
+      },
+      "frameworks": [
+        "Next.js"
+      ],
+      "dependencies": 0,
+      "test_files": 6,
+      "symbols": 90,
+      "parse_errors": [],
+      "findings": 0,
+      "severity": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0,
+        "LOW": 0,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 0,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 0,
+        "NO_REFERENCE_FOUND": 0,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 0,
+        "characters": 0,
+        "evaluated": false
+      },
+      "graph": {
+        "nodes": 1,
+        "edges": 0
+      },
+      "scan_id": "9d6c1568-9d4d-49c6-877c-ed4c2c3093f7",
+      "scan_status": "PARTIAL",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "PARTIAL",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 3.622,
+          "error": "Semgrep reported 1 parsing/analysis errors; inspect raw scanner evidence for affected files"
+        },
+        {
+          "scanner": "osv",
+          "status": "NOT_APPLICABLE",
+          "findings": 0,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 128,
+          "duration_seconds": 0.604,
+          "error": "No supported dependency sources found; dependency coverage is unavailable"
+        },
+        {
+          "scanner": "trivy",
+          "status": "NOT_APPLICABLE",
+          "findings": 0,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.604,
+          "error": "No supported package files detected; dependency coverage is unavailable"
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:20:06.940229+00:00"
+    },
+    {
+      "name": "Gauravwakle96/NAGRIVANTA",
+      "branch": "main",
+      "private": false,
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-07T15:20:06.941014+00:00",
+      "repository_id": "cd96be49-d75e-444f-81be-fe2b13ef08e2",
+      "scan_job": {
+        "id": "28422a49-6f75-4af1-b406-b1a352e8de35",
+        "kind": "scan",
+        "status": "SUCCEEDED",
+        "error": "",
+        "result": {
+          "scan_id": "1fcbd14e-9d6a-46c4-a95c-ad0d0a2c8bde",
+          "scan_status": "SUCCEEDED",
+          "findings": 35,
+          "state": "SUCCEEDED"
+        },
+        "started_at": "2026-11-07T15:20:11.125302+00:00",
+        "ended_at": "2026-11-07T15:20:28.723785+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "b3ebc44926b8844d3fe03ff13185dc5c60ff8f71",
+      "index_status": "READY",
+      "indexed_files": 133,
+      "languages": {
+        "Python": 36,
+        "TypeScript": 73
+      },
+      "frameworks": [
+        "Express",
+        "FastAPI",
+        "React"
+      ],
+      "dependencies": 669,
+      "test_files": 3,
+      "symbols": 532,
+      "parse_errors": [],
+      "findings": 35,
+      "severity": {
+        "CRITICAL": 3,
+        "HIGH": 11,
+        "MEDIUM": 17,
+        "LOW": 4,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 35,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 6,
+        "NO_REFERENCE_FOUND": 29,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 4,
+        "characters": 12004,
+        "evaluated": true
+      },
+      "graph": {
+        "nodes": 37,
+        "edges": 42
+      },
+      "scan_id": "1fcbd14e-9d6a-46c4-a95c-ad0d0a2c8bde",
+      "scan_status": "SUCCEEDED",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 3.015,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 38,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 1,
+          "duration_seconds": 10.529,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "SUCCEEDED",
+          "findings": 21,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.62,
+          "error": ""
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:20:33.354039+00:00"
+    },
+    {
+      "name": "Gauravwakle96/Twin_ai",
+      "branch": "master",
+      "private": false,
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-07T15:20:33.354806+00:00",
+      "repository_id": "12f86170-a1a8-4659-af74-0d1962907bc3",
+      "scan_job": {
+        "id": "78909432-790e-4a23-b978-e0bfe5b1befe",
+        "kind": "scan",
+        "status": "SUCCEEDED",
+        "error": "",
+        "result": {
+          "scan_id": "2844673e-56c2-4527-8550-799fb25c6420",
+          "scan_status": "SUCCEEDED",
+          "findings": 21,
+          "state": "SUCCEEDED"
+        },
+        "started_at": "2026-11-07T15:20:37.740345+00:00",
+        "ended_at": "2026-11-07T15:21:00.728712+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "7813b905ee823c734b44c251a8cad9625c7e3117",
+      "index_status": "READY",
+      "indexed_files": 56,
+      "languages": {
+        "Python": 21,
+        "TypeScript": 20
+      },
+      "frameworks": [
+        "FastAPI",
+        "React"
+      ],
+      "dependencies": 342,
+      "test_files": 1,
+      "symbols": 195,
+      "parse_errors": [
+        {
+          "file": "frontend/src/pages/FleetPage.tsx",
+          "error": "AST contains parse errors"
+        }
+      ],
+      "findings": 21,
+      "severity": {
+        "CRITICAL": 3,
+        "HIGH": 6,
+        "MEDIUM": 11,
+        "LOW": 1,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 21,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 8,
+        "NO_REFERENCE_FOUND": 13,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 2,
+        "characters": 4460,
+        "evaluated": true
+      },
+      "graph": {
+        "nodes": 23,
+        "edges": 30
+      },
+      "scan_id": "2844673e-56c2-4527-8550-799fb25c6420",
+      "scan_status": "SUCCEEDED",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 2.412,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 24,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 1,
+          "duration_seconds": 16.63,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "SUCCEEDED",
+          "findings": 5,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.604,
+          "error": ""
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:21:04.201314+00:00"
+    },
+    {
+      "name": "Gauravwakle96/inkloom",
+      "branch": "master",
+      "private": false,
+      "status": "INCONCLUSIVE",
+      "started_at": "2026-11-07T15:21:04.202122+00:00",
+      "repository_id": "db5ab0d8-75d0-4669-b9e9-d8193ad0d07b",
+      "scan_job": {
+        "id": "47585acb-36f4-49f5-a62a-e145866a9eb5",
+        "kind": "scan",
+        "status": "INCONCLUSIVE",
+        "error": "Operation has incomplete evidence; inspect its report before retrying",
+        "result": {
+          "scan_id": "969d94f2-776f-4487-b50d-581e18726e62",
+          "scan_status": "PARTIAL",
+          "findings": 55,
+          "state": "INCONCLUSIVE"
+        },
+        "started_at": "2026-11-07T15:21:08.746180+00:00",
+        "ended_at": "2026-11-07T15:21:21.613216+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "62f0627ba8391b84d8ade4a1f2f4f5479d467171",
+      "index_status": "READY",
+      "indexed_files": 311,
+      "languages": {
+        "TypeScript": 253
+      },
+      "frameworks": [
+        "Next.js",
+        "React"
+      ],
+      "dependencies": 69,
+      "test_files": 40,
+      "symbols": 714,
+      "parse_errors": [
+        {
+          "file": "packages/core/src/security/__tests__/redirect.test.ts",
+          "error": "AST contains parse errors"
+        }
+      ],
+      "findings": 55,
+      "severity": {
+        "CRITICAL": 3,
+        "HIGH": 18,
+        "MEDIUM": 26,
+        "LOW": 8,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 55,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 3,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 15,
+        "NO_REFERENCE_FOUND": 37,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 4,
+        "characters": 17144,
+        "evaluated": true
+      },
+      "graph": {
+        "nodes": 84,
+        "edges": 178
+      },
+      "scan_id": "969d94f2-776f-4487-b50d-581e18726e62",
+      "scan_status": "PARTIAL",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "PARTIAL",
+          "findings": 3,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 4.447,
+          "error": "Semgrep reported 1 parsing/analysis errors; inspect raw scanner evidence for affected files"
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 47,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 1,
+          "duration_seconds": 2.638,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "SUCCEEDED",
+          "findings": 20,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.605,
+          "error": ""
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:21:28.032532+00:00"
+    },
+    {
+      "name": "Gauravwakle96/online-basic-calculator",
+      "branch": "main",
+      "private": false,
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-07T15:21:28.033526+00:00",
+      "repository_id": "9f30556f-5a21-4e17-9a46-dcab29d8e92e",
+      "scan_job": {
+        "id": "ebe674c9-252e-4c7c-a275-c28db6b60f50",
+        "kind": "scan",
+        "status": "SUCCEEDED",
+        "error": "",
+        "result": {
+          "scan_id": "d83f86ad-9cc5-40db-82cc-8a6a108fe079",
+          "scan_status": "SUCCEEDED",
+          "findings": 16,
+          "state": "SUCCEEDED"
+        },
+        "started_at": "2026-11-07T15:21:32.647558+00:00",
+        "ended_at": "2026-11-07T15:21:43.566706+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "bb2e3c6e742eea5b802c50cee23ca1cbf5e2c291",
+      "index_status": "READY",
+      "indexed_files": 6,
+      "languages": {
+        "Python": 1
+      },
+      "frameworks": [
+        "Flask"
+      ],
+      "dependencies": 2,
+      "test_files": 0,
+      "symbols": 2,
+      "parse_errors": [],
+      "findings": 16,
+      "severity": {
+        "CRITICAL": 0,
+        "HIGH": 3,
+        "MEDIUM": 12,
+        "LOW": 1,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 16,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 2,
+        "INFERRED_REACHABILITY": 0,
+        "NO_REFERENCE_FOUND": 14,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 2,
+        "characters": 2461,
+        "evaluated": true
+      },
+      "graph": {
+        "nodes": 18,
+        "edges": 47
+      },
+      "scan_id": "d83f86ad-9cc5-40db-82cc-8a6a108fe079",
+      "scan_status": "SUCCEEDED",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 2.813,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 32,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 1,
+          "duration_seconds": 4.244,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "SUCCEEDED",
+          "findings": 8,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.604,
+          "error": ""
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:21:46.778338+00:00"
+    },
+    {
+      "name": "Gauravwakle96/CommBank-Server",
+      "branch": "main",
+      "private": false,
+      "status": "INCONCLUSIVE",
+      "started_at": "2026-11-07T15:21:46.779256+00:00",
+      "repository_id": "7b8093ac-02c0-4773-9b51-ad24d80708d9",
+      "scan_job": {
+        "id": "8fae6c91-5b1b-4fda-9692-81c722bfe56d",
+        "kind": "scan",
+        "status": "INCONCLUSIVE",
+        "error": "Operation has incomplete evidence; inspect its report before retrying",
+        "result": {
+          "scan_id": "38102ab0-7ca0-467c-ba83-7ffce114c970",
+          "scan_status": "PARTIAL",
+          "findings": 1,
+          "state": "INCONCLUSIVE"
+        },
+        "started_at": "2026-11-07T15:21:51.083854+00:00",
+        "ended_at": "2026-11-07T15:21:58.792627+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "e83c453353703ed91b0e4de08430eaf7cedebb3d",
+      "index_status": "READY",
+      "indexed_files": 51,
+      "languages": {
+        "C#": 43
+      },
+      "frameworks": [],
+      "dependencies": 0,
+      "test_files": 0,
+      "symbols": 0,
+      "parse_errors": [],
+      "findings": 1,
+      "severity": {
+        "CRITICAL": 0,
+        "HIGH": 1,
+        "MEDIUM": 0,
+        "LOW": 0,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 1,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 0,
+        "NO_REFERENCE_FOUND": 1,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 1,
+        "characters": 1202,
+        "evaluated": true
+      },
+      "graph": {
+        "nodes": 2,
+        "edges": 1
+      },
+      "scan_id": "38102ab0-7ca0-467c-ba83-7ffce114c970",
+      "scan_status": "PARTIAL",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 2.413,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 1,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 1,
+          "duration_seconds": 1.407,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "NOT_APPLICABLE",
+          "findings": 0,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.605,
+          "error": "No supported package files detected; dependency coverage is unavailable"
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:22:04.734157+00:00"
+    },
+    {
+      "name": "Gauravwakle96/Zoro",
+      "branch": "main",
+      "private": false,
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-07T15:22:04.734994+00:00",
+      "repository_id": "cc7299fb-eb9d-4e22-b3df-077b152a2a88",
+      "scan_job": {
+        "id": "3944a5dc-dadf-42d4-a5c9-41d8095b603a",
+        "kind": "scan",
+        "status": "SUCCEEDED",
+        "error": "",
+        "result": {
+          "scan_id": "9958dc69-bd79-45d0-ad0c-f1fa1aac9458",
+          "scan_status": "SUCCEEDED",
+          "findings": 154,
+          "state": "SUCCEEDED"
+        },
+        "started_at": "2026-11-07T15:22:09.323273+00:00",
+        "ended_at": "2026-11-07T15:22:20.018000+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "ed12fb43f9cca94ea3fe09910563c5b5e99f72ce",
+      "index_status": "READY",
+      "indexed_files": 41,
+      "languages": {
+        "TypeScript": 24
+      },
+      "frameworks": [
+        "Next.js",
+        "React"
+      ],
+      "dependencies": 27,
+      "test_files": 0,
+      "symbols": 46,
+      "parse_errors": [],
+      "findings": 154,
+      "severity": {
+        "CRITICAL": 5,
+        "HIGH": 72,
+        "MEDIUM": 66,
+        "LOW": 11,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 154,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 33,
+        "NO_REFERENCE_FOUND": 121,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 0,
+        "characters": 0,
+        "evaluated": true
+      },
+      "graph": {
+        "nodes": 162,
+        "edges": 458
+      },
+      "scan_id": "9958dc69-bd79-45d0-ad0c-f1fa1aac9458",
+      "scan_status": "SUCCEEDED",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 2.412,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "SUCCEEDED",
+          "findings": 150,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 1,
+          "duration_seconds": 3.712,
+          "error": ""
+        },
+        {
+          "scanner": "trivy",
+          "status": "SUCCEEDED",
+          "findings": 140,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.612,
+          "error": ""
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:22:23.467014+00:00"
+    },
+    {
+      "name": "Gauravwakle96/desktop-tutorial",
+      "branch": "main",
+      "private": true,
+      "status": "INCONCLUSIVE",
+      "started_at": "2026-11-07T15:22:23.468165+00:00",
+      "repository_id": "62471869-3c78-4042-bd9f-750ef7ba13dd",
+      "scan_job": {
+        "id": "40ed30a8-313b-42c8-889a-9db14a3a19aa",
+        "kind": "scan",
+        "status": "INCONCLUSIVE",
+        "error": "Operation has incomplete evidence; inspect its report before retrying",
+        "result": {
+          "scan_id": "afb48a86-db00-4bdd-b098-dcceec4e710f",
+          "scan_status": "PARTIAL",
+          "findings": 0,
+          "state": "INCONCLUSIVE"
+        },
+        "started_at": "2026-11-07T15:22:31.039494+00:00",
+        "ended_at": "2026-11-07T15:22:37.953615+00:00",
+        "payload": {
+          "automatic_recovery": {
+            "attempt": 1,
+            "max_attempts": 3
+          }
+        }
+      },
+      "commit": "3ee5ef3b6c5cf364fb66d394d0cdf71a9907cce9",
+      "index_status": "READY",
+      "indexed_files": 1,
+      "languages": {},
+      "frameworks": [],
+      "dependencies": 0,
+      "test_files": 0,
+      "symbols": 0,
+      "parse_errors": [],
+      "findings": 0,
+      "severity": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0,
+        "LOW": 0,
+        "UNKNOWN": 0
+      },
+      "risk_assessments_with_factors": 0,
+      "reachability": {
+        "CONFIRMED_REFERENCE": 0,
+        "POTENTIAL_REACHABILITY": 0,
+        "INFERRED_REACHABILITY": 0,
+        "NO_REFERENCE_FOUND": 0,
+        "UNKNOWN": 0
+      },
+      "context_selection": {
+        "files": 0,
+        "characters": 0,
+        "evaluated": false
+      },
+      "graph": {
+        "nodes": 1,
+        "edges": 0
+      },
+      "scan_id": "afb48a86-db00-4bdd-b098-dcceec4e710f",
+      "scan_status": "PARTIAL",
+      "scanners": [
+        {
+          "scanner": "semgrep",
+          "status": "SUCCEEDED",
+          "findings": 0,
+          "version": "1.184.0",
+          "exit_code": 0,
+          "duration_seconds": 2.411,
+          "error": ""
+        },
+        {
+          "scanner": "osv",
+          "status": "NOT_APPLICABLE",
+          "findings": 0,
+          "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+          "exit_code": 128,
+          "duration_seconds": 0.603,
+          "error": "No supported dependency sources found; dependency coverage is unavailable"
+        },
+        {
+          "scanner": "trivy",
+          "status": "NOT_APPLICABLE",
+          "findings": 0,
+          "version": "Version: 0.76.2",
+          "exit_code": 0,
+          "duration_seconds": 0.603,
+          "error": "No supported package files detected; dependency coverage is unavailable"
+        }
+      ],
+      "limitations": [
+        "Static references do not establish runtime exploitability.",
+        "Dynamic imports, reflection and dependency injection may be missed.",
+        "Python, JavaScript and TypeScript have symbol analysis; other languages have manifest and file analysis."
+      ],
+      "completed_at": "2026-11-07T15:22:40.880297+00:00"
+    }
+  ],
+  "remote_writes_performed": false,
+  "limitations": [
+    "Build/test execution, remediation approval and PR creation are not established by this read-and-scan audit.",
+    "Zero findings does not establish that a repository is safe."
+  ],
+  "completed_at": "2026-11-07T15:22:40.881445+00:00",
+  "outcomes": {
+    "SUCCEEDED": 8,
+    "INCONCLUSIVE": 9,
+    "FAILED": 2
+  }
+}

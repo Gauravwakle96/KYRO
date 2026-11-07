@@ -1,0 +1,96 @@
+{
+  "contract": "docs/UI_DESIGN_CONTRACT.md",
+  "created_at": "2026-11-07T13:48:20.378502+00:00",
+  "targetViewports": [
+    "390x844",
+    "768x1024",
+    "1440x900"
+  ],
+  "renderedEvidence": [
+    {
+      "viewport": "390x844",
+      "artifact": "browser/390x844.png",
+      "observation": "Full-page mobile rendering: header uses drawer, primary action wraps above counts, findings and activity stack, long titles wrap without horizontal page overflow."
+    },
+    {
+      "viewport": "768x1024",
+      "artifact": "browser/768x1024.png",
+      "observation": "Tablet rendering uses responsive drawer, data panels fit the viewport; Playwright confirms Escape closes navigation and restores focus."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "browser/1440x900.png",
+      "observation": "Desktop rendering: persistent navigation, heading/action hierarchy, restrained semantic colors and data-backed evidence timeline."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "browser/auth-390x844.png",
+      "observation": "Redesigned access screen: original orbital KYRO art on desktop, responsive form on mobile/tablet, labeled fields and user-controlled password visibility. Axe, overflow and keyboard checks passed."
+    },
+    {
+      "viewport": "768x1024",
+      "artifact": "browser/auth-768x1024.png",
+      "observation": "Redesigned access screen: original orbital KYRO art on desktop, responsive form on mobile/tablet, labeled fields and user-controlled password visibility. Axe, overflow and keyboard checks passed."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "browser/auth-1440x900.png",
+      "observation": "Redesigned access screen: original orbital KYRO art on desktop, responsive form on mobile/tablet, labeled fields and user-controlled password visibility. Axe, overflow and keyboard checks passed."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "browser/setup-390x844.png",
+      "observation": "Actual initial-owner setup page on the primary deployment, inspected without creating an account; form fits, no page overflow and zero axe violations."
+    },
+    {
+      "viewport": "768x1024",
+      "artifact": "browser/setup-768x1024.png",
+      "observation": "Actual initial-owner setup page on the primary deployment, inspected without creating an account; form fits, no page overflow and zero axe violations."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "browser/setup-1440x900.png",
+      "observation": "Actual initial-owner setup page on the primary deployment, inspected without creating an account; form fits, no page overflow and zero axe violations."
+    }
+  ],
+  "accessibility": {
+    "status": "pass",
+    "evidence": "Playwright axe scans returned no violations at all three target widths and finding detail; mobile drawer keyboard Escape returns focus; reduced-motion preference exercised. See browser/axe-390.json, axe-768.json and axe-1440.json. This is automated/limited keyboard evidence, not exhaustive accessibility certification. Access-screen axe checks at all three widths and keyboard traversal/password controls also passed; full redesigned suite contains twelve tests."
+  },
+  "responsive": {
+    "status": "pass",
+    "evidence": "Playwright asserts document scrollWidth does not exceed viewport width at all three widths and while traversing core screens. Rendered images show wrapping titles, stacked mobile panels and responsive navigation. Access page and all primary product screens are captured after loading states settle; screenshots are under browser/screens/."
+  },
+  "contentStates": {
+    "loading": {
+      "status": "pass",
+      "evidence": "browser/loading-state.png: actual projects API response is deliberately delayed by the browser harness; pending state announces Loading workspace and clears when real response arrives."
+    },
+    "empty": {
+      "status": "pass",
+      "evidence": "browser/empty-state.png: actual empty pull-request list explains no pull requests have been created."
+    },
+    "error": {
+      "status": "pass",
+      "evidence": "browser/error-state.png: labelled browser 503 fixture displays API error and retry; removing interception and retrying restores actual findings."
+    },
+    "partial": {
+      "status": "pass",
+      "evidence": "browser/partial-state-browser-fixture.png: explicitly labelled browser response fixture alters one status to PARTIAL to validate distinct incomplete-coverage rendering. It is not live scanner evidence."
+    },
+    "success": {
+      "status": "pass",
+      "evidence": "browser/success-state.png: real API project creation persists, success feedback is shown, and confirmed deletion removes only the test project."
+    },
+    "permission": {
+      "status": "pass",
+      "evidence": "browser/permission-state.png: actual unavailable GitHub authorization shows setup guidance; protected actions remain backend guarded."
+    }
+  },
+  "limitations": [
+    "Screenshots use an explicitly labelled fixture account and actual API data except stated browser response fixtures",
+    "No claim of complete accessibility compliance or competitor superiority",
+    "Styling is a single coherent dark direction inspired by the user-selected references; design quality remains subjective."
+  ],
+  "execution_target": "Final local Docker deployment on port 8789; 12 browser tests passed"
+}

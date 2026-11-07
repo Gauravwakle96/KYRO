@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Generated dependencies, ignored local credentials and upstream research snapshots"
+paths = ['''(^|/)(data|node_modules|\.venv|\.git|__pycache__)/''', '''(^|/)tools/bin/''', '''(^|/)docs/research/''', '''(^|/)frontend/(dist|test-results)/''']

@@ -1,0 +1,28 @@
+{
+  "created_at": "2026-11-07T14:07:52.341726+00:00",
+  "reported_warnings": 4,
+  "unique_findings": 2,
+  "fixed": [],
+  "suppressed": [
+    {
+      "rule": "side-tab",
+      "file": "frontend/src/styles.css",
+      "value": "*",
+      "reason": "Exact detector match is the two-pixel .kyro-symbol divider used to construct the KYRO wordmark; retained as intentional brand geometry."
+    },
+    {
+      "rule": "overused-font",
+      "file": "frontend/src/styles.css",
+      "value": "Inter",
+      "reason": "Existing self-hosted OFL Inter retained intentionally for readable dense engineering tables; recorded in interface contract and tested at three viewport sizes."
+    }
+  ],
+  "left_standing": [],
+  "configuration": ".impeccable/config.json",
+  "post_triage_css_detect_result": [],
+  "limitations": [
+    "CSS regex detector does not establish visual quality or accessibility; prior browser/axe evidence remains the rendered verification",
+    "No whole-file or whole-rule suppressions added; both exceptions are rule/value scoped to one CSS file",
+    "User did not explicitly select Inter; font retention is the reviewed engineering/design decision"
+  ]
+}

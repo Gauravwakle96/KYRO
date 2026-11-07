@@ -1,0 +1,46 @@
+{
+  "available": true,
+  "models": [
+    "qwen2.5-coder:7b"
+  ],
+  "selected": "qwen2.5-coder:7b",
+  "selected_available": true,
+  "local_only": true,
+  "endpoint": "http://host.docker.internal:11434/v1",
+  "cloud_authorized": false,
+  "routing": "local",
+  "cloud_model": "",
+  "cloud_protocol": "chat",
+  "cloud_request_limit": 2,
+  "cloud_requests_used": 0,
+  "usage": [
+    {
+      "id": "3fdbe766-f3d1-4951-93f5-df2ab8e01cc6",
+      "user_id": "077d914a-6f4b-4bf5-83d9-282e03c19f6f",
+      "remediation_id": "afc5f08a-0c7f-43c8-bc9b-7cdfe8284096",
+      "provider": "local",
+      "model": "qwen2.5-coder:7b",
+      "input_tokens": 1360,
+      "output_tokens": 406,
+      "duration_seconds": 22.802,
+      "retries": 0,
+      "estimated_cost": 0.0,
+      "status": "SUCCEEDED",
+      "created_at": "2026-11-07T13:25:10.826452+00:00"
+    },
+    {
+      "id": "a2c1166b-1587-4764-ba56-a33e428467a6",
+      "user_id": "077d914a-6f4b-4bf5-83d9-282e03c19f6f",
+      "remediation_id": "afc5f08a-0c7f-43c8-bc9b-7cdfe8284096",
+      "provider": "local",
+      "model": "qwen2.5-coder:7b",
+      "input_tokens": 1105,
+      "output_tokens": 223,
+      "duration_seconds": 90.415,
+      "retries": 0,
+      "estimated_cost": 0.0,
+      "status": "SUCCEEDED",
+      "created_at": "2026-11-07T13:24:05.200745+00:00"
+    }
+  ]
+}

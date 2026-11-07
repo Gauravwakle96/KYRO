@@ -1,0 +1,113 @@
+[
+  {
+    "name": "fastapi-security",
+    "source": "https://fastapi.tiangolo.com/tutorial/security/",
+    "status": "retrieved",
+    "bytes": 102963
+  },
+  {
+    "name": "sqlalchemy-sessions",
+    "source": "https://docs.sqlalchemy.org/en/20/orm/session_basics.html",
+    "status": "retrieved",
+    "bytes": 162236
+  },
+  {
+    "name": "tree-sitter-python-api",
+    "source": "https://raw.githubusercontent.com/tree-sitter/py-tree-sitter/master/README.md",
+    "status": "retrieved",
+    "bytes": 8515
+  },
+  {
+    "name": "osv-json-contract",
+    "source": "https://raw.githubusercontent.com/google/osv-scanner/main/pkg/models/results.go",
+    "status": "retrieved",
+    "bytes": 11590
+  },
+  {
+    "name": "osv-output-docs",
+    "source": "https://google.github.io/osv-scanner/usage/output/",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "semgrep-cli",
+    "source": "https://semgrep.dev/docs/cli-reference",
+    "status": "retrieved",
+    "bytes": 499974
+  },
+  {
+    "name": "trivy-json",
+    "source": "https://trivy.dev/latest/docs/configuration/reporting/",
+    "status": "retrieved",
+    "bytes": 171865
+  },
+  {
+    "name": "github-device-flow",
+    "source": "https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps",
+    "status": "retrieved",
+    "bytes": 378295
+  },
+  {
+    "name": "github-git-database",
+    "source": "https://docs.github.com/en/rest/git/trees",
+    "status": "retrieved",
+    "bytes": 311972
+  },
+  {
+    "name": "llama-server",
+    "source": "https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md",
+    "status": "retrieved",
+    "bytes": 136364
+  },
+  {
+    "name": "docker-resource-constraints",
+    "source": "https://docs.docker.com/engine/containers/resource_constraints/",
+    "status": "retrieved",
+    "bytes": 499998
+  },
+  {
+    "name": "owasp-threat-model",
+    "source": "https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html",
+    "status": "retrieved",
+    "bytes": 88587
+  },
+  {
+    "name": "osv-api",
+    "source": "https://google.github.io/osv.dev/api/",
+    "status": "retrieved",
+    "bytes": 15262
+  },
+  {
+    "name": "epss-api",
+    "source": "https://www.first.org/epss/api",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "snyk-workflow",
+    "source": "https://docs.snyk.io/scan-with-snyk/snyk-open-source",
+    "status": "retrieved",
+    "bytes": 499974
+  },
+  {
+    "name": "github-advanced-security",
+    "source": "https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security",
+    "status": "retrieved",
+    "bytes": 277122
+  },
+  {
+    "name": "semgrep/semgrep",
+    "release": "v1.184.0",
+    "source": "https://github.com/semgrep/semgrep/releases/tag/v1.184.0"
+  },
+  {
+    "name": "aquasecurity/trivy",
+    "release": "v0.76.2",
+    "source": "https://github.com/aquasecurity/trivy/releases/tag/v0.76.2"
+  },
+  {
+    "name": "google/osv-scanner",
+    "release": "v2.7.0",
+    "source": "https://github.com/google/osv-scanner/releases/tag/v2.7.0"
+  }
+]

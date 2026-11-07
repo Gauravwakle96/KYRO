@@ -1,0 +1,102 @@
+{
+  "created_at": "2026-11-07T13:24:26.761773+00:00",
+  "corpus": {
+    "repositories": 1,
+    "label": "Explicit controlled KYRO arithmetic fixture",
+    "snapshot_sha": "aa759b926403a0394b2b4408f108f971b6cb0a96db233c6d0cf21ee8e37f4e61",
+    "selected_remediation_id": "f8d1c0d3-716d-42b8-a205-163bdb7d30ae"
+  },
+  "detection": {
+    "labelled_source_positives": 1,
+    "detected_labelled_source_positives": 1,
+    "selected_source_recall": 1,
+    "precision": null,
+    "false_positive_rate": null,
+    "reason": "Dependency advisories lack independent corpus labels; no general precision/recall claim",
+    "raw_findings": 46,
+    "normalized_before": 22,
+    "scanner_executions": [
+      {
+        "scanner": "semgrep",
+        "status": "SUCCEEDED",
+        "duration_seconds": 3.704,
+        "version": "1.184.0"
+      },
+      {
+        "scanner": "osv",
+        "status": "SUCCEEDED",
+        "duration_seconds": 4.103,
+        "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z"
+      },
+      {
+        "scanner": "trivy",
+        "status": "SUCCEEDED",
+        "duration_seconds": 0.646,
+        "version": "Version: 0.76.2"
+      }
+    ]
+  },
+  "engineering": {
+    "selected_task_completed": true,
+    "patch_files": 1,
+    "attempts": [
+      {
+        "step": 1,
+        "at": "2026-11-07T13:08:04.144479+00:00",
+        "summary": "Replace dynamic eval with a safe arithmetic evaluator in app.py to prevent execution of arbitrary code and arithmetic errors.",
+        "modified_files": [
+          "app.py"
+        ],
+        "patch_execution": {
+          "tool": "apply_patch",
+          "status": "PASSED",
+          "exit_code": 0,
+          "duration_seconds": 1.086,
+          "stdout": "{\"modified_files\": 1}\n",
+          "stderr": ""
+        }
+      }
+    ],
+    "commands": [
+      {
+        "kind": "build",
+        "status": "PASSED",
+        "duration_seconds": 0.68,
+        "tests_executed": null
+      },
+      {
+        "kind": "test",
+        "status": "PASSED",
+        "duration_seconds": 0.894,
+        "tests_executed": 4
+      }
+    ]
+  },
+  "verification": {
+    "status": "VERIFIED",
+    "original_resolved": true,
+    "introduced_findings": 0,
+    "normalized_after": 21,
+    "known_insecure_eval_patch_result": "FAILED",
+    "false_verified_eval_cases": 0,
+    "insecure_eval_case_denominator": 1,
+    "independent_security_regression": "PASSED"
+  },
+  "cost": {
+    "provider_requests_for_selected_task": 2,
+    "reported_input_tokens": 2445,
+    "reported_output_tokens": 612,
+    "missing_usage_records": 0,
+    "local_request_seconds": 62.288,
+    "cloud_requests": 0,
+    "estimated_api_cost": 0,
+    "local_compute_cost": null
+  },
+  "limitations": [
+    "A single selected task cannot establish general remediation reliability",
+    "One known insecure patch cannot establish a general false-verification rate",
+    "No competitor comparison performed",
+    "Local energy/hardware cost was not measured",
+    "Missing usage stays excluded rather than estimated"
+  ]
+}

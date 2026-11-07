@@ -1,0 +1,30 @@
+{
+  "id": "c3fc59d7-6d9e-4fb2-b2fa-16f03b6074b9",
+  "user_id": "05751b51-3e14-49ee-a7c1-10543f2fa134",
+  "kind": "enrich",
+  "resource_id": "dff4df4b-0e71-4a27-b972-24a336627591",
+  "payload": {},
+  "status": "SUCCEEDED",
+  "events": [
+    {
+      "at": "2026-11-07T12:40:00.864902+00:00",
+      "message": "Started enrich",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T12:40:00.871098+00:00",
+      "message": "Retrieving OSV, NVD, EPSS and KEV information where identifiers exist",
+      "detail": {}
+    }
+  ],
+  "result": {
+    "finding_id": "dff4df4b-0e71-4a27-b972-24a336627591",
+    "sources": 4,
+    "errors": []
+  },
+  "error": null,
+  "cancel_requested": false,
+  "created_at": "2026-11-07T12:39:53.669561+00:00",
+  "started_at": "2026-11-07T12:40:00.860527+00:00",
+  "ended_at": "2026-11-07T12:40:03.032629+00:00"
+}

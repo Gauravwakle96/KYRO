@@ -1,0 +1,61 @@
+{
+  "id": "849c2b1b-cf33-4d8b-a53f-7b17819b2353",
+  "finding_id": "2f5104d1-e890-4da0-9e8e-0cf99e2efd6b",
+  "repository_id": "e236e079-93a7-4057-926f-43440298a625",
+  "state": "AWAITING_APPROVAL",
+  "plan": {
+    "title": "Remediate dynamic eval in app.py",
+    "root_cause": "Dynamic eval can execute attacker-controlled code. Use explicit parsing and allowed operations.",
+    "strategy": "Replace dynamic eval with explicit parsing and allowed operations. Use ast.parse(mode='eval') with recursive evaluation of explicitly allowed numeric nodes and operators. Reject all calls, attributes, names and nonnumeric constants.",
+    "risks": [
+      "Potential execution of attacker-controlled code",
+      "Loss of arithmetic behavior during testing"
+    ],
+    "files": [
+      "app.py",
+      "tests/test_calculate.py"
+    ],
+    "commands": [
+      {
+        "kind": "build",
+        "argv": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ]
+      },
+      {
+        "kind": "test",
+        "argv": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ]
+      }
+    ],
+    "expected_result": "All arithmetic tests should pass without executing attacker-controlled code. The build command should complete successfully.",
+    "provider": "local",
+    "file_hashes": {
+      "app.py": "6b54d4f96fd6b4f3ba90a438e4ff45cb4ef9cee32c0b5e1d32f52ba9e136ac1b",
+      "tests/test_calculate.py": "26fedd8bad4031e9736139064fa29ab3c929958e3f768feba89bb40d194df48e"
+    },
+    "repository_sha": "aa759b926403a0394b2b4408f108f971b6cb0a96db233c6d0cf21ee8e37f4e61",
+    "context_paths": [
+      "app.py",
+      "tests/test_calculate.py"
+    ],
+    "created_at": "2026-11-07T15:29:52.841458+00:00"
+  },
+  "approval_digest": null,
+  "approved_by": null,
+  "evidence": {},
+  "verification": {},
+  "pull_request": {},
+  "created_at": "2026-11-07T15:29:09.053605+00:00",
+  "plan_digest": "e582cb49d08b74849921f152ea19594b1283eeaafd9b9c7ae382f85da8c0aa4c"
+}

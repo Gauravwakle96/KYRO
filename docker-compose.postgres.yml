@@ -1,0 +1,25 @@
+# Optional PostgreSQL deployment overlay; password must be supplied in ignored .env.
+services:
+  kyro:
+    environment:
+      KYRO_DATABASE_URL: postgresql+psycopg://kyro:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}@postgres:5432/kyro
+    depends_on:
+      postgres:
+        condition: service_healthy
+  postgres:
+    image: postgres:18.3-bookworm
+    environment:
+      POSTGRES_USER: kyro
+      POSTGRES_DB: kyro
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - kyro-postgres:/var/lib/postgresql
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U kyro -d kyro"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    mem_limit: 512m
+    cpus: 1
+volumes:
+  kyro-postgres:

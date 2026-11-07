@@ -1,0 +1,115 @@
+{
+  "id": "4968ba66-fee1-4b14-b7dc-4fe36fe5acf7",
+  "finding_id": "0520ae49-5748-4a06-9788-a800615ff7d9",
+  "repository_id": "d6a6ddcf-ca3e-4ce1-b39e-96f2b8b285c4",
+  "state": "VERIFYING",
+  "plan": {
+    "title": "Remediate unsafe eval usage with AST validation",
+    "root_cause": "The use of eval() allows execution of arbitrary code from untrusted input, creating a code injection vulnerability. The current implementation lacks input validation and sanitization for arithmetic expressions.",
+    "strategy": "Replace eval() with AST parsing and recursive validation of allowed operations. Use ast.parse(mode='eval') to create an abstract syntax tree, then recursively verify that all nodes are numeric literals or allowed operators (addition, subtraction, multiplication, division) with proper precedence handling.",
+    "risks": [
+      "Incorrect handling of complex expressions may cause false negatives",
+      "Performance overhead of AST parsing and validation",
+      "Potential for incomplete validation of edge cases"
+    ],
+    "files": [
+      "app.py"
+    ],
+    "commands": [
+      {
+        "kind": "build",
+        "argv": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ]
+      },
+      {
+        "kind": "test",
+        "argv": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ]
+      }
+    ],
+    "expected_result": "The code will safely evaluate arithmetic expressions without executing arbitrary code. All existing test cases (addition, precedence, parentheses, negative numbers) will pass while preventing code injection vulnerabilities.",
+    "file_hashes": {
+      "app.py": "6b54d4f96fd6b4f3ba90a438e4ff45cb4ef9cee32c0b5e1d32f52ba9e136ac1b"
+    },
+    "repository_sha": "aa759b926403a0394b2b4408f108f971b6cb0a96db233c6d0cf21ee8e37f4e61",
+    "context_paths": [
+      "app.py",
+      "tests/test_calculate.py"
+    ],
+    "created_at": "2026-11-07T12:40:00.315547+00:00"
+  },
+  "approval_digest": "a440470b6561463ebb99e0ad3ca160e58e1ec3e91099220f333019ae79c8bc1d",
+  "approved_by": "05751b51-3e14-49ee-a7c1-10543f2fa134",
+  "evidence": {
+    "attempts": [
+      {
+        "step": 1,
+        "at": "2026-11-07T12:42:29.609306+00:00",
+        "summary": "Replaced unsafe eval() with AST validation to safely evaluate arithmetic expressions while preventing code injection vulnerabilities. Preserved all tested behaviors including precedence, parentheses, and negative numbers.",
+        "modified_files": [
+          "app.py"
+        ]
+      }
+    ],
+    "changes": [
+      {
+        "path": "app.py",
+        "content": "import ast\nimport operator\n\n\ndef calculate(expression: str):\n    \"\"\"Preserve arithmetic behavior while testing remediation of dynamic eval.\"\"\"\n    try:\n        node = ast.parse(expression, mode='eval').body\n        \n        def validate(node):\n            if isinstance(node, ast.Num):\n                return True\n            elif isinstance(node, ast.BinOp):\n                if not isinstance(node.op, (ast.Add, ast.Sub, ast.Mult, ast.Div)):\n                    return False\n                return validate(node.left) and validate(node.right)\n            elif isinstance(node, ast.UnaryOp):\n                if not isinstance(node.op, ast.USub):\n                    return False\n                return validate(node.operand)\n            elif isinstance(node, ast.Expression):\n                return validate(node.body)\n            else:\n                return False\n        \n        if not validate(node):\n            raise ValueError(\"Invalid expression\")\n        \n        def evaluate(node):\n            if isinstance(node, ast.Num):\n                return node.n\n            elif isinstance(node, ast.BinOp):\n                left = evaluate(node.left)\n                right = evaluate(node.right)\n                if isinstance(node.op, ast.Add):\n                    return left + right\n                elif isinstance(node.op, ast.Sub):\n                    return left - right\n                elif isinstance(node.op, ast.Mult):\n                    return left * right\n                elif isinstance(node.op, ast.Div):\n                    return left / right\n            elif isinstance(node, ast.UnaryOp):\n                operand = evaluate(node.operand)\n                return -operand\n            elif isinstance(node, ast.Expression):\n                return evaluate(node.body)\n            else:\n                raise ValueError(\"Unknown node type\")\n        \n        return evaluate(node)\n    except (SyntaxError, ValueError) as e:\n        raise ValueError(\"Invalid arithmetic expression\") from e",
+        "original_hash": "6b54d4f96fd6b4f3ba90a438e4ff45cb4ef9cee32c0b5e1d32f52ba9e136ac1b"
+      }
+    ],
+    "diff": "--- a/app.py\n+++ b/app.py\n@@ -1,6 +1,53 @@\n-\"\"\"Explicitly labelled KYRO test fixture. Intentionally vulnerable; never deploy.\"\"\"\n+import ast\n+import operator\n \n \n def calculate(expression: str):\n     \"\"\"Preserve arithmetic behavior while testing remediation of dynamic eval.\"\"\"\n-    return eval(expression)\n+    try:\n+        node = ast.parse(expression, mode='eval').body\n+        \n+        def validate(node):\n+            if isinstance(node, ast.Num):\n+                return True\n+            elif isinstance(node, ast.BinOp):\n+                if not isinstance(node.op, (ast.Add, ast.Sub, ast.Mult, ast.Div)):\n+                    return False\n+                return validate(node.left) and validate(node.right)\n+            elif isinstance(node, ast.UnaryOp):\n+                if not isinstance(node.op, ast.USub):\n+                    return False\n+                return validate(node.operand)\n+            elif isinstance(node, ast.Expression):\n+                return validate(node.body)\n+            else:\n+                return False\n+        \n+        if not validate(node):\n+            raise ValueError(\"Invalid expression\")\n+        \n+        def evaluate(node):\n+            if isinstance(node, ast.Num):\n+                return node.n\n+            elif isinstance(node, ast.BinOp):\n+                left = evaluate(node.left)\n+                right = evaluate(node.right)\n+                if isinstance(node.op, ast.Add):\n+                    return left + right\n+                elif isinstance(node.op, ast.Sub):\n+                    return left - right\n+                elif isinstance(node.op, ast.Mult):\n+                    return left * right\n+                elif isinstance(node.op, ast.Div):\n+                    return left / right\n+            elif isinstance(node, ast.UnaryOp):\n+                operand = evaluate(node.operand)\n+                return -operand\n+            elif isinstance(node, ast.Expression):\n+                return evaluate(node.body)\n+            else:\n+                raise ValueError(\"Unknown node type\")\n+        \n+        return evaluate(node)\n+    except (SyntaxError, ValueError) as e:\n+        raise ValueError(\"Invalid arithmetic expression\") from e",
+    "commands": [
+      {
+        "command": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ],
+        "status": "PASSED",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "duration_seconds": 1.065,
+        "kind": "build",
+        "tests_executed": null
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ],
+        "status": "PASSED",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "/workspace/app.py:11: DeprecationWarning: ast.Num is deprecated and will be removed in Python 3.14; use ast.Constant instead\n  if isinstance(node, ast.Num):\n/workspace/app.py:30: DeprecationWarning: ast.Num is deprecated and will be removed in Python 3.14; use ast.Constant instead\n  if isinstance(node, ast.Num):\n/workspace/app.py:31: DeprecationWarning: Attribute n is deprecated and will be removed in Python 3.14; use value instead\n  return node.n\n....\n----------------------------------------------------------------------\nRan 4 tests in 0.028s\n\nOK\n",
+        "duration_seconds": 0.851,
+        "kind": "test",
+        "tests_executed": 4
+      }
+    ],
+    "original_sha": "aa759b926403a0394b2b4408f108f971b6cb0a96db233c6d0cf21ee8e37f4e61",
+    "checkpoint": "77b9b080-4bf3-4551-9353-165475a522c7/step-1"
+  },
+  "verification": {},
+  "pull_request": {},
+  "created_at": "2026-11-07T12:38:22.129311+00:00",
+  "plan_digest": "a440470b6561463ebb99e0ad3ca160e58e1ec3e91099220f333019ae79c8bc1d"
+}

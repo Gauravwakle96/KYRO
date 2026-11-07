@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "frontend/src/styles.css"
+        ],
+        "createdAt": "2026-11-07T14:03:08.001Z",
+        "reason": "Assistant decided: retain the existing self-hosted OFL Inter font for readable, dense code and finding tables; this typography is recorded in docs/UI_DESIGN_CONTRACT.md and passed the viewport and accessibility checks."
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "frontend/src/styles.css"
+        ],
+        "createdAt": "2026-11-07T14:03:08.101Z",
+        "reason": "Assistant reviewed the exact selector .kyro-symbol: its two-pixel border constructs the KYRO wordmark glyph and is intentional brand geometry."
+      }
+    ]
+  }
+}

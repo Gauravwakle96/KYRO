@@ -1,0 +1,62 @@
+{
+  "id": "c71d9c31-3e96-4c66-8592-c4a3a6da50fd",
+  "user_id": "077d914a-6f4b-4bf5-83d9-282e03c19f6f",
+  "kind": "fixture",
+  "resource_id": "e236e079-93a7-4057-926f-43440298a625",
+  "payload": {
+    "automatic_recovery": {
+      "attempt": 1,
+      "max_attempts": 3
+    }
+  },
+  "status": "SUCCEEDED",
+  "events": [
+    {
+      "at": "2026-11-07T15:28:48.544426+00:00",
+      "message": "Started fixture",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:28:48.560663+00:00",
+      "message": "Imported explicitly labelled controlled test fixture",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:28:48.565174+00:00",
+      "message": "Source snapshot retrieved at aa759b926403; starting repository analysis",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:28:48.571142+00:00",
+      "message": "Indexing app.py",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:28:48.576108+00:00",
+      "message": "Indexing requirements.txt",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:28:48.580491+00:00",
+      "message": "Indexing tests/test_calculate.py",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:28:48.590345+00:00",
+      "message": "Indexed 3 files and 1 dependency records",
+      "detail": {}
+    }
+  ],
+  "result": {
+    "repository_id": "e236e079-93a7-4057-926f-43440298a625",
+    "files": 3,
+    "languages": {
+      "Python": 2
+    }
+  },
+  "error": null,
+  "cancel_requested": false,
+  "created_at": "2026-11-07T15:28:48.438457+00:00",
+  "started_at": "2026-11-07T15:28:48.538930+00:00",
+  "ended_at": "2026-11-07T15:28:48.593210+00:00"
+}

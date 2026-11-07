@@ -1,0 +1,32 @@
+{
+  "docker": {
+    "available": true,
+    "version": "29.9.2",
+    "platform": "linux"
+  },
+  "scanners": [
+    {
+      "scanner": "semgrep",
+      "available": true,
+      "image": "semgrep/semgrep:1.184.0",
+      "version": "1.184.0",
+      "error": null
+    },
+    {
+      "scanner": "osv",
+      "available": true,
+      "image": "ghcr.io/google/osv-scanner:v2.7.0",
+      "version": "osv-scanner version: 2.7.0\nosv-scalibr version: 0.5.3\ncommit: bfe2f84abd2f09fe0b83ba7f6dad40d296762f40\nbuilt at: 2026-10-12T00:39:39Z",
+      "error": null
+    },
+    {
+      "scanner": "trivy",
+      "available": true,
+      "image": "aquasec/trivy:0.76.2",
+      "version": "Version: 0.76.2",
+      "error": null
+    }
+  ],
+  "sandbox_image": "kyro-sandbox:local",
+  "sandbox_available": true
+}

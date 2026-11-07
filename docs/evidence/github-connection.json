@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-11-07T14:34:36.321654+00:00",
+  "application": "http://127.0.0.1:8787",
+  "application_health_http_status": 200,
+  "github_authentication_http_status": 200,
+  "backend_configuration_present": true,
+  "backend_connection_method": "backend_token",
+  "deployed_adapter_repository_count": 19,
+  "local_configuration_git_ignored": true,
+  "local_configuration_docker_build_excluded": true,
+  "local_configuration_file_acl_protected": true,
+  "local_configuration_broad_user_read_access": false,
+  "credential_values_recorded": false,
+  "external_repository_contents_retrieved": false,
+  "external_repository_modified": false,
+  "pull_request_created": false,
+  "limitations": [
+    "Repository and branch selection pending.",
+    "Listing does not establish repository contents access or effective write permissions.",
+    "Live GitHub ingestion, scanning and approved PR delivery have not run."
+  ]
+}

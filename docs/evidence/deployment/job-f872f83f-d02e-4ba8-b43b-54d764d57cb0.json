@@ -1,0 +1,44 @@
+{
+  "id": "f872f83f-d02e-4ba8-b43b-54d764d57cb0",
+  "user_id": "077d914a-6f4b-4bf5-83d9-282e03c19f6f",
+  "kind": "plan",
+  "resource_id": "afc5f08a-0c7f-43c8-bc9b-7cdfe8284096",
+  "payload": {},
+  "status": "SUCCEEDED",
+  "events": [
+    {
+      "at": "2026-11-07T13:22:34.763940+00:00",
+      "message": "Started plan",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:22:34.774868+00:00",
+      "message": "Agent state: ANALYZING",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:22:34.783208+00:00",
+      "message": "Agent state: PLANNING",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:24:05.222107+00:00",
+      "message": "Agent state: PLAN_VALIDATION",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:24:05.247064+00:00",
+      "message": "Agent state: AWAITING_APPROVAL",
+      "detail": {}
+    }
+  ],
+  "result": {
+    "remediation_id": "afc5f08a-0c7f-43c8-bc9b-7cdfe8284096",
+    "state": "AWAITING_APPROVAL"
+  },
+  "error": null,
+  "cancel_requested": false,
+  "created_at": "2026-11-07T13:22:34.651908+00:00",
+  "started_at": "2026-11-07T13:22:34.756787+00:00",
+  "ended_at": "2026-11-07T13:24:05.260176+00:00"
+}

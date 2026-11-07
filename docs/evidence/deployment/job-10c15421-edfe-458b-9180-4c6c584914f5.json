@@ -1,0 +1,86 @@
+{
+  "id": "10c15421-edfe-458b-9180-4c6c584914f5",
+  "user_id": "077d914a-6f4b-4bf5-83d9-282e03c19f6f",
+  "kind": "verify",
+  "resource_id": "afc5f08a-0c7f-43c8-bc9b-7cdfe8284096",
+  "payload": {},
+  "status": "SUCCEEDED",
+  "events": [
+    {
+      "at": "2026-11-07T13:26:06.198171+00:00",
+      "message": "Started verify",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:26:06.206177+00:00",
+      "message": "Independent build",
+      "detail": {
+        "command": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ]
+      }
+    },
+    {
+      "at": "2026-11-07T13:26:06.815399+00:00",
+      "message": "Independent test",
+      "detail": {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ]
+      }
+    },
+    {
+      "at": "2026-11-07T13:26:07.641670+00:00",
+      "message": "Running semgrep",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:26:13.475438+00:00",
+      "message": "semgrep: SUCCEEDED; 0 findings",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:26:13.480456+00:00",
+      "message": "Running osv",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:26:18.335309+00:00",
+      "message": "osv: SUCCEEDED; 40 findings",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:26:18.339969+00:00",
+      "message": "Running trivy",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:26:19.756097+00:00",
+      "message": "trivy: SUCCEEDED; 5 findings",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T13:26:19.780499+00:00",
+      "message": "Agent state: SUCCEEDED",
+      "detail": {}
+    }
+  ],
+  "result": {
+    "remediation_id": "afc5f08a-0c7f-43c8-bc9b-7cdfe8284096",
+    "status": "VERIFIED"
+  },
+  "error": null,
+  "cancel_requested": false,
+  "created_at": "2026-11-07T13:26:05.830401+00:00",
+  "started_at": "2026-11-07T13:26:06.193223+00:00",
+  "ended_at": "2026-11-07T13:26:19.786312+00:00"
+}

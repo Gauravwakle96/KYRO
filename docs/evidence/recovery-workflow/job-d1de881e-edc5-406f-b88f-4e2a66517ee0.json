@@ -1,0 +1,91 @@
+{
+  "id": "d1de881e-edc5-406f-b88f-4e2a66517ee0",
+  "user_id": "077d914a-6f4b-4bf5-83d9-282e03c19f6f",
+  "kind": "verify",
+  "resource_id": "849c2b1b-cf33-4d8b-a53f-7b17819b2353",
+  "payload": {
+    "automatic_recovery": {
+      "attempt": 1,
+      "max_attempts": 3
+    }
+  },
+  "status": "SUCCEEDED",
+  "events": [
+    {
+      "at": "2026-11-07T15:30:18.549840+00:00",
+      "message": "Started verify",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:30:18.558624+00:00",
+      "message": "Independent build",
+      "detail": {
+        "command": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ]
+      }
+    },
+    {
+      "at": "2026-11-07T15:30:19.178175+00:00",
+      "message": "Independent test",
+      "detail": {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ]
+      }
+    },
+    {
+      "at": "2026-11-07T15:30:19.790482+00:00",
+      "message": "Running semgrep",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:30:24.816524+00:00",
+      "message": "semgrep: SUCCEEDED; 0 findings",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:30:24.819443+00:00",
+      "message": "Running osv",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:30:30.109220+00:00",
+      "message": "osv: SUCCEEDED; 40 findings",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:30:30.122450+00:00",
+      "message": "Running trivy",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:30:32.756319+00:00",
+      "message": "trivy: SUCCEEDED; 5 findings",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T15:30:32.789769+00:00",
+      "message": "Agent state: SUCCEEDED",
+      "detail": {}
+    }
+  ],
+  "result": {
+    "remediation_id": "849c2b1b-cf33-4d8b-a53f-7b17819b2353",
+    "status": "VERIFIED"
+  },
+  "error": null,
+  "cancel_requested": false,
+  "created_at": "2026-11-07T15:30:18.429020+00:00",
+  "started_at": "2026-11-07T15:30:18.535852+00:00",
+  "ended_at": "2026-11-07T15:30:32.793132+00:00"
+}

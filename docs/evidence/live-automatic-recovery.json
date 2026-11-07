@@ -1,0 +1,2618 @@
+{
+  "checked_at": "2026-11-07T15:16:34.085707+00:00",
+  "target": "Dedicated local acceptance instance at 8789",
+  "fixture": "1500 generated Python files, 600 TSX symbols and original vulnerable arithmetic fixture",
+  "fault": "Actual abrupt container restart while a persistent indexing job was RUNNING",
+  "manual_retry_issued": false,
+  "user_repositories_modified": false,
+  "cloud_requests_issued": false,
+  "policy": {
+    "enabled": true,
+    "max_attempts": 3,
+    "base_delay_seconds": 2,
+    "operations": [
+      "analyze",
+      "enrich",
+      "fixture",
+      "ingest",
+      "scan"
+    ],
+    "approval_required": [
+      "execute",
+      "verify",
+      "deliver"
+    ],
+    "scope": "Temporary provider failures and interrupted read operations; failures and evidence remain visible"
+  },
+  "before": {
+    "id": "cda4dc1d-46a7-43c1-b797-ac84a30ff3ef",
+    "user_id": "077d914a-6f4b-4bf5-83d9-282e03c19f6f",
+    "kind": "analyze",
+    "resource_id": "bcc26318-62e8-4718-829a-a556d27fdbaa",
+    "payload": {
+      "automatic_recovery": {
+        "attempt": 1,
+        "max_attempts": 3
+      }
+    },
+    "status": "RUNNING",
+    "events": [
+      {
+        "at": "2026-11-07T15:16:22.099773+00:00",
+        "message": "Started analyze",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:22.120909+00:00",
+        "message": "Indexing recovery_fixture/function_0000.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:22.124891+00:00",
+        "message": "Indexing recovery_fixture/function_0001.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:22.130025+00:00",
+        "message": "Indexing recovery_fixture/function_0002.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:22.135211+00:00",
+        "message": "Indexing recovery_fixture/function_0003.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:22.139995+00:00",
+        "message": "Indexing recovery_fixture/function_0004.py",
+        "detail": {}
+      }
+    ],
+    "result": {},
+    "error": null,
+    "cancel_requested": false,
+    "created_at": "2026-11-07T15:16:21.817963+00:00",
+    "started_at": "2026-11-07T15:16:22.067021+00:00",
+    "ended_at": null
+  },
+  "after": {
+    "id": "cda4dc1d-46a7-43c1-b797-ac84a30ff3ef",
+    "user_id": "077d914a-6f4b-4bf5-83d9-282e03c19f6f",
+    "kind": "analyze",
+    "resource_id": "bcc26318-62e8-4718-829a-a556d27fdbaa",
+    "payload": {
+      "automatic_recovery": {
+        "attempt": 2,
+        "max_attempts": 3,
+        "history": [
+          {
+            "at": "2026-11-07T15:16:24.823475+00:00",
+            "attempt": 1,
+            "reason": "Worker interrupted during a read operation",
+            "recovery": "resume_read_operation",
+            "delay_seconds": 2
+          }
+        ]
+      }
+    },
+    "status": "SUCCEEDED",
+    "events": [
+      {
+        "at": "2026-11-07T15:16:31.744721+00:00",
+        "message": "Indexing recovery_fixture/function_1002.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.748924+00:00",
+        "message": "Indexing recovery_fixture/function_1003.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.755384+00:00",
+        "message": "Indexing recovery_fixture/function_1004.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.764070+00:00",
+        "message": "Indexing recovery_fixture/function_1005.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.768909+00:00",
+        "message": "Indexing recovery_fixture/function_1006.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.773428+00:00",
+        "message": "Indexing recovery_fixture/function_1007.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.778238+00:00",
+        "message": "Indexing recovery_fixture/function_1008.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.783623+00:00",
+        "message": "Indexing recovery_fixture/function_1009.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.788461+00:00",
+        "message": "Indexing recovery_fixture/function_1010.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.793089+00:00",
+        "message": "Indexing recovery_fixture/function_1011.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.797610+00:00",
+        "message": "Indexing recovery_fixture/function_1012.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.802151+00:00",
+        "message": "Indexing recovery_fixture/function_1013.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.806751+00:00",
+        "message": "Indexing recovery_fixture/function_1014.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.811317+00:00",
+        "message": "Indexing recovery_fixture/function_1015.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.816162+00:00",
+        "message": "Indexing recovery_fixture/function_1016.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.820392+00:00",
+        "message": "Indexing recovery_fixture/function_1017.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.824528+00:00",
+        "message": "Indexing recovery_fixture/function_1018.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.828541+00:00",
+        "message": "Indexing recovery_fixture/function_1019.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.832767+00:00",
+        "message": "Indexing recovery_fixture/function_1020.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.836417+00:00",
+        "message": "Indexing recovery_fixture/function_1021.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.840572+00:00",
+        "message": "Indexing recovery_fixture/function_1022.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.844893+00:00",
+        "message": "Indexing recovery_fixture/function_1023.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.849060+00:00",
+        "message": "Indexing recovery_fixture/function_1024.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.853150+00:00",
+        "message": "Indexing recovery_fixture/function_1025.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.857135+00:00",
+        "message": "Indexing recovery_fixture/function_1026.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.861126+00:00",
+        "message": "Indexing recovery_fixture/function_1027.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.865493+00:00",
+        "message": "Indexing recovery_fixture/function_1028.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.869349+00:00",
+        "message": "Indexing recovery_fixture/function_1029.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.873543+00:00",
+        "message": "Indexing recovery_fixture/function_1030.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.877951+00:00",
+        "message": "Indexing recovery_fixture/function_1031.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.882600+00:00",
+        "message": "Indexing recovery_fixture/function_1032.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.886612+00:00",
+        "message": "Indexing recovery_fixture/function_1033.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.890492+00:00",
+        "message": "Indexing recovery_fixture/function_1034.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.894589+00:00",
+        "message": "Indexing recovery_fixture/function_1035.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.899038+00:00",
+        "message": "Indexing recovery_fixture/function_1036.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.905329+00:00",
+        "message": "Indexing recovery_fixture/function_1037.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.909956+00:00",
+        "message": "Indexing recovery_fixture/function_1038.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.913706+00:00",
+        "message": "Indexing recovery_fixture/function_1039.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.917653+00:00",
+        "message": "Indexing recovery_fixture/function_1040.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.921429+00:00",
+        "message": "Indexing recovery_fixture/function_1041.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.925678+00:00",
+        "message": "Indexing recovery_fixture/function_1042.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.930325+00:00",
+        "message": "Indexing recovery_fixture/function_1043.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.934851+00:00",
+        "message": "Indexing recovery_fixture/function_1044.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.939374+00:00",
+        "message": "Indexing recovery_fixture/function_1045.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.943834+00:00",
+        "message": "Indexing recovery_fixture/function_1046.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.948042+00:00",
+        "message": "Indexing recovery_fixture/function_1047.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.952207+00:00",
+        "message": "Indexing recovery_fixture/function_1048.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.956288+00:00",
+        "message": "Indexing recovery_fixture/function_1049.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.960326+00:00",
+        "message": "Indexing recovery_fixture/function_1050.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.964973+00:00",
+        "message": "Indexing recovery_fixture/function_1051.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.969137+00:00",
+        "message": "Indexing recovery_fixture/function_1052.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.972999+00:00",
+        "message": "Indexing recovery_fixture/function_1053.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.976934+00:00",
+        "message": "Indexing recovery_fixture/function_1054.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.980838+00:00",
+        "message": "Indexing recovery_fixture/function_1055.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.984941+00:00",
+        "message": "Indexing recovery_fixture/function_1056.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.989377+00:00",
+        "message": "Indexing recovery_fixture/function_1057.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:31.994511+00:00",
+        "message": "Indexing recovery_fixture/function_1058.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.000577+00:00",
+        "message": "Indexing recovery_fixture/function_1059.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.004572+00:00",
+        "message": "Indexing recovery_fixture/function_1060.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.008412+00:00",
+        "message": "Indexing recovery_fixture/function_1061.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.011845+00:00",
+        "message": "Indexing recovery_fixture/function_1062.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.015625+00:00",
+        "message": "Indexing recovery_fixture/function_1063.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.019458+00:00",
+        "message": "Indexing recovery_fixture/function_1064.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.023295+00:00",
+        "message": "Indexing recovery_fixture/function_1065.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.027013+00:00",
+        "message": "Indexing recovery_fixture/function_1066.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.030769+00:00",
+        "message": "Indexing recovery_fixture/function_1067.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.034778+00:00",
+        "message": "Indexing recovery_fixture/function_1068.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.038609+00:00",
+        "message": "Indexing recovery_fixture/function_1069.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.042484+00:00",
+        "message": "Indexing recovery_fixture/function_1070.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.046111+00:00",
+        "message": "Indexing recovery_fixture/function_1071.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.050072+00:00",
+        "message": "Indexing recovery_fixture/function_1072.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.053678+00:00",
+        "message": "Indexing recovery_fixture/function_1073.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.057546+00:00",
+        "message": "Indexing recovery_fixture/function_1074.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.061437+00:00",
+        "message": "Indexing recovery_fixture/function_1075.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.065141+00:00",
+        "message": "Indexing recovery_fixture/function_1076.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.068999+00:00",
+        "message": "Indexing recovery_fixture/function_1077.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.073188+00:00",
+        "message": "Indexing recovery_fixture/function_1078.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.077029+00:00",
+        "message": "Indexing recovery_fixture/function_1079.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.081114+00:00",
+        "message": "Indexing recovery_fixture/function_1080.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.085297+00:00",
+        "message": "Indexing recovery_fixture/function_1081.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.088795+00:00",
+        "message": "Indexing recovery_fixture/function_1082.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.092810+00:00",
+        "message": "Indexing recovery_fixture/function_1083.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.096886+00:00",
+        "message": "Indexing recovery_fixture/function_1084.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.101024+00:00",
+        "message": "Indexing recovery_fixture/function_1085.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.104973+00:00",
+        "message": "Indexing recovery_fixture/function_1086.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.108616+00:00",
+        "message": "Indexing recovery_fixture/function_1087.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.112351+00:00",
+        "message": "Indexing recovery_fixture/function_1088.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.116117+00:00",
+        "message": "Indexing recovery_fixture/function_1089.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.119943+00:00",
+        "message": "Indexing recovery_fixture/function_1090.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.123792+00:00",
+        "message": "Indexing recovery_fixture/function_1091.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.127549+00:00",
+        "message": "Indexing recovery_fixture/function_1092.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.131541+00:00",
+        "message": "Indexing recovery_fixture/function_1093.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.135246+00:00",
+        "message": "Indexing recovery_fixture/function_1094.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.139019+00:00",
+        "message": "Indexing recovery_fixture/function_1095.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.142546+00:00",
+        "message": "Indexing recovery_fixture/function_1096.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.146249+00:00",
+        "message": "Indexing recovery_fixture/function_1097.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.150055+00:00",
+        "message": "Indexing recovery_fixture/function_1098.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.153899+00:00",
+        "message": "Indexing recovery_fixture/function_1099.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.157526+00:00",
+        "message": "Indexing recovery_fixture/function_1100.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.160778+00:00",
+        "message": "Indexing recovery_fixture/function_1101.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.164922+00:00",
+        "message": "Indexing recovery_fixture/function_1102.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.169002+00:00",
+        "message": "Indexing recovery_fixture/function_1103.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.174870+00:00",
+        "message": "Indexing recovery_fixture/function_1104.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.179605+00:00",
+        "message": "Indexing recovery_fixture/function_1105.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.183299+00:00",
+        "message": "Indexing recovery_fixture/function_1106.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.187011+00:00",
+        "message": "Indexing recovery_fixture/function_1107.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.190491+00:00",
+        "message": "Indexing recovery_fixture/function_1108.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.194319+00:00",
+        "message": "Indexing recovery_fixture/function_1109.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.198230+00:00",
+        "message": "Indexing recovery_fixture/function_1110.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.202376+00:00",
+        "message": "Indexing recovery_fixture/function_1111.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.206031+00:00",
+        "message": "Indexing recovery_fixture/function_1112.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.210143+00:00",
+        "message": "Indexing recovery_fixture/function_1113.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.214348+00:00",
+        "message": "Indexing recovery_fixture/function_1114.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.218389+00:00",
+        "message": "Indexing recovery_fixture/function_1115.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.222343+00:00",
+        "message": "Indexing recovery_fixture/function_1116.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.232090+00:00",
+        "message": "Indexing recovery_fixture/function_1117.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.236003+00:00",
+        "message": "Indexing recovery_fixture/function_1118.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.239695+00:00",
+        "message": "Indexing recovery_fixture/function_1119.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.243599+00:00",
+        "message": "Indexing recovery_fixture/function_1120.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.247391+00:00",
+        "message": "Indexing recovery_fixture/function_1121.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.251494+00:00",
+        "message": "Indexing recovery_fixture/function_1122.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.255677+00:00",
+        "message": "Indexing recovery_fixture/function_1123.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.259600+00:00",
+        "message": "Indexing recovery_fixture/function_1124.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.263693+00:00",
+        "message": "Indexing recovery_fixture/function_1125.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.267547+00:00",
+        "message": "Indexing recovery_fixture/function_1126.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.271626+00:00",
+        "message": "Indexing recovery_fixture/function_1127.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.275760+00:00",
+        "message": "Indexing recovery_fixture/function_1128.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.279903+00:00",
+        "message": "Indexing recovery_fixture/function_1129.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.283971+00:00",
+        "message": "Indexing recovery_fixture/function_1130.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.288194+00:00",
+        "message": "Indexing recovery_fixture/function_1131.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.292564+00:00",
+        "message": "Indexing recovery_fixture/function_1132.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.296398+00:00",
+        "message": "Indexing recovery_fixture/function_1133.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.300310+00:00",
+        "message": "Indexing recovery_fixture/function_1134.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.304392+00:00",
+        "message": "Indexing recovery_fixture/function_1135.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.308143+00:00",
+        "message": "Indexing recovery_fixture/function_1136.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.312203+00:00",
+        "message": "Indexing recovery_fixture/function_1137.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.316226+00:00",
+        "message": "Indexing recovery_fixture/function_1138.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.320384+00:00",
+        "message": "Indexing recovery_fixture/function_1139.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.324496+00:00",
+        "message": "Indexing recovery_fixture/function_1140.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.328329+00:00",
+        "message": "Indexing recovery_fixture/function_1141.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.332252+00:00",
+        "message": "Indexing recovery_fixture/function_1142.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.336294+00:00",
+        "message": "Indexing recovery_fixture/function_1143.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.340379+00:00",
+        "message": "Indexing recovery_fixture/function_1144.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.344224+00:00",
+        "message": "Indexing recovery_fixture/function_1145.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.348162+00:00",
+        "message": "Indexing recovery_fixture/function_1146.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.352135+00:00",
+        "message": "Indexing recovery_fixture/function_1147.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.355749+00:00",
+        "message": "Indexing recovery_fixture/function_1148.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.359465+00:00",
+        "message": "Indexing recovery_fixture/function_1149.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.363275+00:00",
+        "message": "Indexing recovery_fixture/function_1150.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.367031+00:00",
+        "message": "Indexing recovery_fixture/function_1151.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.370556+00:00",
+        "message": "Indexing recovery_fixture/function_1152.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.374359+00:00",
+        "message": "Indexing recovery_fixture/function_1153.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.378170+00:00",
+        "message": "Indexing recovery_fixture/function_1154.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.382551+00:00",
+        "message": "Indexing recovery_fixture/function_1155.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.386532+00:00",
+        "message": "Indexing recovery_fixture/function_1156.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.390150+00:00",
+        "message": "Indexing recovery_fixture/function_1157.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.393871+00:00",
+        "message": "Indexing recovery_fixture/function_1158.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.397978+00:00",
+        "message": "Indexing recovery_fixture/function_1159.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.401692+00:00",
+        "message": "Indexing recovery_fixture/function_1160.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.405444+00:00",
+        "message": "Indexing recovery_fixture/function_1161.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.409086+00:00",
+        "message": "Indexing recovery_fixture/function_1162.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.413233+00:00",
+        "message": "Indexing recovery_fixture/function_1163.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.417058+00:00",
+        "message": "Indexing recovery_fixture/function_1164.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.420872+00:00",
+        "message": "Indexing recovery_fixture/function_1165.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.424608+00:00",
+        "message": "Indexing recovery_fixture/function_1166.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.428465+00:00",
+        "message": "Indexing recovery_fixture/function_1167.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.433634+00:00",
+        "message": "Indexing recovery_fixture/function_1168.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.437455+00:00",
+        "message": "Indexing recovery_fixture/function_1169.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.441077+00:00",
+        "message": "Indexing recovery_fixture/function_1170.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.451809+00:00",
+        "message": "Indexing recovery_fixture/function_1171.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.456428+00:00",
+        "message": "Indexing recovery_fixture/function_1172.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.460088+00:00",
+        "message": "Indexing recovery_fixture/function_1173.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.463726+00:00",
+        "message": "Indexing recovery_fixture/function_1174.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.467493+00:00",
+        "message": "Indexing recovery_fixture/function_1175.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.471098+00:00",
+        "message": "Indexing recovery_fixture/function_1176.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.474608+00:00",
+        "message": "Indexing recovery_fixture/function_1177.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.478681+00:00",
+        "message": "Indexing recovery_fixture/function_1178.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.482566+00:00",
+        "message": "Indexing recovery_fixture/function_1179.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.486296+00:00",
+        "message": "Indexing recovery_fixture/function_1180.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.490463+00:00",
+        "message": "Indexing recovery_fixture/function_1181.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.495448+00:00",
+        "message": "Indexing recovery_fixture/function_1182.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.499864+00:00",
+        "message": "Indexing recovery_fixture/function_1183.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.503866+00:00",
+        "message": "Indexing recovery_fixture/function_1184.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.508080+00:00",
+        "message": "Indexing recovery_fixture/function_1185.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.512405+00:00",
+        "message": "Indexing recovery_fixture/function_1186.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.516407+00:00",
+        "message": "Indexing recovery_fixture/function_1187.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.520380+00:00",
+        "message": "Indexing recovery_fixture/function_1188.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.524655+00:00",
+        "message": "Indexing recovery_fixture/function_1189.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.528500+00:00",
+        "message": "Indexing recovery_fixture/function_1190.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.532232+00:00",
+        "message": "Indexing recovery_fixture/function_1191.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.536345+00:00",
+        "message": "Indexing recovery_fixture/function_1192.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.540178+00:00",
+        "message": "Indexing recovery_fixture/function_1193.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.543832+00:00",
+        "message": "Indexing recovery_fixture/function_1194.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.547407+00:00",
+        "message": "Indexing recovery_fixture/function_1195.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.551275+00:00",
+        "message": "Indexing recovery_fixture/function_1196.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.556105+00:00",
+        "message": "Indexing recovery_fixture/function_1197.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.559709+00:00",
+        "message": "Indexing recovery_fixture/function_1198.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.563424+00:00",
+        "message": "Indexing recovery_fixture/function_1199.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.567468+00:00",
+        "message": "Indexing recovery_fixture/function_1200.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.571731+00:00",
+        "message": "Indexing recovery_fixture/function_1201.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.575716+00:00",
+        "message": "Indexing recovery_fixture/function_1202.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.579422+00:00",
+        "message": "Indexing recovery_fixture/function_1203.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.583201+00:00",
+        "message": "Indexing recovery_fixture/function_1204.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.587325+00:00",
+        "message": "Indexing recovery_fixture/function_1205.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.591163+00:00",
+        "message": "Indexing recovery_fixture/function_1206.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.594932+00:00",
+        "message": "Indexing recovery_fixture/function_1207.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.598605+00:00",
+        "message": "Indexing recovery_fixture/function_1208.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.602379+00:00",
+        "message": "Indexing recovery_fixture/function_1209.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.605797+00:00",
+        "message": "Indexing recovery_fixture/function_1210.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.609350+00:00",
+        "message": "Indexing recovery_fixture/function_1211.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.612702+00:00",
+        "message": "Indexing recovery_fixture/function_1212.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.623332+00:00",
+        "message": "Indexing recovery_fixture/function_1213.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.627097+00:00",
+        "message": "Indexing recovery_fixture/function_1214.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.630839+00:00",
+        "message": "Indexing recovery_fixture/function_1215.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.634487+00:00",
+        "message": "Indexing recovery_fixture/function_1216.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.638432+00:00",
+        "message": "Indexing recovery_fixture/function_1217.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.642077+00:00",
+        "message": "Indexing recovery_fixture/function_1218.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.645788+00:00",
+        "message": "Indexing recovery_fixture/function_1219.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.648968+00:00",
+        "message": "Indexing recovery_fixture/function_1220.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.652672+00:00",
+        "message": "Indexing recovery_fixture/function_1221.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.658908+00:00",
+        "message": "Indexing recovery_fixture/function_1222.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.667239+00:00",
+        "message": "Indexing recovery_fixture/function_1223.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.670853+00:00",
+        "message": "Indexing recovery_fixture/function_1224.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.673963+00:00",
+        "message": "Indexing recovery_fixture/function_1225.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.677386+00:00",
+        "message": "Indexing recovery_fixture/function_1226.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.680940+00:00",
+        "message": "Indexing recovery_fixture/function_1227.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.690893+00:00",
+        "message": "Indexing recovery_fixture/function_1228.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.694685+00:00",
+        "message": "Indexing recovery_fixture/function_1229.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.699218+00:00",
+        "message": "Indexing recovery_fixture/function_1230.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.702873+00:00",
+        "message": "Indexing recovery_fixture/function_1231.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.706589+00:00",
+        "message": "Indexing recovery_fixture/function_1232.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.710196+00:00",
+        "message": "Indexing recovery_fixture/function_1233.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.714044+00:00",
+        "message": "Indexing recovery_fixture/function_1234.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.717588+00:00",
+        "message": "Indexing recovery_fixture/function_1235.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.720772+00:00",
+        "message": "Indexing recovery_fixture/function_1236.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.724683+00:00",
+        "message": "Indexing recovery_fixture/function_1237.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.730673+00:00",
+        "message": "Indexing recovery_fixture/function_1238.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.735541+00:00",
+        "message": "Indexing recovery_fixture/function_1239.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.739834+00:00",
+        "message": "Indexing recovery_fixture/function_1240.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.743973+00:00",
+        "message": "Indexing recovery_fixture/function_1241.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.748214+00:00",
+        "message": "Indexing recovery_fixture/function_1242.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.751965+00:00",
+        "message": "Indexing recovery_fixture/function_1243.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.756424+00:00",
+        "message": "Indexing recovery_fixture/function_1244.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.760240+00:00",
+        "message": "Indexing recovery_fixture/function_1245.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.764731+00:00",
+        "message": "Indexing recovery_fixture/function_1246.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.768606+00:00",
+        "message": "Indexing recovery_fixture/function_1247.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.772168+00:00",
+        "message": "Indexing recovery_fixture/function_1248.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.775774+00:00",
+        "message": "Indexing recovery_fixture/function_1249.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.779360+00:00",
+        "message": "Indexing recovery_fixture/function_1250.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.782948+00:00",
+        "message": "Indexing recovery_fixture/function_1251.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.786379+00:00",
+        "message": "Indexing recovery_fixture/function_1252.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.789589+00:00",
+        "message": "Indexing recovery_fixture/function_1253.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.793328+00:00",
+        "message": "Indexing recovery_fixture/function_1254.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.797113+00:00",
+        "message": "Indexing recovery_fixture/function_1255.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.801120+00:00",
+        "message": "Indexing recovery_fixture/function_1256.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.804964+00:00",
+        "message": "Indexing recovery_fixture/function_1257.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.809218+00:00",
+        "message": "Indexing recovery_fixture/function_1258.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.813865+00:00",
+        "message": "Indexing recovery_fixture/function_1259.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.817965+00:00",
+        "message": "Indexing recovery_fixture/function_1260.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.821775+00:00",
+        "message": "Indexing recovery_fixture/function_1261.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.825532+00:00",
+        "message": "Indexing recovery_fixture/function_1262.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.829467+00:00",
+        "message": "Indexing recovery_fixture/function_1263.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.833752+00:00",
+        "message": "Indexing recovery_fixture/function_1264.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.837551+00:00",
+        "message": "Indexing recovery_fixture/function_1265.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.841375+00:00",
+        "message": "Indexing recovery_fixture/function_1266.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.845765+00:00",
+        "message": "Indexing recovery_fixture/function_1267.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.850188+00:00",
+        "message": "Indexing recovery_fixture/function_1268.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.854315+00:00",
+        "message": "Indexing recovery_fixture/function_1269.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.858602+00:00",
+        "message": "Indexing recovery_fixture/function_1270.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.863277+00:00",
+        "message": "Indexing recovery_fixture/function_1271.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.867718+00:00",
+        "message": "Indexing recovery_fixture/function_1272.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.871970+00:00",
+        "message": "Indexing recovery_fixture/function_1273.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.876488+00:00",
+        "message": "Indexing recovery_fixture/function_1274.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.881139+00:00",
+        "message": "Indexing recovery_fixture/function_1275.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.884835+00:00",
+        "message": "Indexing recovery_fixture/function_1276.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.890574+00:00",
+        "message": "Indexing recovery_fixture/function_1277.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.898779+00:00",
+        "message": "Indexing recovery_fixture/function_1278.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.903336+00:00",
+        "message": "Indexing recovery_fixture/function_1279.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.907527+00:00",
+        "message": "Indexing recovery_fixture/function_1280.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.911324+00:00",
+        "message": "Indexing recovery_fixture/function_1281.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.915311+00:00",
+        "message": "Indexing recovery_fixture/function_1282.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.919439+00:00",
+        "message": "Indexing recovery_fixture/function_1283.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.923416+00:00",
+        "message": "Indexing recovery_fixture/function_1284.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.927294+00:00",
+        "message": "Indexing recovery_fixture/function_1285.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.930716+00:00",
+        "message": "Indexing recovery_fixture/function_1286.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.934362+00:00",
+        "message": "Indexing recovery_fixture/function_1287.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.938906+00:00",
+        "message": "Indexing recovery_fixture/function_1288.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.942839+00:00",
+        "message": "Indexing recovery_fixture/function_1289.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.946703+00:00",
+        "message": "Indexing recovery_fixture/function_1290.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.950708+00:00",
+        "message": "Indexing recovery_fixture/function_1291.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.955413+00:00",
+        "message": "Indexing recovery_fixture/function_1292.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.959475+00:00",
+        "message": "Indexing recovery_fixture/function_1293.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.963054+00:00",
+        "message": "Indexing recovery_fixture/function_1294.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.967160+00:00",
+        "message": "Indexing recovery_fixture/function_1295.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.971476+00:00",
+        "message": "Indexing recovery_fixture/function_1296.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.975556+00:00",
+        "message": "Indexing recovery_fixture/function_1297.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.979581+00:00",
+        "message": "Indexing recovery_fixture/function_1298.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.983568+00:00",
+        "message": "Indexing recovery_fixture/function_1299.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.987610+00:00",
+        "message": "Indexing recovery_fixture/function_1300.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.994053+00:00",
+        "message": "Indexing recovery_fixture/function_1301.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:32.997644+00:00",
+        "message": "Indexing recovery_fixture/function_1302.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.001793+00:00",
+        "message": "Indexing recovery_fixture/function_1303.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.006264+00:00",
+        "message": "Indexing recovery_fixture/function_1304.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.012630+00:00",
+        "message": "Indexing recovery_fixture/function_1305.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.018188+00:00",
+        "message": "Indexing recovery_fixture/function_1306.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.025151+00:00",
+        "message": "Indexing recovery_fixture/function_1307.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.030857+00:00",
+        "message": "Indexing recovery_fixture/function_1308.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.037704+00:00",
+        "message": "Indexing recovery_fixture/function_1309.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.045312+00:00",
+        "message": "Indexing recovery_fixture/function_1310.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.053314+00:00",
+        "message": "Indexing recovery_fixture/function_1311.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.061133+00:00",
+        "message": "Indexing recovery_fixture/function_1312.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.066833+00:00",
+        "message": "Indexing recovery_fixture/function_1313.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.073691+00:00",
+        "message": "Indexing recovery_fixture/function_1314.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.082993+00:00",
+        "message": "Indexing recovery_fixture/function_1315.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.092170+00:00",
+        "message": "Indexing recovery_fixture/function_1316.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.100090+00:00",
+        "message": "Indexing recovery_fixture/function_1317.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.106026+00:00",
+        "message": "Indexing recovery_fixture/function_1318.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.111847+00:00",
+        "message": "Indexing recovery_fixture/function_1319.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.115944+00:00",
+        "message": "Indexing recovery_fixture/function_1320.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.120700+00:00",
+        "message": "Indexing recovery_fixture/function_1321.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.127506+00:00",
+        "message": "Indexing recovery_fixture/function_1322.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.134611+00:00",
+        "message": "Indexing recovery_fixture/function_1323.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.139303+00:00",
+        "message": "Indexing recovery_fixture/function_1324.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.144441+00:00",
+        "message": "Indexing recovery_fixture/function_1325.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.151081+00:00",
+        "message": "Indexing recovery_fixture/function_1326.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.156839+00:00",
+        "message": "Indexing recovery_fixture/function_1327.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.163408+00:00",
+        "message": "Indexing recovery_fixture/function_1328.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.168359+00:00",
+        "message": "Indexing recovery_fixture/function_1329.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.173357+00:00",
+        "message": "Indexing recovery_fixture/function_1330.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.178613+00:00",
+        "message": "Indexing recovery_fixture/function_1331.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.184220+00:00",
+        "message": "Indexing recovery_fixture/function_1332.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.189310+00:00",
+        "message": "Indexing recovery_fixture/function_1333.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.194598+00:00",
+        "message": "Indexing recovery_fixture/function_1334.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.199060+00:00",
+        "message": "Indexing recovery_fixture/function_1335.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.203319+00:00",
+        "message": "Indexing recovery_fixture/function_1336.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.207316+00:00",
+        "message": "Indexing recovery_fixture/function_1337.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.212346+00:00",
+        "message": "Indexing recovery_fixture/function_1338.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.217210+00:00",
+        "message": "Indexing recovery_fixture/function_1339.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.222674+00:00",
+        "message": "Indexing recovery_fixture/function_1340.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.227457+00:00",
+        "message": "Indexing recovery_fixture/function_1341.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.232094+00:00",
+        "message": "Indexing recovery_fixture/function_1342.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.236088+00:00",
+        "message": "Indexing recovery_fixture/function_1343.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.239795+00:00",
+        "message": "Indexing recovery_fixture/function_1344.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.243355+00:00",
+        "message": "Indexing recovery_fixture/function_1345.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.247415+00:00",
+        "message": "Indexing recovery_fixture/function_1346.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.251831+00:00",
+        "message": "Indexing recovery_fixture/function_1347.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.255523+00:00",
+        "message": "Indexing recovery_fixture/function_1348.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.259533+00:00",
+        "message": "Indexing recovery_fixture/function_1349.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.264053+00:00",
+        "message": "Indexing recovery_fixture/function_1350.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.268113+00:00",
+        "message": "Indexing recovery_fixture/function_1351.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.271903+00:00",
+        "message": "Indexing recovery_fixture/function_1352.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.275482+00:00",
+        "message": "Indexing recovery_fixture/function_1353.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.279929+00:00",
+        "message": "Indexing recovery_fixture/function_1354.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.284112+00:00",
+        "message": "Indexing recovery_fixture/function_1355.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.288291+00:00",
+        "message": "Indexing recovery_fixture/function_1356.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.292138+00:00",
+        "message": "Indexing recovery_fixture/function_1357.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.296334+00:00",
+        "message": "Indexing recovery_fixture/function_1358.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.300044+00:00",
+        "message": "Indexing recovery_fixture/function_1359.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.303894+00:00",
+        "message": "Indexing recovery_fixture/function_1360.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.307600+00:00",
+        "message": "Indexing recovery_fixture/function_1361.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.311975+00:00",
+        "message": "Indexing recovery_fixture/function_1362.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.316478+00:00",
+        "message": "Indexing recovery_fixture/function_1363.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.320603+00:00",
+        "message": "Indexing recovery_fixture/function_1364.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.324693+00:00",
+        "message": "Indexing recovery_fixture/function_1365.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.329069+00:00",
+        "message": "Indexing recovery_fixture/function_1366.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.333446+00:00",
+        "message": "Indexing recovery_fixture/function_1367.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.343047+00:00",
+        "message": "Indexing recovery_fixture/function_1368.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.347421+00:00",
+        "message": "Indexing recovery_fixture/function_1369.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.351259+00:00",
+        "message": "Indexing recovery_fixture/function_1370.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.355177+00:00",
+        "message": "Indexing recovery_fixture/function_1371.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.360954+00:00",
+        "message": "Indexing recovery_fixture/function_1372.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.366029+00:00",
+        "message": "Indexing recovery_fixture/function_1373.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.369764+00:00",
+        "message": "Indexing recovery_fixture/function_1374.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.374191+00:00",
+        "message": "Indexing recovery_fixture/function_1375.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.378809+00:00",
+        "message": "Indexing recovery_fixture/function_1376.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.382678+00:00",
+        "message": "Indexing recovery_fixture/function_1377.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.386362+00:00",
+        "message": "Indexing recovery_fixture/function_1378.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.390367+00:00",
+        "message": "Indexing recovery_fixture/function_1379.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.394257+00:00",
+        "message": "Indexing recovery_fixture/function_1380.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.398383+00:00",
+        "message": "Indexing recovery_fixture/function_1381.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.402295+00:00",
+        "message": "Indexing recovery_fixture/function_1382.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.406119+00:00",
+        "message": "Indexing recovery_fixture/function_1383.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.410274+00:00",
+        "message": "Indexing recovery_fixture/function_1384.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.414254+00:00",
+        "message": "Indexing recovery_fixture/function_1385.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.418039+00:00",
+        "message": "Indexing recovery_fixture/function_1386.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.421674+00:00",
+        "message": "Indexing recovery_fixture/function_1387.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.425941+00:00",
+        "message": "Indexing recovery_fixture/function_1388.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.430132+00:00",
+        "message": "Indexing recovery_fixture/function_1389.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.434162+00:00",
+        "message": "Indexing recovery_fixture/function_1390.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.438362+00:00",
+        "message": "Indexing recovery_fixture/function_1391.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.442445+00:00",
+        "message": "Indexing recovery_fixture/function_1392.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.446544+00:00",
+        "message": "Indexing recovery_fixture/function_1393.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.450558+00:00",
+        "message": "Indexing recovery_fixture/function_1394.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.454820+00:00",
+        "message": "Indexing recovery_fixture/function_1395.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.458318+00:00",
+        "message": "Indexing recovery_fixture/function_1396.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.462267+00:00",
+        "message": "Indexing recovery_fixture/function_1397.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.466172+00:00",
+        "message": "Indexing recovery_fixture/function_1398.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.470007+00:00",
+        "message": "Indexing recovery_fixture/function_1399.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.473819+00:00",
+        "message": "Indexing recovery_fixture/function_1400.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.477572+00:00",
+        "message": "Indexing recovery_fixture/function_1401.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.481418+00:00",
+        "message": "Indexing recovery_fixture/function_1402.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.485426+00:00",
+        "message": "Indexing recovery_fixture/function_1403.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.489451+00:00",
+        "message": "Indexing recovery_fixture/function_1404.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.493252+00:00",
+        "message": "Indexing recovery_fixture/function_1405.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.497076+00:00",
+        "message": "Indexing recovery_fixture/function_1406.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.501976+00:00",
+        "message": "Indexing recovery_fixture/function_1407.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.505702+00:00",
+        "message": "Indexing recovery_fixture/function_1408.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.509507+00:00",
+        "message": "Indexing recovery_fixture/function_1409.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.512876+00:00",
+        "message": "Indexing recovery_fixture/function_1410.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.517427+00:00",
+        "message": "Indexing recovery_fixture/function_1411.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.521781+00:00",
+        "message": "Indexing recovery_fixture/function_1412.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.525957+00:00",
+        "message": "Indexing recovery_fixture/function_1413.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.529635+00:00",
+        "message": "Indexing recovery_fixture/function_1414.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.533946+00:00",
+        "message": "Indexing recovery_fixture/function_1415.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.538309+00:00",
+        "message": "Indexing recovery_fixture/function_1416.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.542562+00:00",
+        "message": "Indexing recovery_fixture/function_1417.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.546775+00:00",
+        "message": "Indexing recovery_fixture/function_1418.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.550866+00:00",
+        "message": "Indexing recovery_fixture/function_1419.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.554846+00:00",
+        "message": "Indexing recovery_fixture/function_1420.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.558757+00:00",
+        "message": "Indexing recovery_fixture/function_1421.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.562721+00:00",
+        "message": "Indexing recovery_fixture/function_1422.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.572622+00:00",
+        "message": "Indexing recovery_fixture/function_1423.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.576659+00:00",
+        "message": "Indexing recovery_fixture/function_1424.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.580018+00:00",
+        "message": "Indexing recovery_fixture/function_1425.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.589537+00:00",
+        "message": "Indexing recovery_fixture/function_1426.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.593814+00:00",
+        "message": "Indexing recovery_fixture/function_1427.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.597882+00:00",
+        "message": "Indexing recovery_fixture/function_1428.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.601979+00:00",
+        "message": "Indexing recovery_fixture/function_1429.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.606654+00:00",
+        "message": "Indexing recovery_fixture/function_1430.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.610717+00:00",
+        "message": "Indexing recovery_fixture/function_1431.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.615168+00:00",
+        "message": "Indexing recovery_fixture/function_1432.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.626690+00:00",
+        "message": "Indexing recovery_fixture/function_1433.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.630749+00:00",
+        "message": "Indexing recovery_fixture/function_1434.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.634962+00:00",
+        "message": "Indexing recovery_fixture/function_1435.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.639031+00:00",
+        "message": "Indexing recovery_fixture/function_1436.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.642621+00:00",
+        "message": "Indexing recovery_fixture/function_1437.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.646308+00:00",
+        "message": "Indexing recovery_fixture/function_1438.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.652110+00:00",
+        "message": "Indexing recovery_fixture/function_1439.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.656668+00:00",
+        "message": "Indexing recovery_fixture/function_1440.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.660490+00:00",
+        "message": "Indexing recovery_fixture/function_1441.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.664264+00:00",
+        "message": "Indexing recovery_fixture/function_1442.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.668041+00:00",
+        "message": "Indexing recovery_fixture/function_1443.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.671928+00:00",
+        "message": "Indexing recovery_fixture/function_1444.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.676076+00:00",
+        "message": "Indexing recovery_fixture/function_1445.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.679809+00:00",
+        "message": "Indexing recovery_fixture/function_1446.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.683691+00:00",
+        "message": "Indexing recovery_fixture/function_1447.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.687772+00:00",
+        "message": "Indexing recovery_fixture/function_1448.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.692078+00:00",
+        "message": "Indexing recovery_fixture/function_1449.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.695851+00:00",
+        "message": "Indexing recovery_fixture/function_1450.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.699614+00:00",
+        "message": "Indexing recovery_fixture/function_1451.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.703570+00:00",
+        "message": "Indexing recovery_fixture/function_1452.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.707905+00:00",
+        "message": "Indexing recovery_fixture/function_1453.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.711881+00:00",
+        "message": "Indexing recovery_fixture/function_1454.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.715596+00:00",
+        "message": "Indexing recovery_fixture/function_1455.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.719350+00:00",
+        "message": "Indexing recovery_fixture/function_1456.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.723184+00:00",
+        "message": "Indexing recovery_fixture/function_1457.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.727390+00:00",
+        "message": "Indexing recovery_fixture/function_1458.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.731278+00:00",
+        "message": "Indexing recovery_fixture/function_1459.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.734938+00:00",
+        "message": "Indexing recovery_fixture/function_1460.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.738865+00:00",
+        "message": "Indexing recovery_fixture/function_1461.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.742799+00:00",
+        "message": "Indexing recovery_fixture/function_1462.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.746719+00:00",
+        "message": "Indexing recovery_fixture/function_1463.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.750794+00:00",
+        "message": "Indexing recovery_fixture/function_1464.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.754703+00:00",
+        "message": "Indexing recovery_fixture/function_1465.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.761206+00:00",
+        "message": "Indexing recovery_fixture/function_1466.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.765266+00:00",
+        "message": "Indexing recovery_fixture/function_1467.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.770070+00:00",
+        "message": "Indexing recovery_fixture/function_1468.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.774261+00:00",
+        "message": "Indexing recovery_fixture/function_1469.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.778508+00:00",
+        "message": "Indexing recovery_fixture/function_1470.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.782248+00:00",
+        "message": "Indexing recovery_fixture/function_1471.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.787993+00:00",
+        "message": "Indexing recovery_fixture/function_1472.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.795361+00:00",
+        "message": "Indexing recovery_fixture/function_1473.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.799080+00:00",
+        "message": "Indexing recovery_fixture/function_1474.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.802841+00:00",
+        "message": "Indexing recovery_fixture/function_1475.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.806590+00:00",
+        "message": "Indexing recovery_fixture/function_1476.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.810008+00:00",
+        "message": "Indexing recovery_fixture/function_1477.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.813535+00:00",
+        "message": "Indexing recovery_fixture/function_1478.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.817416+00:00",
+        "message": "Indexing recovery_fixture/function_1479.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.821296+00:00",
+        "message": "Indexing recovery_fixture/function_1480.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.825020+00:00",
+        "message": "Indexing recovery_fixture/function_1481.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.828743+00:00",
+        "message": "Indexing recovery_fixture/function_1482.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.832578+00:00",
+        "message": "Indexing recovery_fixture/function_1483.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.836090+00:00",
+        "message": "Indexing recovery_fixture/function_1484.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.839576+00:00",
+        "message": "Indexing recovery_fixture/function_1485.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.843493+00:00",
+        "message": "Indexing recovery_fixture/function_1486.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.847280+00:00",
+        "message": "Indexing recovery_fixture/function_1487.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.851288+00:00",
+        "message": "Indexing recovery_fixture/function_1488.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.858552+00:00",
+        "message": "Indexing recovery_fixture/function_1489.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.862673+00:00",
+        "message": "Indexing recovery_fixture/function_1490.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.866357+00:00",
+        "message": "Indexing recovery_fixture/function_1491.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.870220+00:00",
+        "message": "Indexing recovery_fixture/function_1492.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.873899+00:00",
+        "message": "Indexing recovery_fixture/function_1493.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.877817+00:00",
+        "message": "Indexing recovery_fixture/function_1494.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.882837+00:00",
+        "message": "Indexing recovery_fixture/function_1495.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.886832+00:00",
+        "message": "Indexing recovery_fixture/function_1496.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.890839+00:00",
+        "message": "Indexing recovery_fixture/function_1497.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.894767+00:00",
+        "message": "Indexing recovery_fixture/function_1498.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.899097+00:00",
+        "message": "Indexing recovery_fixture/function_1499.py",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.903777+00:00",
+        "message": "Indexing recovery_fixture/large.tsx",
+        "detail": {}
+      },
+      {
+        "at": "2026-11-07T15:16:33.979329+00:00",
+        "message": "Indexed 1504 files and 1 dependency records",
+        "detail": {}
+      }
+    ],
+    "result": {
+      "repository_id": "bcc26318-62e8-4718-829a-a556d27fdbaa",
+      "files": 1504,
+      "languages": {
+        "Python": 1502,
+        "TypeScript": 1
+      }
+    },
+    "error": null,
+    "cancel_requested": false,
+    "created_at": "2026-11-07T15:16:21.817963+00:00",
+    "started_at": "2026-11-07T15:16:22.067021+00:00",
+    "ended_at": "2026-11-07T15:16:33.986280+00:00"
+  },
+  "repository_id": "bcc26318-62e8-4718-829a-a556d27fdbaa",
+  "indexed_files": 1504,
+  "status": "PASSED"
+}

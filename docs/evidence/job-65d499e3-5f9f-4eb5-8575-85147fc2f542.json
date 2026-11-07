@@ -1,0 +1,91 @@
+{
+  "id": "65d499e3-5f9f-4eb5-8575-85147fc2f542",
+  "user_id": "05751b51-3e14-49ee-a7c1-10543f2fa134",
+  "kind": "verify",
+  "resource_id": "f8715b9e-3302-4a58-ba50-c49630b569c6",
+  "payload": {},
+  "status": "SUCCEEDED",
+  "events": [
+    {
+      "at": "2026-11-07T12:57:01.216764+00:00",
+      "message": "Started verify",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T12:57:01.227116+00:00",
+      "message": "Agent state: VERIFYING",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T12:57:01.237254+00:00",
+      "message": "Independent build",
+      "detail": {
+        "command": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "."
+        ]
+      }
+    },
+    {
+      "at": "2026-11-07T12:57:02.123273+00:00",
+      "message": "Independent test",
+      "detail": {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests"
+        ]
+      }
+    },
+    {
+      "at": "2026-11-07T12:57:03.301195+00:00",
+      "message": "Running semgrep",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T12:57:10.375714+00:00",
+      "message": "semgrep: SUCCEEDED; 0 findings",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T12:57:10.378427+00:00",
+      "message": "Running osv",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T12:57:23.130416+00:00",
+      "message": "osv: SUCCEEDED; 40 findings",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T12:57:23.137015+00:00",
+      "message": "Running trivy",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T12:57:25.061244+00:00",
+      "message": "trivy: SUCCEEDED; 5 findings",
+      "detail": {}
+    },
+    {
+      "at": "2026-11-07T12:57:25.080918+00:00",
+      "message": "Agent state: FAILED",
+      "detail": {}
+    }
+  ],
+  "result": {
+    "remediation_id": "f8715b9e-3302-4a58-ba50-c49630b569c6",
+    "status": "FAILED"
+  },
+  "error": null,
+  "cancel_requested": false,
+  "created_at": "2026-11-07T12:57:00.703839+00:00",
+  "started_at": "2026-11-07T12:57:01.208775+00:00",
+  "ended_at": "2026-11-07T12:57:25.083301+00:00"
+}

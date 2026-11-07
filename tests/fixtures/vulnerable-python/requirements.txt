@@ -1,0 +1,2 @@
+# Explicit controlled vulnerable dependency for real OSV and Trivy scans.
+requests==2.19.1
