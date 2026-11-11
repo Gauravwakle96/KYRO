@@ -4,8 +4,6 @@
 
 **Think. Build. Secure.**
 
-<img src="https://www.gitskins.com/api/section/hero?username=Gauravwakle96&theme=cyber&style=aura" alt="KYRO maintainer profile card by GitSkins" width="100%" />
-
 </div>
 
 KYRO is a local-first, AI-assisted security remediation agent. It scans your repositories with real security tools, explains which findings matter, proposes a fix with a local model, applies it in a sandbox only after you approve, independently re-verifies the result, and prepares a draft GitHub pull request for human review.
