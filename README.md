@@ -380,17 +380,6 @@ npm run build
 ![OSV-Scanner](https://img.shields.io/badge/OSV--Scanner-2.7.0-4285F4?style=for-the-badge)
 ![Trivy](https://img.shields.io/badge/Trivy-0.76.2-1904DA?style=for-the-badge)
 
-**Profile**
-
-[![GitHub](https://img.shields.io/badge/GitHub-Gauravwakle96-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Gauravwakle96)
-![Followers](https://img.shields.io/github/followers/Gauravwakle96?style=for-the-badge&logo=github&label=Followers)
-![Stars](https://img.shields.io/github/stars/Gauravwakle96/KYRO?style=for-the-badge&logo=github&label=KYRO%20Stars)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-</div>
-
-<img src="https://www.gitskins.com/api/section/stats?username=Gauravwakle96&theme=cyber&style=aura" alt="Maintainer GitHub stats by GitSkins" width="100%" />
-
 </div>
 
 ## License
