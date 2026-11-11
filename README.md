@@ -1,49 +1,78 @@
+<div align="center">
+
 # KYRO
 
 **Think. Build. Secure.**
 
-AI-powered autonomous software security and engineering intelligence, built for local execution and human-reviewed changes.
+</div>
 
-KYRO retrieves authorized source snapshots, indexes code, runs real Semgrep/OSV-Scanner/Trivy containers, explains finding priority, generates a bounded local-model plan, executes approved edits in Docker, independently rescans and prepares an approved draft GitHub pull request.
+KYRO is a local-first, AI-assisted security remediation agent. It scans your repositories with real security tools, explains which findings matter, proposes a fix with a local model, applies it in a sandbox only after you approve, independently re-verifies the result, and prepares a draft GitHub pull request for human review.
 
-Its workflow is **Understand → Detect → Investigate → Prioritize → Plan → Approve → Remediate → Test → Verify → Deliver**. Users see the original scanner evidence, the proposed operation, the actual code diff and the verification results. Approval is required before editing a repository workspace and before publishing a draft pull request.
+> **Human in the loop, always.** You see the original scanner evidence, the proposed operation, the real diff and the verification results. Approval is required before any workspace edit and again before any pull request is published. KYRO never merges or deploys.
 
-[Quick start](#start-with-docker-recommended) · [User guide](#how-to-use-kyro) · [Capabilities](#what-kyro-can-do) · [Recovery](#automatic-recovery) · [Validation](#what-has-been-tested) · [Documentation](#documentation)
+> **Status:** working local release for a single owner. It is not certified secure and is not ready for public or multi-tenant use. See [Project status](#project-status) for what has and has not been validated.
 
-The whole-product [checklist](docs/PRODUCT_CHECKLIST.md), [test execution report](docs/TEST_EXECUTION_REPORT.md) and [implementation status](IMPLEMENTATION_STATUS.md) record actual acceptance and remaining external blockers. This product is not certified secure or ready for public multi-tenant operation.
+[Quick start](#quick-start) · [Try the demo](#try-the-demo-fixture) · [User guide](#user-guide) · [Configuration](#configuration) · [Project status](#project-status) · [Documentation](#documentation)
 
-The latest [repository report](docs/REPOSITORY_VALIDATION_REPORT.md) records all 19 authorized repositories, individual scanner outcomes and 347 normalized findings. [Automatic recovery](docs/AUTOMATIC_RECOVERY.md) retries known transient read failures and resumes interrupted indexing; original errors and incomplete results stay visible. Actual restart recovery and a fresh deployed AI/patch/test/rescan workflow passed; live GitHub draft PR creation remains unrun.
+---
 
-## What KYRO can do
+## How it works
 
-| Capability | User-facing behavior |
+```mermaid
+flowchart LR
+    A[Understand] --> B[Detect] --> C[Investigate] --> D[Prioritize] --> E[Plan]
+    E --> F{{Approve}}
+    F --> G[Remediate] --> H[Test] --> I[Verify] --> J{{Approve PR}}
+    J --> K[Deliver draft PR]
+```
+
+| Stage | What happens |
 |---|---|
-| Projects and repository snapshots | Organize repositories by project, select a branch and inspect the exact retrieved commit. |
-| Repository intelligence | Discover languages, frameworks, manifests, dependencies, likely entry points, tests and supported code symbols. |
-| Real security scanning | Execute Semgrep, OSV-Scanner and Trivy sequentially; preserve each tool's result, exit status and error evidence. |
-| Unified findings | Search and filter normalized results while retaining the original scanner provenance. |
-| Contextual prioritization | Explain risk factors separately from raw CVSS; show reference/reachability evidence and its limitations. |
-| Vulnerability enrichment | Retrieve available OSV, NVD, FIRST EPSS and CISA KEV information with source timestamps and provider errors. |
-| Evidence graph | Explore recorded relationships among repositories, files and findings. |
-| Local AI remediation | Retrieve bounded relevant code and generate a structured, reviewable plan using a configured local model. |
-| Controlled code modification | Apply approved file changes in a Docker workspace with hash, path, command and resource boundaries. |
-| Independent verification | Run build/test commands and scanners again, compare findings and retain failed or incomplete outcomes. |
-| Evidence reports | Download the original finding, root cause, diff, command results, scanner comparison and limitations. |
-| Draft PR delivery | Implemented GitHub branch/commit/draft PR flow, gated on explicit approval and VERIFIED evidence; live product PR acceptance remains pending. |
-| Recovery and activity | Retry eligible transient read failures, resume interrupted indexing, cancel jobs and inspect persistent recovery history. |
-| Model usage and analytics | Show recorded model tokens, inference duration, scan history and verification outcomes; unavailable costs remain unknown. |
+| **Understand** | Retrieves an authorized source snapshot and indexes languages, frameworks, manifests, dependencies, entry points, tests and symbols. |
+| **Detect** | Runs Semgrep, OSV-Scanner and Trivy in Docker, one after another, keeping each tool's output, exit status and errors. |
+| **Investigate / Prioritize** | Normalizes findings, enriches them (OSV, NVD, FIRST EPSS, CISA KEV) and explains risk factors separately from raw CVSS. |
+| **Plan** | A configured local model receives bounded, relevant code and returns a structured, reviewable plan. |
+| **Approve** | You review every file, risk and command. Approval is bound to the plan, source commit and file hashes. |
+| **Remediate / Test** | Approved edits run in an isolated Docker workspace with path, hash, command and resource limits. |
+| **Verify** | A separate runner reruns build/tests and all scanners, then compares before and after. |
+| **Deliver** | After a second approval, KYRO opens a **draft** PR, only if the result is `VERIFIED`. |
 
-The current release uses a single local owner and one lightweight background worker. General-purpose bug fixing, full interprocedural dataflow analysis and team permissions are future expansion, rather than claims about the current agent.
+## Features
 
-## Requirements
+| Capability | Behavior |
+|---|---|
+| Projects and snapshots | Group repositories by project, choose a branch and inspect the exact commit retrieved. |
+| Repository intelligence | Languages, frameworks, manifests, dependencies, entry points, test files and symbols (Python/JS/TS symbols; other languages get file and manifest indexing). |
+| Real scanning | Semgrep, OSV-Scanner and Trivy with preserved provenance. |
+| Unified findings | Search and filter normalized results while keeping the original scanner evidence. |
+| Contextual prioritization | Risk factors plus reference/reachability evidence, with its limitations stated. |
+| Evidence graph | Explore relationships among repositories, files and findings. |
+| Local AI remediation | Bounded retrieval and structured plans from a local OpenAI-compatible model. |
+| Controlled modification | Docker workspace; the sandbox never receives the Docker socket, credentials or host home directories. |
+| Independent verification | Fresh build, test and rescan, with failed or incomplete outcomes retained. |
+| Evidence reports | Downloadable JSON with finding, root cause, diff, command output, scan comparison and limitations. |
+| Recovery and activity | Automatic retry of transient read failures, resumable indexing, job cancellation and persistent history. |
+| Usage and analytics | Recorded tokens, inference time, scan history and outcomes. Unknown costs stay unknown. |
 
-For Docker startup: Git, Docker Desktop or a compatible Linux Docker engine (26+), Docker Compose 2.24.4+ and at least 10 GB free disk for images, scanner caches and source. Host Python/Node are unnecessary for this deployment; the images install the pinned runtimes. For native development, also install Python 3.12–3.13, uv and Node 24.
+**Out of scope for the current release:** general-purpose bug fixing, full interprocedural dataflow analysis, and team permissions. These are future work, not current claims.
 
-A local OpenAI-compatible inference endpoint is required for AI planning and editing. Repository analysis and scanners can operate without a running AI model. Dependency scanning uses public advisory services; offline operation requires suitable pre-populated scanner caches. GitHub access and optional cloud inference require separately configured authorization. The core local workflow requires no paid cloud service.
+---
 
-## Start with Docker (recommended)
+## Quick start
 
-In PowerShell on Windows:
+### Requirements
+
+- Git
+- Docker Desktop, or a Linux Docker engine 26+, with Compose 2.24.4+
+- At least 10 GB free disk (images, scanner caches, source)
+- A **local OpenAI-compatible model endpoint** for AI planning and editing. Scanning and repository analysis work without one.
+- Internet access for the first build and for scanner databases. Offline use needs pre-populated scanner caches.
+
+Host Python and Node are not needed for Docker deployment. For native development you also need Python 3.12–3.13, [uv](https://docs.astral.sh/uv/) and Node 24.
+
+### 1. Start KYRO with Docker
+
+**Windows (PowerShell)**
 
 ```powershell
 git clone https://github.com/Gauravwakle96/KYRO.git
@@ -53,9 +82,12 @@ if (-not (Test-Path -LiteralPath .env)) { Copy-Item .env.example .env }
 docker compose up -d --build
 ```
 
-On Linux/macOS, clone the same repository, copy `.env.example` to `.env` if it does not exist, then run:
+**Linux / macOS**
 
 ```bash
+git clone https://github.com/Gauravwakle96/KYRO.git
+cd KYRO
+[ -f .env ] || cp .env.example .env
 docker pull semgrep/semgrep:1.184.0
 docker pull ghcr.io/google/osv-scanner:v2.7.0
 docker pull aquasec/trivy:0.76.2
@@ -63,30 +95,62 @@ docker build -t kyro-sandbox:local -f infrastructure/docker/Sandbox.Dockerfile .
 docker compose up -d --build
 ```
 
-Open **http://127.0.0.1:8787**. On a fresh installation, create the first owner account; there is no preset password. Later, sign in with that account. Check health at **http://127.0.0.1:8787/api/health** and view the generated API reference at **http://127.0.0.1:8787/docs**.
+### 2. Create your owner account
 
-Before using AI remediation, configure an available local model as explained below. To try scanning without GitHub authorization, follow the labelled test-fixture workflow. The first image build and scanner database downloads require internet access and may take time.
+Open **http://127.0.0.1:8787** and create the first owner account (there is no preset password). Public registration closes after the first owner.
 
-## Start locally on Windows
+- Health check: http://127.0.0.1:8787/api/health
+- API reference: http://127.0.0.1:8787/docs
 
-From this directory:
+### 3. Connect a model
+
+AI remediation needs a running local model. See [Model configuration](#model-configuration). Check **AI Models** in the UI for availability.
+
+### 4. Try it safely
+
+Follow [Try the demo fixture](#try-the-demo-fixture) to exercise the whole workflow without any GitHub authorization.
+
+<details>
+<summary><strong>Run natively on Windows (without Docker for KYRO itself)</strong></summary>
 
 ```powershell
 if (-not (Test-Path -LiteralPath .env)) { Copy-Item .env.example .env }
-# Edit backend settings in .env; never add credentials to source or frontend files.
+# Edit backend settings in .env. Never put credentials in source or frontend files.
 ./infrastructure/scripts/setup-scanners.ps1
 ./infrastructure/scripts/start-local.ps1
 ```
 
-Open **http://127.0.0.1:8787** and create the initial owner account. Public registration closes after the first owner. Stop the server with Ctrl+C. The script builds the actual frontend and runs the backend on loopback. Run `npm run dev` in frontend for frontend development; its proxy targets port 8787.
+Open http://127.0.0.1:8787 and create the owner account. Stop with Ctrl+C. The script builds the frontend and runs the backend on loopback. For frontend development run `npm run dev` in `frontend` (its proxy targets port 8787).
 
-Settings paths are relative to `backend` for native startup: use `KYRO_DATA_DIR=../data` and `KYRO_DATABASE_URL=sqlite:///../data/kyro.db`. `.env` is read from the project root. Use absolute paths for custom deployments.
+Native paths are relative to `backend`: use `KYRO_DATA_DIR=../data` and `KYRO_DATABASE_URL=sqlite:///../data/kyro.db`. `.env` is read from the project root. Use absolute paths for custom deployments.
 
-## Model configuration
+</details>
 
-Default: `KYRO_LOCAL_ONLY=true`, `KYRO_LOCAL_MODEL_URL=http://127.0.0.1:8080/v1`, model `qwen3-8b`. Configure the actual model identifier in AI Models. llama.cpp's `llama-server` supports `/v1/chat/completions`. An existing Ollama server can use `http://127.0.0.1:11434/v1` with its actual model identifier. KYRO does not download a GGUF or overwrite an existing inference installation.
+---
 
-For an existing Ollama installation with `qwen2.5-coder:7b`, configure the ignored root `.env`:
+## Try the demo fixture
+
+The fastest way to see KYRO work end to end. The fixture is **intentionally vulnerable** code, always labelled `TEST FIXTURE`. It cannot publish a PR. Never deploy it as an application.
+
+1. Create a project.
+2. Go to **Repositories** and click **Import test fixture**.
+3. Click **Run scanners** and inspect the `eval` finding.
+4. Create a model plan, review its files, risks and commands, then approve and execute.
+5. Run independent verification and download the evidence report.
+
+Real dependency findings in the fixture remain unless their own approved task addresses them. Fixture metrics must not be confused with production repository results.
+
+---
+
+## Configuration
+
+### Model configuration
+
+Defaults: `KYRO_LOCAL_ONLY=true`, `KYRO_LOCAL_MODEL_URL=http://127.0.0.1:8080/v1`, model `qwen3-8b`. Set the real model identifier in **AI Models**. KYRO does not download model weights or overwrite an existing inference installation.
+
+Compatible providers must support JSON-schema structured completions, which remediation relies on.
+
+**Ollama (existing install)** with `qwen2.5-coder:7b`, in the root `.env`:
 
 ```dotenv
 KYRO_LOCAL_ONLY=true
@@ -95,92 +159,110 @@ KYRO_LOCAL_MODEL_URL=http://127.0.0.1:11434/v1
 KYRO_DEPLOY_LOCAL_MODEL_URL=http://host.docker.internal:11434/v1
 ```
 
-The first URL is for native startup; the deployment URL is for Docker. Use a model that is actually installed, start its server, then check **AI Models** for availability. After editing `.env`, run `docker compose up -d` to recreate a service whose configuration changed. On Linux, and on some Docker Desktop setups, the model server must accept connections from Docker's host gateway; see [troubleshooting](docs/TROUBLESHOOTING.md). Protect that endpoint with appropriate interface/firewall restrictions.
+The first URL is for native startup, the `DEPLOY` URL is for Docker. Use a model that is actually installed and running. After editing `.env`, run `docker compose up -d` to recreate changed services. On Linux and some Docker Desktop setups the model server must accept connections from Docker's host gateway (see [troubleshooting](docs/TROUBLESHOOTING.md)), and that endpoint should be restricted by interface or firewall.
 
-Local-only blocks external model URLs and never falls back to cloud. Optional HTTPS cloud inference requires operator cost authorization, local-only disabled and backend provider configuration. `KYRO_CLOUD_PROTOCOL` selects `chat` or `responses`; `KYRO_MODEL_ROUTING` selects local, cloud, or automatic routing. Automatic routing uses local inference for lower-severity dependency tasks and an authorized cloud model for source-code or high-severity tasks. Plans record the selected provider; execution stays bound to it. Provider failures remain failures, and a server-configured request ceiling bounds cloud attempts. Monetary estimates require verified operator-provided prices; unavailable costs and tokens remain unavailable. Live cloud acceptance remains blocked by the configured provider's client policy.
-
-To start your existing Qwen3 GGUF with the project-local official llama.cpp binary:
+**llama.cpp (`llama-server`)** with an existing Qwen3 GGUF:
 
 ```powershell
 python tools/install_llama.py
 ./infrastructure/scripts/start-model.ps1 -ModelPath 'C:/path/to/your/Qwen3-8B-Q4_K_M.gguf'
 ```
 
-The installer verifies GitHub asset SHA-256 digests and downloads binaries, not model weights. The launch script uses one 8192-token slot, quantized KV cache, automatic GPU fitting and a 1024-token reasoning ceiling. It binds loopback and sleeps after idle time to release resources. Do not keep another heavy model loaded simultaneously. The model adapter uses JSON-schema structured completions; compatible providers must implement that response format for remediation.
+The installer verifies GitHub asset SHA-256 digests and downloads binaries only. The launch script uses one 8192-token slot, quantized KV cache, automatic GPU fitting and a 1024-token reasoning ceiling, binds to loopback, and sleeps when idle. Avoid keeping another heavy model loaded at the same time.
 
-## Connect GitHub
+**Optional cloud inference** is off by default. Local-only mode blocks external model URLs and never falls back to cloud. To enable it you need operator cost authorization, `KYRO_LOCAL_ONLY` disabled and backend provider configuration.
 
-Preferred: create a GitHub App restricted to selected repositories with **Metadata: read**, **Contents: read/write**, **Pull requests: read/write**. Configure backend `KYRO_GITHUB_APP_ID`, `KYRO_GITHUB_INSTALLATION_ID` and `KYRO_GITHUB_APP_PRIVATE_KEY_PATH`. Keep the private key outside the checkout. Install the App only on repositories you authorize KYRO to modify.
+- `KYRO_CLOUD_PROTOCOL`: `chat` or `responses`
+- `KYRO_MODEL_ROUTING`: local, cloud or automatic (automatic uses local for lower-severity dependency tasks and cloud for source-code or high-severity tasks)
+- Plans record the selected provider and execution stays bound to it. Provider failures remain failures, and a server-configured ceiling bounds cloud attempts.
+- Monetary estimates need verified operator-provided prices. Unavailable costs and tokens stay unavailable.
+- Live cloud acceptance is currently blocked by the configured provider's client policy.
 
-Alternatively configure an OAuth application's `KYRO_GITHUB_CLIENT_ID` with device flow enabled. Setup displays GitHub's code and authorization URL; OAuth credentials are encrypted in the backend data directory. OAuth's `repo` scope is broader than a repository-restricted App; the App is preferred. A fine-grained PAT can be supplied through backend `KYRO_GITHUB_TOKEN` with selected repository Contents/PR permissions. Never paste it into frontend configuration or source. Local service environment is available only to the server process.
+### GitHub connection
 
-The repositories page lists accessible repositories, branches and immutable snapshots. PR creation separately requires a VERIFIED report and explicit user approval. KYRO creates a **draft**, never merges, and refuses if the base SHA changed. An actual authorized repository is required for live GitHub acceptance; unit contract fixtures do not establish live acceptance.
+| Method | Notes |
+|---|---|
+| **GitHub App** (preferred) | Restrict to selected repositories with **Metadata: read**, **Contents: read/write**, **Pull requests: read/write**. Set `KYRO_GITHUB_APP_ID`, `KYRO_GITHUB_INSTALLATION_ID`, `KYRO_GITHUB_APP_PRIVATE_KEY_PATH`. Keep the private key outside the checkout and install the App only on repositories KYRO may modify. |
+| **OAuth device flow** | Set `KYRO_GITHUB_CLIENT_ID` with device flow enabled. Credentials are encrypted in the backend data directory. The `repo` scope is broader than a restricted App. |
+| **Fine-grained PAT** | Set `KYRO_GITHUB_TOKEN` on the backend with selected-repository Contents and PR permissions. Never place it in frontend config or source. |
 
-**Current import behavior:** GitHub authorization is required and the UI selects repositories available to that connection. Public repository import from a URL without a token is planned; it is not implemented in this checkout. Private repositories always require permission. Automatic fork-based delivery to someone else's repository is also pending. Do not expect a link alone to grant write access.
+PR creation requires a `VERIFIED` report plus explicit approval. KYRO creates a **draft**, never merges, and refuses if the base SHA changed.
 
-## How to use KYRO
+**Current import behavior:** GitHub authorization is required, and the UI lists repositories available to that connection. Importing a public repository by URL without a token is planned but not implemented. Fork-based delivery to repositories you do not control is also pending. A link alone never grants write access.
 
-1. **Sign in and check setup.** Open **Workspace setup** to inspect GitHub, scanner and model readiness. Missing integrations are reported explicitly.
-2. **Create a project.** Go to **Projects**, enter a name and optional description, and click **Create project**.
-3. **Connect a repository.** Go to **Repositories**, choose the project, GitHub repository and branch, then click **Connect**. This queues retrieval and indexing; watch **Agent Workspace** until the repository is READY.
-4. **Inspect the repository.** Open the connected repository to browse actual source files, languages, frameworks, test-file discovery and indexed symbols. Retrieval already performs analysis; **Analyze** can update the index of the stored snapshot. A stored snapshot does not silently follow later remote commits.
-5. **Run scanners.** Click **Run scanners**. KYRO runs the three real tools sequentially. Inspect **Security** and the execution timeline for completed results, partial coverage or errors.
-6. **Investigate a finding.** Open **Findings**, search/filter results and select an issue. Review its affected location/version, scanner evidence, contextual risk factors and reachability category. **Enrich finding** queues external advisory lookups where identifiers are available.
-7. **Request a plan.** Click **Create remediation plan**. The configured model receives bounded relevant context and proposes a root cause, strategy, risks, existing files and build/test commands. Proposed outcomes are not test results.
-8. **Review and approve.** Inspect every proposed file and command. Select **I reviewed the changes, risks and commands**, click **Approve plan**, then **Execute approved fix**. Approval binds the plan, source commit and file hashes. Execution modifies a separate managed Docker workspace, not the original remote branch.
-9. **Follow execution.** Inspect **Agent Workspace** and the remediation page for actual model/tool actions, checkpoints, diff, command output and errors. Bounded revisions can address failed patch validation or tests within the approved scope; an exhausted agent remains failed.
-10. **Verify independently.** Click **Run independent verification** after a patch exists. A separate runner reruns approved commands and scanners, compares findings, checks scope and records remaining/new findings. Inspect the outcome in **Verification** or the remediation page.
-11. **Download evidence.** Click **Download evidence report**. The JSON report includes the original finding, root cause, changed files, diff, build/test output, independent scans, before/after comparison and limitations.
-12. **Approve delivery when eligible.** A VERIFIED real-repository task can show **Create draft pull request**. Publishing requires a separate approval and authorized GitHub write access. The product only reports a PR after GitHub confirms creation. A reviewer decides whether to merge; KYRO does not automatically merge or deploy.
+### Settings reference
 
-For an unfamiliar repository, begin with one finding and a small reviewed patch. Missing project dependencies may require a trusted custom sandbox image before meaningful tests can run. A repository with no discovered test suite must not be presented as having passed tests.
+| Setting | Default | Purpose |
+|---|---|---|
+| `KYRO_LOCAL_ONLY` | `true` | Block external model URLs and cloud fallback |
+| `KYRO_LOCAL_MODEL` | `qwen3-8b` | Local model identifier |
+| `KYRO_LOCAL_MODEL_URL` | `http://127.0.0.1:8080/v1` | Model endpoint for native startup |
+| `KYRO_DEPLOY_LOCAL_MODEL_URL` | none | Model endpoint as seen from the Docker container |
+| `KYRO_AUTOMATIC_RECOVERY` | `true` | Retry eligible transient read failures |
+| `KYRO_JOB_MAX_ATTEMPTS` | `3` | Total attempts per eligible job |
+| `KYRO_JOB_RETRY_DELAY` | `2` seconds | Base retry delay |
+| `KYRO_DATA_DIR` / `KYRO_DATABASE_URL` | see above | Data location and database |
+
+---
+
+## User guide
+
+1. **Check setup.** Open **Workspace setup** to see GitHub, scanner and model readiness. Missing integrations are reported explicitly.
+2. **Create a project.** **Projects** → name, optional description → **Create project**.
+3. **Connect a repository.** **Repositories** → choose project, GitHub repository and branch → **Connect**. Watch **Agent Workspace** until it is `READY`.
+4. **Inspect it.** Browse source, languages, frameworks, discovered tests and symbols. A stored snapshot does not silently follow later remote commits; **Analyze** re-indexes the stored snapshot.
+5. **Run scanners.** Click **Run scanners**. Check **Security** and the execution timeline for completed, partial or errored runs.
+6. **Investigate a finding.** In **Findings**, review location, version, scanner evidence, risk factors and reachability. **Enrich finding** queues advisory lookups where identifiers exist.
+7. **Request a plan.** **Create remediation plan**. The model proposes root cause, strategy, risks, existing files and build/test commands. These are proposals, not test results.
+8. **Review and approve.** Inspect every file and command, tick **I reviewed the changes, risks and commands**, click **Approve plan**, then **Execute approved fix**. Execution changes a separate managed Docker workspace, never the remote branch.
+9. **Follow execution.** Watch model and tool actions, checkpoints, diff, output and errors. Bounded revisions may address failed patch validation or tests within the approved scope; an exhausted agent stays failed.
+10. **Verify.** **Run independent verification** reruns approved commands and scanners in a separate runner and checks scope.
+11. **Download evidence.** **Download evidence report** gives the original finding, root cause, changed files, diff, build/test output, independent scans, before/after comparison and limitations.
+12. **Deliver.** A `VERIFIED` real-repository task shows **Create draft pull request**. It needs separate approval and authorized write access, and a PR is reported only after GitHub confirms creation.
+
+**Tip:** for an unfamiliar repository, start with one finding and a small reviewed patch. Missing project dependencies may require a trusted custom sandbox image before tests are meaningful. A repository with no discovered tests must never be presented as having passed tests.
 
 ### Verification outcomes
 
 | Outcome | Meaning |
 |---|---|
-| VERIFIED | The selected finding resolved under complete recorded baseline/rescan coverage, scope checks and successful build/test commands. This is not proof of complete application security. |
-| PARTIALLY_VERIFIED | Some evidence supports the fix, but tests, build or scanner coverage are incomplete. |
-| FAILED | The original issue remains, a quality gate fails, tests fail, scope changes unexpectedly or new findings are introduced. |
-| INCONCLUSIVE | Required evidence or a complete baseline is unavailable, so the system cannot establish the result. |
+| `VERIFIED` | The selected finding resolved under complete baseline/rescan coverage, scope checks passed and build/test succeeded. This is **not** proof of complete application security. |
+| `PARTIALLY_VERIFIED` | Some evidence supports the fix, but tests, build or scanner coverage are incomplete. |
+| `FAILED` | The issue remains, a quality gate or tests fail, scope changed unexpectedly, or new findings appeared. |
+| `INCONCLUSIVE` | Required evidence or a complete baseline is unavailable. |
 
-### Finding and scanner limits
+### Reading findings correctly
 
-Static imports and call references do not prove runtime exploitability. **NO_REFERENCE_FOUND** does not establish safety. **NOT_APPLICABLE** means a tool found no supported dependency input; **PARTIAL** indicates incomplete scanner analysis. Both leave missing coverage visible. Zero findings is not a security certification.
+- Static imports and call references do not prove runtime exploitability.
+- `NO_REFERENCE_FOUND` does not mean safe.
+- `NOT_APPLICABLE` means a tool found no supported dependency input. `PARTIAL` means incomplete analysis. Both keep missing coverage visible.
+- Zero findings is not a security certification.
 
-### Find your work in the interface
+### Where things live in the UI
 
-| Area | What to use it for |
+| Area | Use it for |
 |---|---|
-| Overview | Actual repository, finding, scan and remediation counts and workflow shortcuts. |
-| Projects / Repositories | Project management, repository/branch selection, snapshot metadata and source inspection. |
-| Security / Findings / Dependencies | Scanner runs, evidence-backed finding review and dependency inventories. |
-| Repository evidence graph | Interactive relationships and supporting evidence reached from repository/finding details. |
-| Remediation / Agent Workspace | Plan review, approvals, generated diffs, actions, jobs and recovery history. |
-| Verification / Pull Requests | Independent results, downloadable reports and confirmed draft PR records. |
-| Analytics / AI Models / Settings | Recorded usage/history, model availability/configuration and runtime/audit policies. |
+| Overview | Real repository, finding, scan and remediation counts |
+| Projects / Repositories | Project management, branch selection, snapshots, source browsing |
+| Security / Findings / Dependencies | Scanner runs, evidence-backed review, dependency inventories |
+| Evidence graph | Relationships among repositories, files and findings |
+| Remediation / Agent Workspace | Plans, approvals, diffs, actions, jobs, recovery history |
+| Verification / Pull Requests | Independent results, reports, confirmed draft PRs |
+| Analytics / AI Models / Settings | Usage history, model availability, runtime and audit policy |
+
+---
 
 ## Automatic recovery
 
-Recovery is enabled by default for eligible imports, fixture retrieval, indexing, baseline scans and vulnerability enrichment. Temporary network/provider failures can retry; interrupted read jobs can resume after the backend restarts. Attempt numbers, original failure reasons, scheduled delays and final outcomes persist in jobs and audit records.
+Enabled by default for imports, fixture retrieval, indexing, baseline scans and enrichment. Temporary network or provider failures retry, and interrupted read jobs resume after a backend restart. Attempts, original failure reasons, delays and outcomes persist in jobs and audit records.
 
-Default policy: **three total attempts**, delays of **two and four seconds**, provider Retry-After delays capped at **60 seconds**, and the original overall job deadline. Cancellation stops recovery. Scheduled retries do not block ready jobs. Manual retry controls preserve the original failed job and its evidence.
+**Default policy:** three total attempts, delays of 2 and 4 seconds, provider `Retry-After` capped at 60 seconds, original job deadline preserved. Cancellation stops recovery. Manual retry preserves the original failed job and its evidence.
 
-| Backend setting | Default |
-|---|---|
-| `KYRO_AUTOMATIC_RECOVERY` | `true` |
-| `KYRO_JOB_MAX_ATTEMPTS` | `3` |
-| `KYRO_JOB_RETRY_DELAY` | `2` seconds |
+Recovery **cannot** create missing source, grant permissions, turn failing tests into passing ones, or fix arbitrary product bugs. Interrupted agent edits, verification and GitHub delivery are **not** replayed automatically. KYRO never rewrites itself, exposes credentials, widens sandbox permissions, merges or deploys as a recovery step. Details and fault-injection evidence: [AUTOMATIC_RECOVERY.md](docs/AUTOMATIC_RECOVERY.md).
 
-Recovery cannot create missing source, grant permissions, repair every arbitrary product bug or turn failed tests into a pass. Interrupted agent edits, verification and GitHub delivery do not automatically replay. KYRO does not rewrite itself, expose credentials, expand sandbox permissions, merge or deploy as a recovery action. See [the complete policy and actual fault-injection evidence](docs/AUTOMATIC_RECOVERY.md).
+---
 
-## Controlled demo and actual workflow
-
-Create a project → Repositories → **Import test fixture**. The fixture contains intentionally vulnerable code and a dependency; it is always marked TEST FIXTURE. Run scanners → inspect the eval finding → create a model plan → review its files, risks and commands → approve → execute → independently verify. Actual dependency findings remain unless their own approved task addresses them. A fixture cannot publish a PR.
-
-This is deliberately vulnerable source used for real scanner/model/container execution. Use it locally to learn the workflow; never deploy it as an application. Its findings and metrics must not be confused with production repository results.
-
-## Docker deployment
+## Deployment and security
 
 ```powershell
 ./infrastructure/scripts/setup-scanners.ps1
@@ -188,26 +270,63 @@ docker compose build
 docker compose up -d
 ```
 
-Open http://127.0.0.1:8787. Default Compose exposes loopback only. `KYRO_DEPLOY_LOCAL_MODEL_URL` controls the container's local host endpoint, e.g. `http://host.docker.internal:11434/v1`; the model server must accept the Docker host connection. SQLite and source persist in the `kyro-data` volume. PostgreSQL overlay: configure a secret `POSTGRES_PASSWORD` in `.env`, then `docker compose -f docker-compose.yml -f docker-compose.postgres.yml up -d --build`. Do not run `down -v` unless you intend to delete stored data.
+- Compose exposes **loopback only** by default.
+- SQLite and source live in the `kyro-data` volume. For PostgreSQL, set a secret `POSTGRES_PASSWORD` in `.env` and run `docker compose -f docker-compose.yml -f docker-compose.postgres.yml up -d --build`.
+- Stop with `docker compose stop`. View logs with `docker compose logs --tail 100 kyro`.
+- Do **not** run `docker compose down -v` unless you intend to delete stored data.
 
-**Deployment boundary:** the backend's Docker socket grants control of the Docker host. Repository execution containers never receive that socket, credentials or host home directories. Use a dedicated Docker host/VM and restrict KYRO to trusted operators. See [sandbox limitations](docs/SANDBOX_SECURITY.md) and [deployment guide](docs/DEPLOYMENT_GUIDE.md) before broader use. Public deployment requires separate authorization and security hardening.
+> **Deployment boundary:** the backend's Docker socket grants control of the Docker host. Repository execution containers never receive that socket, credentials or host home directories. Use a dedicated Docker host or VM and restrict KYRO to trusted operators. Read [sandbox security](docs/SANDBOX_SECURITY.md) and the [deployment guide](docs/DEPLOYMENT_GUIDE.md) before broader use. Public deployment needs separate authorization and hardening.
 
-Stop the local deployment with `docker compose stop`. Check logs with `docker compose logs --tail 100 kyro`. The data volume contains repository snapshots, findings, reports, caches and encrypted OAuth credentials; protect it and back it up with the encryption key. Do not publish that runtime data with the source code.
+Findings and logs can contain sensitive repository information. The data volume holds snapshots, findings, reports, caches and encrypted OAuth credentials. Protect it, and back it up together with the encryption key. Never publish runtime data with the source. Do not run concurrent replicas with SQLite or the single-worker dispatcher.
 
-## What has been tested
+---
 
-Recorded validation on 2026-11-07:
+## Project status
 
-- **132 backend tests**, **9 frontend unit tests** and **14 deployed browser tests** passed. Browser checks include three responsive/accessibility viewports and retained actual recovery history.
-- Python lint/types, frontend lint/types/production build and Node/Python dependency audits passed.
-- A fresh deployed controlled fixture completed actual local-model planning, explicit approval, Docker modification, build/four tests and all three independent rescans: **VERIFIED, 22→21 findings, zero new findings**. Six additional independent security regression tests and sandbox boundary/timeout probes passed.
-- Real indexing interrupted by an abrupt acceptance-container restart completed the **same job on attempt 2**, indexing **1,504 fixture files** without a manual retry.
-- All **19 authorized repositories** were processed sequentially: **17 indexed**, **8 complete scanner runs**, **9 inconclusive runs** and **2 empty repositories**. The recorded cohort contains **347 normalized scanner findings**; this does not establish that every repository's builds/tests or fixes passed.
-- A real-repository local model produced a reviewable plan, and OSV/NVD/EPSS/KEV enrichment returned recorded sources. That repository had no discovered tests and its plan still required dependency compatibility review.
+Recorded validation on **2026-11-07**:
 
-Live GitHub App/OAuth acceptance, actual product-generated GitHub PR creation, successful live cloud inference and public/team deployment are still pending. Earlier measured backend coverage was 69.87%; no updated coverage number is claimed. See the [test execution report](docs/TEST_EXECUTION_REPORT.md) and [implementation status](IMPLEMENTATION_STATUS.md) for exact scope, evidence and failures. Publishing this source repository is separate from testing KYRO's remediation PR engine.
+**Passing**
+- 132 backend tests, 9 frontend unit tests and 14 deployed browser tests (three responsive/accessibility viewports and retained recovery history).
+- Python lint and type checks, frontend lint, type check and production build, and Node/Python dependency audits.
+- A fresh deployed fixture run with real local-model planning, explicit approval, Docker modification, build and four tests, and all three independent rescans: **`VERIFIED`, 22 → 21 findings, zero new findings**. Six extra security regression tests and sandbox boundary/timeout probes also passed.
+- Indexing interrupted by an abrupt container restart finished the **same job on attempt 2**, indexing 1,504 fixture files with no manual retry.
+- All **19 authorized repositories** processed sequentially: 17 indexed, 8 complete scanner runs, 9 inconclusive runs, 2 empty repositories, **347 normalized findings**. This does not establish that every repository's builds, tests or fixes passed.
+- On a real repository, the local model produced a reviewable plan and OSV/NVD/EPSS/KEV enrichment returned recorded sources. That repository had no discovered tests, and its plan still required dependency compatibility review.
 
-## Validation
+**Still pending**
+- Live GitHub App/OAuth acceptance
+- A product-generated draft PR on GitHub
+- Successful live cloud inference
+- Public or team deployment
+
+Earlier measured backend coverage was 69.87%. No updated figure is claimed. Exact scope, evidence and failures are in the [test execution report](docs/TEST_EXECUTION_REPORT.md), [repository validation report](docs/REPOSITORY_VALIDATION_REPORT.md), [product checklist](docs/PRODUCT_CHECKLIST.md) and [implementation status](IMPLEMENTATION_STATUS.md). Publishing this source repository is separate from testing KYRO's PR engine.
+
+## Scope and limitations
+
+- Initial Semgrep scope is seven local rules: dynamic evaluation/execution, pickle, shell calls and unsafe YAML.
+- OSV and Trivy provide advisory-backed dependency coverage. Missing supported inputs report `NOT_APPLICABLE`.
+- Static reachability is conservative, and no runtime exploit claim is made.
+- The default sandbox includes Python, pytest, Node and npm. Framework dependencies, Go and Rust need a trusted custom sandbox image.
+- Dependency installation inside untrusted scripts has no network access by default.
+- Single local owner and one lightweight background worker.
+
+---
+
+## Architecture
+
+KYRO is a modular monolith: React/TypeScript/Vite frontend, FastAPI/Pydantic backend, SQLAlchemy/Alembic persistence, a database-backed job worker, independent scanner adapters, a local/optional-cloud model router and a Docker sandbox. SQLite is the default and a PostgreSQL overlay is provided. No Redis, graph database, paid model provider or multi-agent cluster is required.
+
+```text
+frontend/             Web UI, API client, browser and unit tests
+backend/app/          API, database, scanners, intelligence, agent, sandbox, verification
+backend/migrations/   Alembic migrations
+infrastructure/       Docker images, Compose overlays, startup scripts
+tests/fixtures/       Labelled vulnerable test source
+tools/                Research, audit, acceptance and packaging harnesses
+docs/                 Architecture, threat model, guides and recorded evidence
+```
+
+## Development
 
 ```powershell
 cd backend
@@ -216,6 +335,7 @@ uv run pytest --cov=app
 uv run ruff check app migrations
 uv run mypy app
 uvx pip-audit -r requirements.txt
+
 cd ../frontend
 npm ci
 npm run typecheck
@@ -225,38 +345,43 @@ npm audit
 npm run build
 ```
 
-`tools/live_acceptance.py` tests only the explicitly labelled fixture on an isolated test server at port 8788. See [benchmarking](docs/BENCHMARKING_FRAMEWORK.md) for its reproducible launch. Browser acceptance uses `npm run test:e2e` after that setup. Fixtures are separated from live evidence under `docs/evidence/`.
-
-## Scope and limitations
-
-Initial Semgrep scope: seven local rules for dynamic evaluation/execution, pickle, shell calls and unsafe YAML. OSV and Trivy provide advisory-backed dependency coverage. Missing supported inputs report NOT_APPLICABLE and unavailable coverage. Python/JS/TS symbols are supported; other languages receive file/manifest indexing. Static reachability is conservative; no runtime exploit claim is made. Default sandbox contains Python, pytest, Node and npm; arbitrary framework dependencies, Go and Rust toolchains require a trusted custom sandbox image. Dependency installation inside untrusted scripts has no network access by default. Read jobs have bounded automatic recovery; agent edits and writes retain approved retries and checkpoint review.
-
-Findings and logs may contain sensitive repository information. Protect the data directory, volume, encryption key and backups. Do not run concurrent application replicas with SQLite or the single-worker dispatcher. See the implementation status for exact remaining acceptance blockers.
-
-## Architecture and source layout
-
-KYRO is a modular monolith: a React/TypeScript/Vite frontend, a FastAPI/Pydantic backend, SQLAlchemy/Alembic persistence, a database-backed job worker, independent scanner adapters, a local/optional-cloud model router and a Docker sandbox. SQLite is the local default; a PostgreSQL Compose overlay is provided. No Redis, graph database, paid model provider or multi-agent cluster is mandatory.
-
-```text
-frontend/             Web interface, API client and browser/unit tests
-backend/app/          API, database, scanners, intelligence, agent, sandbox and verification
-backend/migrations/   Alembic database migrations
-infrastructure/       Docker images, Compose acceptance overlay and startup scripts
-tests/fixtures/       Explicitly labelled vulnerable test source
-tools/                Reproducible research, audit, acceptance and packaging harnesses
-docs/                 Architecture, threat model, user/deployment guidance and recorded evidence
-```
+`tools/live_acceptance.py` tests only the labelled fixture on an isolated server at port 8788 (see [benchmarking](docs/BENCHMARKING_FRAMEWORK.md)). Run browser acceptance with `npm run test:e2e` after that setup. Fixtures are kept separate from live evidence under `docs/evidence/`.
 
 ## Documentation
 
-- [Whole-product checklist](docs/PRODUCT_CHECKLIST.md) and [implementation status](IMPLEMENTATION_STATUS.md)
-- [Architecture](docs/PRODUCT_ARCHITECTURE.md), [system design](docs/SYSTEM_DESIGN.md), [database schema](docs/DATABASE_SCHEMA.md) and [API contracts](docs/API_DOCUMENTATION.md)
-- [Repository intelligence](docs/REPOSITORY_INTELLIGENCE.md), [reachability](docs/REACHABILITY_ANALYSIS.md), [evidence graph](docs/ATTACK_PATH_ARCHITECTURE.md) and [vulnerability intelligence](docs/VULNERABILITY_INTELLIGENCE.md)
-- [Agent reliability](docs/AGENT_RELIABILITY.md), [patch quality](docs/PATCH_QUALITY.md), [independent verification](docs/VERIFICATION_ENGINE.md) and [automatic recovery](docs/AUTOMATIC_RECOVERY.md)
-- [Threat model](docs/THREAT_MODEL.md), [sandbox security](docs/SANDBOX_SECURITY.md) and [data isolation](docs/DATA_ISOLATION.md)
-- [Deployment](docs/DEPLOYMENT_GUIDE.md), [troubleshooting](docs/TROUBLESHOOTING.md) and [CI/CD](docs/CI_CD_INTEGRATION.md)
-- [Test execution report](docs/TEST_EXECUTION_REPORT.md), [repository audit](docs/REPOSITORY_VALIDATION_REPORT.md) and [benchmarking framework](docs/BENCHMARKING_FRAMEWORK.md)
+| Topic | Documents |
+|---|---|
+| Status | [Product checklist](docs/PRODUCT_CHECKLIST.md), [Implementation status](IMPLEMENTATION_STATUS.md) |
+| Design | [Architecture](docs/PRODUCT_ARCHITECTURE.md), [System design](docs/SYSTEM_DESIGN.md), [Database schema](docs/DATABASE_SCHEMA.md), [API](docs/API_DOCUMENTATION.md) |
+| Analysis | [Repository intelligence](docs/REPOSITORY_INTELLIGENCE.md), [Reachability](docs/REACHABILITY_ANALYSIS.md), [Evidence graph](docs/ATTACK_PATH_ARCHITECTURE.md), [Vulnerability intelligence](docs/VULNERABILITY_INTELLIGENCE.md) |
+| Agent | [Reliability](docs/AGENT_RELIABILITY.md), [Patch quality](docs/PATCH_QUALITY.md), [Verification](docs/VERIFICATION_ENGINE.md), [Recovery](docs/AUTOMATIC_RECOVERY.md) |
+| Security | [Threat model](docs/THREAT_MODEL.md), [Sandbox](docs/SANDBOX_SECURITY.md), [Data isolation](docs/DATA_ISOLATION.md) |
+| Operations | [Deployment](docs/DEPLOYMENT_GUIDE.md), [Troubleshooting](docs/TROUBLESHOOTING.md), [CI/CD](docs/CI_CD_INTEGRATION.md) |
+| Evidence | [Test execution report](docs/TEST_EXECUTION_REPORT.md), [Repository audit](docs/REPOSITORY_VALIDATION_REPORT.md), [Benchmarking](docs/BENCHMARKING_FRAMEWORK.md) |
+
+## Maintainer
+
+<div align="center">
+
+**Built with**
+
+![Python](https://img.shields.io/badge/Python-3.12–3.13-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+
+**Security tooling**
+
+![Semgrep](https://img.shields.io/badge/Semgrep-1.184.0-1B2B34?style=for-the-badge)
+![OSV-Scanner](https://img.shields.io/badge/OSV--Scanner-2.7.0-4285F4?style=for-the-badge)
+![Trivy](https://img.shields.io/badge/Trivy-0.76.2-1904DA?style=for-the-badge)
+
+</div>
 
 ## License
 
-KYRO's original source is available under the [MIT License](LICENSE). Integrated scanners, models, dependencies and bundled third-party assets retain their respective licenses; review those terms for your deployment and redistribution.
+KYRO's original source is available under the [MIT License](LICENSE). Integrated scanners, models, dependencies and bundled third-party assets keep their own licenses. Review them for your deployment and redistribution.
